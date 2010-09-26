@@ -1,0 +1,155 @@
+(master) ~/pro/theCarnaby > ./script/generate scaffold brand name:string description:text logo:string
+      create  app/models/
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/brands
+      create  app/views/layouts/
+      create  test/functional/
+      create  test/unit/
+      create  test/unit/helpers/
+      create  public/stylesheets/
+      create  app/views/brands/index.html.erb
+      create  app/views/brands/show.html.erb
+      create  app/views/brands/new.html.erb
+      create  app/views/brands/edit.html.erb
+      create  app/views/layouts/brands.html.erb
+      create  public/stylesheets/scaffold.css
+      create  app/controllers/brands_controller.rb
+      create  test/functional/brands_controller_test.rb
+      create  app/helpers/brands_helper.rb
+      create  test/unit/helpers/brands_helper_test.rb
+       route  map.resources :brands
+  dependency  model
+      exists    app/models/
+      exists    test/unit/
+      create    test/fixtures/
+      create    app/models/brand.rb
+      create    test/unit/brand_test.rb
+      create    test/fixtures/brands.yml
+      create    db/migrate
+      create    db/migrate/20100926092720_create_brands.rb
+
+
+(master) ~/pro/theCarnaby > ./script/generate scaffold product name:string brand_id:integer price:integer sku:string description:text
+      exists  app/models/
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/products
+      exists  app/views/layouts/
+      exists  test/functional/
+      exists  test/unit/
+      exists  test/unit/helpers/
+      exists  public/stylesheets/
+      create  app/views/products/index.html.erb
+      create  app/views/products/show.html.erb
+      create  app/views/products/new.html.erb
+      create  app/views/products/edit.html.erb
+      create  app/views/layouts/products.html.erb
+   identical  public/stylesheets/scaffold.css
+      create  app/controllers/products_controller.rb
+      create  test/functional/products_controller_test.rb
+      create  app/helpers/products_helper.rb
+      create  test/unit/helpers/products_helper_test.rb
+       route  map.resources :products
+  dependency  model
+      exists    app/models/
+      exists    test/unit/
+      exists    test/fixtures/
+      create    app/models/product.rb
+      create    test/unit/product_test.rb
+      create    test/fixtures/products.yml
+      exists    db/migrate
+      create    db/migrate/20100926094526_create_products.rb
+
+(master) ~/pro/theCarnaby > ./script/generate scaffold video title:string description:text url:string production_id:integer brand_id:integer
+      exists  app/models/
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/videos
+      exists  app/views/layouts/
+      exists  test/functional/
+      exists  test/unit/
+      exists  test/unit/helpers/
+      exists  public/stylesheets/
+      create  app/views/videos/index.html.erb
+      create  app/views/videos/show.html.erb
+      create  app/views/videos/new.html.erb
+      create  app/views/videos/edit.html.erb
+      create  app/views/layouts/videos.html.erb
+   identical  public/stylesheets/scaffold.css
+      create  app/controllers/videos_controller.rb
+      create  test/functional/videos_controller_test.rb
+      create  app/helpers/videos_helper.rb
+      create  test/unit/helpers/videos_helper_test.rb
+       route  map.resources :videos
+  dependency  model
+      exists    app/models/
+      exists    test/unit/
+      exists    test/fixtures/
+      create    app/models/video.rb
+      create    test/unit/video_test.rb
+      create    test/fixtures/videos.yml
+      exists    db/migrate
+      create    db/migrate/20100926095122_create_videos.rb
+
+(master) ~/pro/theCarnaby > ./script/generate scaffold coupon title:string detail:text discount:string product_id:integer brand_id:integer shop_id:integer
+      exists  app/models/
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/coupons
+      exists  app/views/layouts/
+      exists  test/functional/
+      exists  test/unit/
+      exists  test/unit/helpers/
+      exists  public/stylesheets/
+      create  app/views/coupons/index.html.erb
+      create  app/views/coupons/show.html.erb
+      create  app/views/coupons/new.html.erb
+      create  app/views/coupons/edit.html.erb
+      create  app/views/layouts/coupons.html.erb
+   identical  public/stylesheets/scaffold.css
+      create  app/controllers/coupons_controller.rb
+      create  test/functional/coupons_controller_test.rb
+      create  app/helpers/coupons_helper.rb
+      create  test/unit/helpers/coupons_helper_test.rb
+       route  map.resources :coupons
+  dependency  model
+      exists    app/models/
+      exists    test/unit/
+      exists    test/fixtures/
+      create    app/models/coupon.rb
+      create    test/unit/coupon_test.rb
+      create    test/fixtures/coupons.yml
+      exists    db/migrate
+      create    db/migrate/20100926095739_create_coupons.rb
+(master) ~/pro/theCarnaby > ./script/generate scaffold shop name:string description:text address:string coordinate:string province:string city:string shop_type:string
+      exists  app/models/
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/shops
+      exists  app/views/layouts/
+      exists  test/functional/
+      exists  test/unit/
+      exists  test/unit/helpers/
+      exists  public/stylesheets/
+      create  app/views/shops/index.html.erb
+      create  app/views/shops/show.html.erb
+      create  app/views/shops/new.html.erb
+      create  app/views/shops/edit.html.erb
+      create  app/views/layouts/shops.html.erb
+   identical  public/stylesheets/scaffold.css
+      create  app/controllers/shops_controller.rb
+      create  test/functional/shops_controller_test.rb
+      create  app/helpers/shops_helper.rb
+      create  test/unit/helpers/shops_helper_test.rb
+       route  map.resources :shops
+  dependency  model
+      exists    app/models/
+      exists    test/unit/
+      exists    test/fixtures/
+      create    app/models/shop.rb
+      create    test/unit/shop_test.rb
+      create    test/fixtures/shops.yml
+      exists    db/migrate
+      create    db/migrate/20100926100100_create_shops.rb
+(master) ~/pro/theCarnaby > 

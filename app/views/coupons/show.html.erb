@@ -1,0 +1,33 @@
+<p>
+  <b>Title:</b>
+  <%=h @coupon.title %>
+</p>
+
+<p>
+  <b>Detail:</b>
+  <%=h @coupon.detail %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%=h @coupon.discount %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%=h @coupon.product_id %>
+</p>
+
+<p>
+  <b>Brand:</b>
+  <%=h @coupon.brand_id %>
+</p>
+
+<p>
+  <b>Shop:</b>
+  <%=h @coupon.shop_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_coupon_path(@coupon) %> |
+<%= link_to 'Back', coupons_path %>
