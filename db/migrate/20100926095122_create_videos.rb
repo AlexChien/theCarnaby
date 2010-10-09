@@ -4,7 +4,7 @@ class CreateVideos < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :url
-      t.integer :production_id
+      t.integer :product_id
       t.integer :brand_id
 
       t.timestamps

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+ <title><%= yield :title %></title>
+
+ <%# 用 github 做 cdn %>
+ <link rel = "stylesheet" href="http://github.com/joshuaclayton/blueprint-css/raw/master/blueprint/screen.css" type="text/css" media="screen, projection" />
+ <link rel = "stylesheet" href="http://github.com/joshuaclayton/blueprint-css/raw/master/blueprint/print.css" type="text/css" media="print" />
+ <!--[if lt IE 8]>
+ <link rel = "stylesheet" href="http://github.com/joshuaclayton/blueprint-css/raw/master/blueprint/ie.css" type="text/css" media="screen, projection">
+ <![endif]-->
+
+ <%= stylesheet_link_tag 'application'%>
+
+</head>
+
+<body>
+	<div id="container">
+		<div id="header">
+			<ul id="login-nav" class="fRight">
+		      <li>您好，jjicetea</li>
+		      <li>|</li>
+		      <li><a href="/logout">注销</a></li>
+		    </ul>
+		    <h1 class="logo"><b>theCarnaby 管理平台</b></h1>
+		    <hr class="space">
+		</div>
+
+		<div id="menu">
+			<ul>
+				<%=top_menus%>
+	        </ul>
+		</div>
+
+		<div id="sub-menu">
+		</div>
+
+		<div id="content" class="with-sidebar">
+			<%= yield %>
+		</div>
+
+		<div id="footer">
+		</div>
+	</div>
+</body>
+</html>
