@@ -23,4 +23,14 @@ module ApplicationHelper
     @menu
   end
 
+  def flash_message
+    messages = ""
+    [:notice, :error].each do |type|
+      if flash[type]
+        messages= "<div class=\"#{type}\">#{flash[type]}</div>"
+      end
+    end
+    messages
+  end
+
 end

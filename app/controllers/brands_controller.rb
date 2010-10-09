@@ -2,12 +2,12 @@ class BrandsController < ApplicationController
   # GET /brands
   # GET /brands.xml
   def index
-    @brands = Brand.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @brands }
+    @brand = Brand
+    if params[:search]
+      @brand = @brand.name_contain(params[:search][:name]) unless params[:search][:name].blank?
+      @brand = @brand.description_contain(params[:search][:description]) unless params[:search][:description].blank?
     end
+    @brands = @brand.all(:order=>"created_at DESC")
   end
 
   # GET /brands/1

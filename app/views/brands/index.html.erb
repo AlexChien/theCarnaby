@@ -28,19 +28,4 @@
   </tbody>
 </table>
 
-<div id="sidebar">
-  <% form_tag :action => :search do%>
-    <div class="box">
-      <h3>品牌搜索</h3>
-      <p>
-        品牌名<br>
-        <%= text_field_tag :brand_name%>
-      </p>
-      <p>
-        简介<br>
-        <%= text_field_tag :brand_description%>
-      </p>
-      <p><button type="submit"><span>搜索</span></button></p>
-    </div>
-  <% end %>
-</div>
+<%=render :partial=>"search"%>

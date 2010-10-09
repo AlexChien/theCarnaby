@@ -73,3 +73,4 @@ table.index th {
 }
 #sidebar {position: absolute;width: 305px;top: 0; right: 0;padding-top: 3em;}
 #sidebar .box {background:#FFFFFF url(/images/admin/content-back.png) repeat-y scroll right top;}
+.flash {font-weight:bold;font-size:130%;}
