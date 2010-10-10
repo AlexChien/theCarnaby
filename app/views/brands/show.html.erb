@@ -3,23 +3,22 @@
 
 <hr class="space">
 
-	<% form_for @brand, :url => brands_url do |f| %>
 	<fieldset>
 	  <p>
-	  	<%=f.label :name,"品牌名"%><span class="required"> * </span><br>
-	  	<%=f.text_field :name%>
+	  	<label>品牌名:</label>
+	  	<%=h @brand.name%>
 	  </p>
 
 	  <p>
-	  	<%=f.label :description,"简介"%><span class="required"> * </span><br>
-	  	<%=f.text_area :description%>
+	  	<label>简介:</label>
+	  	<%=h @brand.description%>
 	  </p>
 
 	  <p>
 	    <a href="/brands/<%=@brand.id%>/edit">编辑</a> | <a href="/brands">返回</a>
 	  </p>
 	</fieldset>
-	<%end%>
+
 <%end%>
 
 ﻿<%content_for :sidebar do%>

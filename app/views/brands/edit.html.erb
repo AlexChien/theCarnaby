@@ -4,14 +4,15 @@
 <hr class="space">
 
 	<% form_for @brand, :url => brand_url(@brand) do |f| %>
+	<%= f.error_messages %>
 	<fieldset>
 	  <p>
-	  	<%=f.label :name,"品牌名"%><span class="required"> * </span><br>
+	  	<%=f.label :name,"品牌名<span class='required'> * </span><br>"%>
 	  	<%=f.text_field :name%>
 	  </p>
 
 	  <p>
-	  	<%=f.label :description,"简介"%><span class="required"> * </span><br>
+	  	<%=f.label :description,"简介<span class='required'> * </span><br>"%>
 	  	<%=f.text_area :description%>
 	  </p>
 

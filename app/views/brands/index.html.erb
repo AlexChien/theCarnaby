@@ -19,7 +19,7 @@
   <tbody>
   <%@brands.each do |brand|%>
     <tr id="brand_<%=brand.id%>">
-      <td><a href="#" target="_blank"><%=brand.name%></a></td>
+      <td><a href="/brands/<%=brand.id%>" target="_blank"><%=brand.name%></a></td>
       <td><%=brand.description%></td>
       <td>
       	<%= link_to "<img src='/images/admin/edit.png' alt='编辑'> 编辑", edit_brand_url(brand)%>
@@ -29,6 +29,8 @@
   <%end%>
   </tbody>
 </table>
+
+<%=will_paginate @brands%>
 <%end%>
 
 ﻿<%content_for :sidebar do%>
