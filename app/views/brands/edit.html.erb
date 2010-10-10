@@ -1,24 +1,27 @@
-<h1>Editing brand</h1>
+﻿<%content_for :main do%>
+<h2>编辑品牌</h2>
 
-<% form_for(@brand) do |f| %>
-  <%= f.error_messages %>
+<hr class="space">
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :logo %><br />
-    <%= f.text_field :logo %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
+	<% form_for @brand, :url => brand_url(@brand) do |f| %>
+	<fieldset>
+	  <p>
+	  	<%=f.label :name,"品牌名"%><span class="required"> * </span><br>
+	  	<%=f.text_field :name%>
+	  </p>
 
-<%= link_to 'Show', @brand %> |
-<%= link_to 'Back', brands_path %>
+	  <p>
+	  	<%=f.label :description,"简介"%><span class="required"> * </span><br>
+	  	<%=f.text_area :description%>
+	  </p>
+
+	  <p>
+	    <button type="submit"><span>提交</span></button> | <a href="/brands">返回</a>
+	  </p>
+	</fieldset>
+	<%end%>
+<%end%>
+
+﻿<%content_for :sidebar do%>
+	<%=render :partial=>"search"%>
+<%end%>

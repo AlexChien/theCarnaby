@@ -3,15 +3,20 @@
 
 <hr class="space">
 
-	<% form_for @brand, :url => brands_url do |b| %>
+	<% form_for @brand, :url => brands_url do |f| %>
 	<fieldset>
 	  <p>
-	    <label for="brand_name">Name</label> <span class="required">*</span><br>
-	    <input type="text" value="" size="30" name="brand[name]" id="brand_name">
+	  	<%=f.label :name,"品牌名"%><span class="required"> * </span><br>
+	  	<%=f.text_field :name%>
 	  </p>
 
 	  <p>
-	    <button type="submit"><span>新增</span></button> | <a href="/brands">返回</a>
+	  	<%=f.label :description,"简介"%><span class="required"> * </span><br>
+	  	<%=f.text_area :description%>
+	  </p>
+
+	  <p>
+	    <button type="submit"><span>提交</span></button> | <a href="/brands">返回</a>
 	  </p>
 	</fieldset>
 	<%end%>

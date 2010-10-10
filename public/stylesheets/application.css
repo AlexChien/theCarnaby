@@ -78,8 +78,9 @@ table.index th {
 .flash {font-weight:bold;font-size:130%;}
 fieldset {
   margin-bottom: 1em;
-  padding: 1em;
+  padding: 2em 10em;
   border: solid 1px #ccc;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }
+.required {color:#FF0000;font-size:1.2em;font-weight:bold;}

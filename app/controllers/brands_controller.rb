@@ -72,9 +72,9 @@ class BrandsController < ApplicationController
   def destroy
     @brand = Brand.find(params[:id])
     if @brand.destroy
-      flash[:notice] = @brand.name.to_s + " 删除成功"
+      flash[:notice] = @brand.name + " 删除成功"
     else
-      flash[:error] = @brand.name.to_s + " 删除失败"
+      flash[:error] = @brand.name + " 删除失败"
     end
     redirect_to brands_url
   end
