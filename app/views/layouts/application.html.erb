@@ -41,7 +41,13 @@
 		<div id="content" class="with-sidebar">
 			<%= flash_message %>
 
-			<%= yield %>
+			<div id="main">
+				<%= yield :main%>
+			</div>
+
+			<div id="sidebar">
+				<%= yield :sidebar%>
+			</div>
 		</div>
 
 		<div id="footer">

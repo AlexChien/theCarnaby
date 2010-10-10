@@ -1,23 +1,22 @@
-<h1>New brand</h1>
+﻿<%content_for :main do%>
+<h2>新增品牌</h2>
 
-<% form_for(@brand) do |f| %>
-  <%= f.error_messages %>
+<hr class="space">
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :logo %><br />
-    <%= f.text_field :logo %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
+	<% form_for @brand, :url => brands_url do |b| %>
+	<fieldset>
+	  <p>
+	    <label for="brand_name">Name</label> <span class="required">*</span><br>
+	    <input type="text" value="" size="30" name="brand[name]" id="brand_name">
+	  </p>
 
-<%= link_to 'Back', brands_path %>
+	  <p>
+	    <button type="submit"><span>新增</span></button> | <a href="/brands">返回</a>
+	  </p>
+	</fieldset>
+	<%end%>
+<%end%>
+
+﻿<%content_for :sidebar do%>
+	<%=render :partial=>"search"%>
+<%end%>

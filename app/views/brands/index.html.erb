@@ -1,5 +1,5 @@
+﻿<%content_for :main do%>
 <h2>所有品牌</h2>
-
 <div class="toolbar">
   <ul class="actions">
     <li>
@@ -7,6 +7,8 @@
     </li>
   </ul>
 </div>
+
+<hr class="space">
 
 <table class="index">
   <thead>
@@ -27,5 +29,8 @@
   <%end%>
   </tbody>
 </table>
+<%end%>
 
-<%=render :partial=>"search"%>
+﻿<%content_for :sidebar do%>
+	<%=render :partial=>"search"%>
+<%end%>

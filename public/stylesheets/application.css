@@ -13,9 +13,9 @@ h1.logo {float:left;margin:20px 10px 10px;font-size:30px;}
 #menu ul li.selected {background:#0095DA url(/images/admin/tab_selected.png) repeat-x scroll left top;height:42px;margin-top:-1px;}
 #menu ul li a, #sub-menu ul li a {color:#FFFFFF;padding:10px 20px;display:block;text-decoration:none;}
 #sub-menu {background:#0095DA none repeat scroll 0 0;height:20px;}
-#content {color:#111111;margin:0 1em 1em;min-height:500px;padding:1em;background:#FFFFFF;}
+#content {color:#111111;margin:0 1em 1em;min-height:400px;_height:400px;padding:1em;background:#FFFFFF;}
 #content.with-sidebar {background:#FFFFFF url(/images/admin/content-back.png) repeat-y scroll right top;padding-right:340px;position:relative;}
-#content h2 {font-weight:bold;float:left;width:720px}
+#content h2 {font-weight:bold;float:left;width:720px;}
 .toolbar {float:left;margin-bottom:1em;}
 .toolbar ul.actions {margin:0;padding:0;}
 .toolbar ul.actions li {float: left;margin-right: 1em;list-style: none;}
@@ -47,6 +47,7 @@ button {
     cursor: pointer;
     font-weight: bold;
     padding: 0 20px 0 0;
+    +padding: 1px 20px 0 0;
     text-align: center;
     background: url(/images/admin/right_01.png) center right no-repeat;
     font-size: 1.3em;
@@ -71,6 +72,14 @@ table.index th {
   border-bottom: 1px solid #aaa;
   text-shadow: #efefef 1px 1px 0px;
 }
+#main {width:900px;}
 #sidebar {position: absolute;width: 305px;top: 0; right: 0;padding-top: 3em;}
 #sidebar .box {background:#FFFFFF url(/images/admin/content-back.png) repeat-y scroll right top;}
 .flash {font-weight:bold;font-size:130%;}
+fieldset {
+  margin-bottom: 1em;
+  padding: 1em;
+  border: solid 1px #ccc;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}

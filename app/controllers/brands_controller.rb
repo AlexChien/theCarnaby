@@ -69,15 +69,13 @@ class BrandsController < ApplicationController
     end
   end
 
-  # DELETE /brands/1
-  # DELETE /brands/1.xml
   def destroy
     @brand = Brand.find(params[:id])
-    @brand.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(brands_url) }
-      format.xml  { head :ok }
+    if @brand.destroy
+      flash[:notice] = @brand.name.to_s + " 删除成功"
+    else
+      flash[:error] = @brand.name.to_s + " 删除失败"
     end
+    redirect_to brands_url
   end
 end
