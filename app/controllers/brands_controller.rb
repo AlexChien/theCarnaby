@@ -23,6 +23,8 @@ class BrandsController < ApplicationController
 
   def create
     @brand = Brand.new(params[:brand])
+    @asset = Asset.new(params[:asset])
+    @brand.assets << @asset
     if @brand.save
       redirect_to(@brand, :notice => '品牌新增成功！')
     else

@@ -3,26 +3,33 @@
 
 <hr class="space">
 
-	<% form_for @brand, :url => brands_url do |f| %>
+	<% form_for @brand, :url => brands_url,:html=>{:multipart => true} do |f| %>
 	<%= f.error_messages %>
 	<fieldset>
-	  <p>
-	  	<%=f.label :name,"品牌名<span class='required'> * </span><br>"%>
-	  	<%=f.text_field :name%>
-	  </p>
+		<p>
+			<%=f.label :name,"品牌名<span class='required'> * </span><br>"%>
+			<%=f.text_field :name%>
+		</p>
 
-	  <p>
-	  	<%=f.label :description,"简介<span class='required'> * </span><br>"%>
-	  	<%=f.text_area :description%>
-	  </p>
+		<p>
+			<% fields_for :asset do |asset| %>
+				<%= asset.label :uploaded_data,"上传图片<span class='required'> * </span><br>"%>
+				<%= file_field "asset" ,"uploaded_data" %>
+			<% end %>
+		</p>
 
-	  <p>
-	    <button type="submit"><span>提交</span></button> | <a href="/brands">返回</a>
-	  </p>
+		<p>
+			<%=f.label :description,"简介<span class='required'> * </span><br>"%>
+			<%=f.text_area :description%>
+		</p>
+
+		<p>
+			<button type="submit"><span>提交</span></button> | <a href="/brands">返回</a>
+		</p>
 	</fieldset>
 	<%end%>
 <%end%>
 
-﻿<%content_for :sidebar do%>
+<%content_for :sidebar do%>
 	<%=render :partial=>"search"%>
 <%end%>
