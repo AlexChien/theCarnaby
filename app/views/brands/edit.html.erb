@@ -3,12 +3,19 @@
 
 <hr class="space">
 
-	<% form_for @brand, :url => brand_url(@brand) do |f| %>
+	<% form_for @brand, :url => brand_url(@brand),:html=>{:multipart => true} do |f| %>
 	<%= f.error_messages %>
 	<fieldset>
 	  <p>
 	  	<%=f.label :name,"品牌名<span class='required'> * </span><br>"%>
 	  	<%=f.text_field :name%>
+	  </p>
+
+	  <p>
+		<% fields_for :asset do |asset| %>
+			<%= asset.label :uploaded_data,"上传图片<span class='required'> * </span><br>"%>
+			<%= file_field "asset" ,"uploaded_data" %>
+		<% end %>
 	  </p>
 
 	  <p>

@@ -34,6 +34,12 @@ class BrandsController < ApplicationController
 
   def update
     @brand = Brand.find(params[:id])
+    if @brand.assets.empty?
+      @asset = Asset.new(params[:asset])
+      @brand.assets << @asset
+    else
+      @brand.assets.first.update_attributes(params[:asset])
+    end
     if @brand.update_attributes(params[:brand])
       redirect_to(@brand, :notice => '品牌更新成功！')
     else

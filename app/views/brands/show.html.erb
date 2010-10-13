@@ -14,6 +14,13 @@
 	  	<%=h @brand.description%>
 	  </p>
 
+
+	  <%@brand.assets.each do |asset|%>
+	  	<p>
+	    	<%= image_tag asset.uploaded_data.url %>
+	    </p>
+	  <%end%>
+
 	  <p>
 	    <a href="/brands/<%=@brand.id%>/edit">编辑</a> | <a href="/brands">返回</a>
 	  </p>
