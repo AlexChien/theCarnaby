@@ -15,6 +15,9 @@
 		<% fields_for :asset do |asset| %>
 			<%= asset.label :uploaded_data,"上传图片<span class='required'> * </span><br>"%>
 			<%= file_field "asset" ,"uploaded_data" %>
+			<%unless @brand.assets.empty?%>
+				<%=link_to "查看图片","#{@brand.assets.first.uploaded_data.url}",:target=>"_blank"%>
+			<%end%>
 		<% end %>
 	  </p>
 

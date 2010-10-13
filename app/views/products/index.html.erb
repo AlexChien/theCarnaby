@@ -1,28 +1,44 @@
-<h1>Listing products</h1>
+﻿<%content_for :main do%>
+<h2>所有新品</h2>
+<div class="toolbar">
+  <ul class="actions">
+    <li>
+      <a class="button" href="/products/new"><span><img src="/images/admin/add.png" alt="新增"> &nbsp;新增新品</span></a>
+    </li>
+  </ul>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Brand</th>
-    <th>Price</th>
-    <th>Sku</th>
-    <th>Description</th>
-  </tr>
+<hr class="space">
 
-<% @products.each do |product| %>
-  <tr>
-    <td><%=h product.name %></td>
-    <td><%=h product.brand_id %></td>
-    <td><%=h product.price %></td>
-    <td><%=h product.sku %></td>
-    <td><%=h product.description %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<table class="index">
+  <thead>
+    <th>新品名称</th>
+  	<th>sku</th>
+    <th>售价</th>
+    <th>所属品牌</th>
+    <th>简介</th>
+    <th>操作</th>
+  </thead>
+  <tbody>
+  <%@products.each do |product|%>
+    <tr id="product_<%=product.id%>">
+      <td><a href="/products/<%=product.id%>" target="_blank"><%=product.name%></a></td>
+      <td><%=product.sku%></td>
+      <td>￥<%=product.price%></td>
+      <td><%=product.brand.name%></td>
+      <td><%=product.description%></td>
+      <td>
+      	<%= link_to "<img src='/images/admin/edit.png' alt='编辑'> 编辑", edit_product_url(product)%>
+      	<%= link_to "<img src='/images/admin/delete.png' alt='删除'> 删除", product_url(product), :method => :delete, :confirm => "确认要删除此新品吗?"%>
+      </td>
+    </tr>
+  <%end%>
+  </tbody>
 </table>
 
-<br />
+<%=will_paginate @products%>
+<%end%>
 
-<%= link_to 'New product', new_product_path %>
+﻿<%content_for :sidebar do%>
+	<%=render :partial=>"search"%>
+<%end%>

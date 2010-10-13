@@ -98,7 +98,7 @@ fieldset {
     list-style: square;
 }
 .errorExplanation h2 {
-    width: 900px !important;
+    width: 850px !important;
     font-size: 1.75em;
     padding-left: 40px;
     background: url(/images/admin/error.png) center left no-repeat;
