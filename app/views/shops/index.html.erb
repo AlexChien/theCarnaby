@@ -1,32 +1,46 @@
-<h1>Listing shops</h1>
+<%content_for :main do%>
+<h2>所有店铺</h2>
+<div class="toolbar">
+	<ul class="actions">
+		<li>
+			<a class="button" href="/shops/new"><span><img src="/images/admin/add.png" alt="新增"> &nbsp;新增店铺</span></a>
+		</li>
+	</ul>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Address</th>
-    <th>Coordinate</th>
-    <th>Province</th>
-    <th>City</th>
-    <th>Shop type</th>
-  </tr>
+<hr class="space">
 
-<% @shops.each do |shop| %>
-  <tr>
-    <td><%=h shop.name %></td>
-    <td><%=h shop.description %></td>
-    <td><%=h shop.address %></td>
-    <td><%=h shop.coordinate %></td>
-    <td><%=h shop.province %></td>
-    <td><%=h shop.city %></td>
-    <td><%=h shop.shop_type %></td>
-    <td><%= link_to 'Show', shop %></td>
-    <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
-    <td><%= link_to 'Destroy', shop, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<table class="index">
+	<thead>
+		<th>店铺名称</th>
+		<th>店铺地址</th>
+		<th>所在省份</th>
+		<th>所在城市</th>
+		<th>是否旗舰店</th>
+		<th>店铺简介</th>
+		<th>操作</th>
+	</thead>
+	<tbody>
+		<%@shops.each do |shop|%>
+		<tr id="shop_<%=shop.id%>">
+			<td><a href="/shops/<%=shop.id%>" target="_blank"><%=shop.name%></a></td>
+			<td><%=shop.address%></td>
+			<td><%=shop.province%></td>
+			<td><%=shop.city%></td>
+			<td><%=shop.display_shop_type%></td>
+			<td><%=shop.description%></td>
+			<td>
+				<%= link_to "<img src='/images/admin/edit.png' alt='编辑'> 编辑", edit_shop_url(shop)%>
+				<%= link_to "<img src='/images/admin/delete.png' alt='删除'> 删除", shop_url(shop), :method => :delete, :confirm => "确认要删除此店铺吗?"%>
+			</td>
+		</tr>
+		<%end%>
+	</tbody>
 </table>
 
-<br />
+<%=will_paginate @shops%>
+<%end%>
 
-<%= link_to 'New shop', new_shop_path %>
+<%content_for :sidebar do%>
+	<%=render :partial=>"search"%>
+<%end%>

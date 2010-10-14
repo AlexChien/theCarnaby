@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   has_many :assets, :as=>:resource, :dependent=>:destroy
+  has_many :coupons
   belongs_to :brand
 
   named_scope :sku_contain, lambda {|sku|{:conditions => ["products.sku LIKE ?", "%#{sku}%"]}}

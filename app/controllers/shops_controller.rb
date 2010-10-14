@@ -1,83 +1,55 @@
 class ShopsController < ApplicationController
-  # GET /shops
-  # GET /shops.xml
-  def index
-    @shops = Shop.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @shops }
+  def index
+    @shop = Shop
+    if params[:search]
+      @shop = @shop.name_contain(params[:search][:name]) unless params[:search][:name].blank?
+      @shop = @shop.address_contain(params[:search][:address]) unless params[:search][:address].blank?
+      @shop = @shop.province_contain(params[:search][:province]) unless params[:search][:province].blank?
+      @shop = @shop.city_contain(params[:search][:city]) unless params[:search][:city].blank?
+      @shop = @shop.description_contain(params[:search][:description]) unless params[:search][:description].blank?
+      @shop = @shop.shop_type_equal(params[:search][:shop_type]) unless params[:search][:shop_type].blank?
     end
+    @shops = @shop.paginate(:all,:page => params[:page],:per_page=>15,:order=>"created_at DESC")
   end
 
-  # GET /shops/1
-  # GET /shops/1.xml
   def show
     @shop = Shop.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @shop }
-    end
   end
 
-  # GET /shops/new
-  # GET /shops/new.xml
   def new
     @shop = Shop.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @shop }
-    end
   end
 
-  # GET /shops/1/edit
   def edit
     @shop = Shop.find(params[:id])
   end
 
-  # POST /shops
-  # POST /shops.xml
   def create
     @shop = Shop.new(params[:shop])
-
-    respond_to do |format|
-      if @shop.save
-        format.html { redirect_to(@shop, :notice => 'Shop was successfully created.') }
-        format.xml  { render :xml => @shop, :status => :created, :location => @shop }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @shop.errors, :status => :unprocessable_entity }
-      end
+    if @shop.save
+      redirect_to(@shop, :notice => '店铺新增成功！')
+    else
+      render :action => "new"
     end
   end
 
-  # PUT /shops/1
-  # PUT /shops/1.xml
   def update
     @shop = Shop.find(params[:id])
-
-    respond_to do |format|
-      if @shop.update_attributes(params[:shop])
-        format.html { redirect_to(@shop, :notice => 'Shop was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @shop.errors, :status => :unprocessable_entity }
-      end
+    if @shop.update_attributes(params[:shop])
+      redirect_to(@shop, :notice => '店铺更新成功！')
+    else
+      render :action => "edit"
     end
   end
 
-  # DELETE /shops/1
-  # DELETE /shops/1.xml
   def destroy
     @shop = Shop.find(params[:id])
-    @shop.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(shops_url) }
-      format.xml  { head :ok }
+    if @shop.destroy
+      flash[:notice] = @shop.name + " 删除成功"
+    else
+      flash[:error] = @shop.name + " 删除失败"
     end
+    redirect_to shops_url
   end
 end

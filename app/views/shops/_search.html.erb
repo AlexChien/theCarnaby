@@ -1,0 +1,33 @@
+<% form_tag({:action => :index},{:method=>"get"}) do%>
+<style>
+#content {min-height:520px;_height:520px;}
+</style>
+<div class="box">
+	<h3>店铺搜索</h3>
+	<p>
+		店铺名称<br>
+		<%= text_field_tag "search[name]",params[:search].nil? ? "" : params[:search][:name]%>
+	</p>
+	<p>
+		店铺地址<br>
+		<%= text_field_tag "search[address]",params[:search].nil? ? "" : params[:search][:address]%>
+	</p>
+	<p>
+		所在省份<br>
+		<%= text_field_tag "search[province]",params[:search].nil? ? "" : params[:search][:province]%>
+	</p>
+	<p>
+		所在城市<br>
+		<%= text_field_tag "search[city]",params[:search].nil? ? "" : params[:search][:city]%>
+	</p>
+	<p>
+		是否旗舰店<br>
+		<%= select_tag "search[shop_type]",options_for_select([["请选择",nil],["是","1"],["否","0"]],params[:search].nil? ? "" : params[:search][:shop_type]),{:style=>"width:150px;"}%>
+	</p>
+	<p>
+		店铺简介<br>
+		<%= text_field_tag "search[description]",params[:search].nil? ? "" : params[:search][:description]%>
+	</p>
+	<p><button type="submit"><span>搜索</span></button></p>
+</div>
+<% end %>

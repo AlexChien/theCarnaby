@@ -1,18 +1,18 @@
-  <% form_tag({:action => :index},{:method=>"get"}) do%>
-    <div class="box">
-      <h3>新品搜索</h3>
-      <p>
-        新品名称<br>
-        <%= text_field_tag "search[name]",params[:search].nil? ? "" : params[:search][:name]%>
-      </p>
-      <p>
-        sku<br>
-        <%= text_field_tag "search[sku]",params[:search].nil? ? "" : params[:search][:sku]%>
-      </p>
-      <p>
-        简介<br>
-        <%= text_field_tag "search[description]",params[:search].nil? ? "" : params[:search][:description]%>
-      </p>
-      <p><button type="submit"><span>搜索</span></button></p>
-    </div>
-  <% end %>
+<% form_tag({:action => :index},{:method=>"get"}) do%>
+<div class="box">
+	<h3>新品搜索</h3>
+	<p>
+		新品名称<br>
+		<%= text_field_tag "search[name]",params[:search].nil? ? "" : params[:search][:name]%>
+	</p>
+	<p>
+		sku<br>
+		<%= text_field_tag "search[sku]",params[:search].nil? ? "" : params[:search][:sku]%>
+	</p>
+	<p>
+		简介<br>
+		<%= text_field_tag "search[description]",params[:search].nil? ? "" : params[:search][:description]%>
+	</p>
+	<p><button type="submit"><span>搜索</span></button></p>
+</div>
+<% end %>

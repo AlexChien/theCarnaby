@@ -27,7 +27,7 @@ module ApplicationHelper
     messages = ""
     [:notice, :error].each do |type|
       if flash[type]
-        messages= "<div class=\"#{type}\">#{flash[type]}</div>"
+        messages= "<div class=\"#{type} flash\">#{flash[type]}</div>"
       end
     end
     messages

@@ -3,46 +3,46 @@
 
 <hr class="space">
 
-	<fieldset>
-	  <p>
-	  	<b>新品名称:</b>
-	  	<%=h @product.name%>
-	  </p>
+<fieldset>
+	<p>
+		<b>新品名称:</b>
+		<%=h @product.name%>
+	</p>
 
-	  <p>
-	  	<b>sku:</b>
-	  	<%=h @product.sku%>
-	  </p>
+	<p>
+		<b>sku:</b>
+		<%=h @product.sku%>
+	</p>
 
-	  <p>
-	  	<b>新品售价:</b>
-	  	￥<%=h @product.price%>
-	  </p>
+	<p>
+		<b>新品售价:</b>
+		￥<%=h @product.price%>
+	</p>
 
-	  <p>
-	  	<b>所属品牌:</b>
-	  	<%=h @product.brand.name%>
-	  </p>
+	<p>
+		<b>所属品牌:</b>
+		<%=h @product.brand.name%>
+	</p>
 
-	  <p>
-	  	<b>简介:</b>
-	  	<%=h @product.description%>
-	  </p>
+	<p>
+		<b>简介:</b>
+		<%=h @product.description%>
+	</p>
 
 
-	  <%@product.assets.each do |asset|%>
-	  	<p>
-	    	<%= image_tag asset.uploaded_data.url %>
-	    </p>
-	  <%end%>
+	<%@product.assets.each do |asset|%>
+	<p>
+		<%= image_tag asset.uploaded_data.url %>
+	</p>
+	<%end%>
 
-	  <p>
-	    <a href="/products/<%=@product.id%>/edit">编辑</a> | <a href="/products">返回</a>
-	  </p>
-	</fieldset>
+	<p>
+		<a href="/products/<%=@product.id%>/edit">编辑</a> | <a href="/products">返回</a>
+	</p>
+</fieldset>
 
 <%end%>
 
-﻿<%content_for :sidebar do%>
+<%content_for :sidebar do%>
 	<%=render :partial=>"search"%>
 <%end%>

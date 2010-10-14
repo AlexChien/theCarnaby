@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
       @product = @product.name_contain(params[:search][:name]) unless params[:search][:name].blank?
       @product = @product.description_contain(params[:search][:description]) unless params[:search][:description].blank?
     end
-    @products = @product.paginate(:all,:page => params[:page],:per_page=>15,:order=>"created_at DESC")
+    @products = @product.paginate(:all,:include=>[:brand],:page => params[:page],:per_page=>15,:order=>"created_at DESC")
   end
 
   def show

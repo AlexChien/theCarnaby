@@ -3,15 +3,15 @@
 
 <hr class="space">
 
-	<% form_for @brand, :url => brand_url(@brand),:html=>{:multipart => true} do |f| %>
-	<%= f.error_messages %>
-	<fieldset>
-	  <p>
-	  	<%=f.label :name,"品牌名<span class='required'> * </span><br>"%>
-	  	<%=f.text_field :name%>
-	  </p>
+<% form_for @brand, :url => brand_url(@brand),:html=>{:multipart => true} do |f| %>
+<%= f.error_messages %>
+<fieldset>
+	<p>
+		<%=f.label :name,"品牌名<span class='required'> * </span><br>"%>
+		<%=f.text_field :name%>
+	</p>
 
-	  <p>
+	<p>
 		<% fields_for :asset do |asset| %>
 			<%= asset.label :uploaded_data,"上传图片<span class='required'> * </span><br>"%>
 			<%= file_field "asset" ,"uploaded_data" %>
@@ -19,20 +19,21 @@
 				<%=link_to "查看图片","#{@brand.assets.first.uploaded_data.url}",:target=>"_blank"%>
 			<%end%>
 		<% end %>
-	  </p>
+	</p>
 
-	  <p>
-	  	<%=f.label :description,"简介<span class='required'> * </span><br>"%>
-	  	<%=f.text_area :description%>
-	  </p>
+	<p>
+		<%=f.label :description,"简介<span class='required'> * </span><br>"%>
+		<%=f.text_area :description%>
+	</p>
 
-	  <p>
-	    <button type="submit"><span>提交</span></button> | <a href="/brands">返回</a>
-	  </p>
-	</fieldset>
-	<%end%>
+	<p>
+		<button type="submit"><span>提交</span></button> | <a href="/brands">返回</a>
+	</p>
+</fieldset>
 <%end%>
 
-﻿<%content_for :sidebar do%>
+<%end%>
+
+<%content_for :sidebar do%>
 	<%=render :partial=>"search"%>
 <%end%>

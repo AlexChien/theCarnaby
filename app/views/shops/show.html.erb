@@ -1,38 +1,46 @@
-<p>
-  <b>Name:</b>
-  <%=h @shop.name %>
-</p>
+<%content_for :main do%>
+<h2>店铺 <%=@shop.name%></h2>
 
-<p>
-  <b>Description:</b>
-  <%=h @shop.description %>
-</p>
+<hr class="space">
 
-<p>
-  <b>Address:</b>
-  <%=h @shop.address %>
-</p>
+<fieldset>
+	<p>
+		<b>店铺名称:</b>
+		<%=h @shop.name%>
+	</p>
 
-<p>
-  <b>Coordinate:</b>
-  <%=h @shop.coordinate %>
-</p>
+	<p>
+		<b>店铺地址:</b>
+		<%=h @shop.address%>
+	</p>
 
-<p>
-  <b>Province:</b>
-  <%=h @shop.province %>
-</p>
+	<p>
+		<b>所在省份:</b>
+		<%=h @shop.province%>
+	</p>
 
-<p>
-  <b>City:</b>
-  <%=h @shop.city %>
-</p>
+	<p>
+		<b>所在城市:</b>
+		<%=h @shop.city%>
+	</p>
 
-<p>
-  <b>Shop type:</b>
-  <%=h @shop.shop_type %>
-</p>
+	<p>
+		<b>是否旗舰店:</b>
+		<%=h @shop.display_shop_type%>
+	</p>
 
+	<p>
+		<b>店铺简介:</b>
+		<%=h @shop.description%>
+	</p>
 
-<%= link_to 'Edit', edit_shop_path(@shop) %> |
-<%= link_to 'Back', shops_path %>
+	<p>
+		<a href="/shops/<%=@shop.id%>/edit">编辑</a> | <a href="/shops">返回</a>
+	</p>
+</fieldset>
+
+<%end%>
+
+<%content_for :sidebar do%>
+	<%=render :partial=>"search"%>
+<%end%>

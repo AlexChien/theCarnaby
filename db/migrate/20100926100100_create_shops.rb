@@ -7,7 +7,7 @@ class CreateShops < ActiveRecord::Migration
       t.string :coordinate
       t.string :province
       t.string :city
-      t.string :shop_type
+      t.integer :shop_type,:default=>0
 
       t.timestamps
     end
