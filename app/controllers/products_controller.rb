@@ -1,83 +1,60 @@
 class ProductsController < ApplicationController
-  # GET /products
-  # GET /products.xml
-  def index
-    @products = Product.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @products }
+  def index
+    @product = Product
+    if params[:search]
+      @product = @product.sku_contain(params[:search][:sku]) unless params[:search][:sku].blank?
+      @product = @product.name_contain(params[:search][:name]) unless params[:search][:name].blank?
+      @product = @product.description_contain(params[:search][:description]) unless params[:search][:description].blank?
     end
+    @products = @product.paginate(:all,:include=>[:brand],:page => params[:page],:per_page=>15,:order=>"created_at DESC")
   end
 
-  # GET /products/1
-  # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @product }
-    end
   end
 
-  # GET /products/new
-  # GET /products/new.xml
   def new
     @product = Product.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @product }
-    end
   end
 
-  # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
   end
 
-  # POST /products
-  # POST /products.xml
   def create
     @product = Product.new(params[:product])
-
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to(@product, :notice => 'Product was successfully created.') }
-        format.xml  { render :xml => @product, :status => :created, :location => @product }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
-      end
+    @asset = Asset.new(params[:asset])
+    @product.assets << @asset
+    if @product.save
+      redirect_to(@product, :notice => '新品新增成功！')
+    else
+      render :action => "new"
     end
   end
 
-  # PUT /products/1
-  # PUT /products/1.xml
   def update
     @product = Product.find(params[:id])
-
-    respond_to do |format|
-      if @product.update_attributes(params[:product])
-        format.html { redirect_to(@product, :notice => 'Product was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
-      end
+    if @product.assets.empty?
+      @asset = Asset.new(params[:asset])
+      @product.assets << @asset
+    else
+      @product.assets.first.update_attributes(params[:asset])
+    end
+    if @product.update_attributes(params[:product])
+      redirect_to(@product, :notice => '新品更新成功！')
+    else
+      render :action => "edit"
     end
   end
 
-  # DELETE /products/1
-  # DELETE /products/1.xml
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(products_url) }
-      format.xml  { head :ok }
+    if @product.destroy
+      flash[:notice] = @product.name + " 删除成功"
+    else
+      flash[:error] = @product.name + " 删除失败"
     end
+    redirect_to products_url
   end
 end

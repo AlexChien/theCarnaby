@@ -1,24 +1,39 @@
-<h1>Listing brands</h1>
+﻿<%content_for :main do%>
+<h2>所有品牌</h2>
+<div class="toolbar">
+	<ul class="actions">
+		<li>
+			<a class="button" href="/brands/new"><span><img src="/images/admin/add.png" alt="新增"> &nbsp;新增品牌</span></a>
+		</li>
+	</ul>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Logo</th>
-  </tr>
+<hr class="space">
 
-<% @brands.each do |brand| %>
-  <tr>
-    <td><%=h brand.name %></td>
-    <td><%=h brand.description %></td>
-    <td><%=h brand.logo %></td>
-    <td><%= link_to 'Show', brand %></td>
-    <td><%= link_to 'Edit', edit_brand_path(brand) %></td>
-    <td><%= link_to 'Destroy', brand, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<table class="index">
+	<thead>
+		<!--<th><a class="ascending" href="#">▲&nbsp;品牌名</a></th>-->
+		<th>品牌名</th>
+		<th>简介</th>
+		<th>操作</th>
+	</thead>
+	<tbody>
+		<%@brands.each do |brand|%>
+		<tr id="brand_<%=brand.id%>">
+			<td><a href="/brands/<%=brand.id%>" target="_blank"><%=brand.name%></a></td>
+			<td><%=brand.description%></td>
+			<td>
+				<%= link_to "<img src='/images/admin/edit.png' alt='编辑'> 编辑", edit_brand_url(brand)%>
+				<%= link_to "<img src='/images/admin/delete.png' alt='删除'> 删除", brand_url(brand), :method => :delete, :confirm => "确认要删除此品牌吗?"%>
+			</td>
+		</tr>
+		<%end%>
+	</tbody>
 </table>
 
-<br />
+<%=will_paginate @brands%>
+<%end%>
 
-<%= link_to 'New brand', new_brand_path %>
+<%content_for :sidebar do%>
+	<%=render :partial=>"search"%>
+<%end%>

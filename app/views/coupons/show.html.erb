@@ -1,33 +1,46 @@
-<p>
-  <b>Title:</b>
-  <%=h @coupon.title %>
-</p>
+<%content_for :main do%>
+<h2>优惠券 <%=@coupon.name%></h2>
 
-<p>
-  <b>Detail:</b>
-  <%=h @coupon.detail %>
-</p>
+<hr class="space">
 
-<p>
-  <b>Discount:</b>
-  <%=h @coupon.discount %>
-</p>
+<fieldset>
+	<p>
+		<b>优惠券名称:</b>
+		<%=h @coupon.name%>
+	</p>
 
-<p>
-  <b>Product:</b>
-  <%=h @coupon.product_id %>
-</p>
+	<p>
+		<b>折扣率:</b>
+		<%=h @coupon.discount%>折
+	</p>
 
-<p>
-  <b>Brand:</b>
-  <%=h @coupon.brand_id %>
-</p>
+	<p>
+		<b>适用新品:</b>
+		<%=h @coupon.product.name%>
+	</p>
 
-<p>
-  <b>Shop:</b>
-  <%=h @coupon.shop_id %>
-</p>
+	<p>
+		<b>适用店铺:</b>
+		<%=h @coupon.shop.name%>
+	</p>
+	
+	<p>
+		<b>适用品牌:</b>
+		<%=h @coupon.brand.nil? ? "无" : @coupon.brand.name%>
+	</p>
 
+	<p>
+		<b>优惠券描述:</b>
+		<%=h @coupon.description%>
+	</p>
 
-<%= link_to 'Edit', edit_coupon_path(@coupon) %> |
-<%= link_to 'Back', coupons_path %>
+	<p>
+		<a href="/coupons/<%=@coupon.id%>/edit">编辑</a> | <a href="/coupons">返回</a>
+	</p>
+</fieldset>
+
+<%end%>
+
+<%content_for :sidebar do%>
+	<%=render :partial=>"search"%>
+<%end%>

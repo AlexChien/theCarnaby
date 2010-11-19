@@ -1,35 +1,49 @@
-<h1>New coupon</h1>
+<%content_for :main do%>
+<h2>新增优惠券</h2>
 
-<% form_for(@coupon) do |f| %>
-  <%= f.error_messages %>
+<hr class="space">
 
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :detail %><br />
-    <%= f.text_area :detail %>
-  </p>
-  <p>
-    <%= f.label :discount %><br />
-    <%= f.text_field :discount %>
-  </p>
-  <p>
-    <%= f.label :product_id %><br />
-    <%= f.text_field :product_id %>
-  </p>
-  <p>
-    <%= f.label :brand_id %><br />
-    <%= f.text_field :brand_id %>
-  </p>
-  <p>
-    <%= f.label :shop_id %><br />
-    <%= f.text_field :shop_id %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
+<% form_for @coupon, :url => coupons_url,:html=>{:multipart => true} do |f| %>
+<%= f.error_messages %>
+<fieldset>
+	<p>
+		<%=f.label :name,"优惠券名称<span class='required'> * </span><br>"%>
+		<%=f.text_field :name%>
+	</p>
 
-<%= link_to 'Back', coupons_path %>
+	<p>
+		<%=f.label :discount,"折扣率（单位：折）<span class='required'> * </span><br>"%>
+		<%=f.text_field :discount%>
+	</p>
+
+	<p>
+		<%=f.label :product_id,"适用新品<span class='required'> * </span><br>"%>
+		<%=f.select :product_id,Product.all.collect{|p| [p.name, p.id]},{:include_blank=>"请选择"},{:style=>"width:220px;"}%>
+	</p>
+
+	<p>
+		<%=f.label :shop_id,"适用店铺<span class='required'> * </span><br>"%>
+		<%=f.select :shop_id,Shop.all.collect{|p| [p.name, p.id]},{:include_blank=>"请选择"},{:style=>"width:220px;"}%>
+	</p>
+
+	<p>
+		<%=f.label :brand_id,"适用品牌<br>"%>
+		<%=f.select :brand_id,Brand.all.collect{|p| [p.name, p.id]},{:include_blank=>"请选择"},{:style=>"width:220px;"}%>
+	</p>
+
+	<p>
+		<%=f.label :description,"优惠券描述<span class='required'> * </span><br>"%>
+		<%=f.text_area :description%>
+	</p>
+
+	<p>
+		<button type="submit"><span>提交</span></button> | <a href="/coupons">返回</a>
+	</p>
+</fieldset>
+<%end%>
+
+<%end%>
+
+<%content_for :sidebar do%>
+	<%=render :partial=>"search"%>
+<%end%>

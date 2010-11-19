@@ -1,0 +1,112 @@
+body { background-color: #e3dbce; color: #111111;text-align:left; }
+
+#container a{text-decoration:none;}
+.fLeft {float:left;}
+.fRight {float:right;}
+#login-nav {margin-top:10px;}
+#login-nav li {float:left;margin-right:1em;list-style:none;}
+h1.logo {float:left;margin:20px 10px 10px;font-size:30px;}
+#menu, #sub-menu {margin:0 1em;}
+#menu {background:#154E8C url(/images/admin/tab.png) repeat-x scroll left top;height:40px;}
+#menu ul, #sub-menu ul {margin:0;padding:0;}
+#menu ul li {float:left;list-style:none;}
+#menu ul li.selected {background:#0095DA url(/images/admin/tab_selected.png) repeat-x scroll left top;height:42px;margin-top:-1px;}
+#menu ul li a, #sub-menu ul li a {color:#FFFFFF;padding:10px 20px;display:block;text-decoration:none;}
+#sub-menu {background:#0095DA none repeat scroll 0 0;height:20px;}
+#content {color:#111111;margin:0 1em 1em;min-height:400px;_height:400px;padding:1em;background:#FFFFFF;}
+#content.with-sidebar {background:#FFFFFF url(/images/admin/content-back.png) repeat-y scroll right top;padding-right:340px;position:relative;}
+#content h2 {font-weight:bold;float:left;width:720px;}
+.toolbar {float:left;margin-bottom:1em;}
+.toolbar ul.actions {margin:0;padding:0;}
+.toolbar ul.actions li {float: left;margin-right: 1em;list-style: none;}
+toolbar ul.actions li {margin-right:0;}
+a.button {
+    background: transparent url(/images/admin/right_01.png) no-repeat scroll top right;
+    display: block;
+    float: left;
+    margin-right: 6px;
+    padding-right: 20px;
+    text-decoration: none;
+    color: #111 !important;
+    font-weight: bold;
+    outline: none;
+}
+a.button span {
+    background: transparent url(/images/admin/left_01.png) no-repeat;
+    display: block;
+    line-height: 22px;
+    padding: 7px 0 5px 14px;
+    text-shadow: #efefef 1px 1px 0px;
+}
+a.button img {
+    vertical-align: middle;
+    margin: 0 3px 0 0;
+}
+button {
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0 20px 0 0;
+    +padding: 1px 20px 0 0;
+    text-align: center;
+    background: url(/images/admin/right_01.png) center right no-repeat;
+    font-size: 1.3em;
+    outline: none;
+}
+button span {
+    display: block;
+    white-space: nowrap;
+    padding: 0 0 0 20px;
+
+    line-height: 35px;
+    background: url(/images/admin/left_01.png) center left no-repeat;
+    text-shadow: #efefef 1px 1px 0px;
+}
+
+table.index th {
+  background: #cdcdcd url(/images/admin/grid_header_back.png) top left repeat-x;
+  padding: 7px 10px;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  text-shadow: #efefef 1px 1px 0px;
+}
+#main {width:900px;}
+#sidebar {position: absolute;width: 305px;top: 0; right: 0;padding-top: 3em;}
+#sidebar .box {background:#FFFFFF url(/images/admin/content-back.png) repeat-y scroll right top;}
+.flash {font-weight:bold;font-size:130%;text-align:center;}
+fieldset {
+  margin-bottom: 1em;
+  padding: 2em 10em;
+  border: solid 1px #ccc;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+.required {color:#FF0000;font-size:1.2em;font-weight:bold;}
+
+.errorExplanation {
+    border: solid 2px #f15700;
+    padding: 1em;
+    margin-bottom: 1em;
+    background: #cdf;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+.errorExplanation ul {
+    color: #f15700;
+    list-style: square;
+}
+.errorExplanation h2 {
+    width: 850px !important;
+    font-size: 1.75em;
+    padding-left: 40px;
+    background: url(/images/admin/error.png) center left no-repeat;
+}
+.fieldWithErrors {background-color:#FDE4E4;}
+
+.pagination {padding: 3px; margin: 3px; text-align:center;}
+.pagination a {padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #ccc; text-decoration: none; color: #333;}
+.pagination a:hover, .pagination a:active {border: 1px solid #0066CC;background-color: #0066CC; color: #FFFFFF;}
+.pagination span.current {padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #0066CC; font-weight: bold; background-color: #0066CC; color: #FFFFFF;}
+.pagination span.disabled {padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #eee; color: #ddd;}

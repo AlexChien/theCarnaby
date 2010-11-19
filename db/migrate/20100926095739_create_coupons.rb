@@ -1,9 +1,9 @@
 class CreateCoupons < ActiveRecord::Migration
   def self.up
     create_table :coupons do |t|
-      t.string :title
-      t.text :detail
-      t.string :discount
+      t.string :name
+      t.text :description
+      t.decimal :discount, :precision => 8, :scale => 2, :default => 0
       t.integer :product_id
       t.integer :brand_id
       t.integer :shop_id

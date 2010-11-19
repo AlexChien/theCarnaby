@@ -1,18 +1,33 @@
-<p>
-  <b>Name:</b>
-  <%=h @brand.name %>
-</p>
+﻿<%content_for :main do%>
+<h2>品牌 <%=@brand.name%></h2>
 
-<p>
-  <b>Description:</b>
-  <%=h @brand.description %>
-</p>
+<hr class="space">
 
-<p>
-  <b>Logo:</b>
-  <%=h @brand.logo %>
-</p>
+<fieldset>
+	<p>
+		<b>品牌名:</b>
+		<%=h @brand.name%>
+	</p>
+
+	<p>
+		<b>简介:</b>
+		<%=h @brand.description%>
+	</p>
 
 
-<%= link_to 'Edit', edit_brand_path(@brand) %> |
-<%= link_to 'Back', brands_path %>
+	<%@brand.assets.each do |asset|%>
+	<p>
+		<%= image_tag asset.uploaded_data.url %>
+	</p>
+	<%end%>
+
+	<p>
+		<a href="/brands/<%=@brand.id%>/edit">编辑</a> | <a href="/brands">返回</a>
+	</p>
+</fieldset>
+
+<%end%>
+
+<%content_for :sidebar do%>
+	<%=render :partial=>"search"%>
+<%end%>

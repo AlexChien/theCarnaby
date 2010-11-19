@@ -1,0 +1,14 @@
+<% form_tag({:action => :index},{:method=>"get"}) do%>
+<div class="box">
+	<h3>品牌搜索</h3>
+	<p>
+		品牌名<br>
+		<%= text_field_tag "search[name]",params[:search].nil? ? "" : params[:search][:name]%>
+	</p>
+	<p>
+		简介<br>
+		<%= text_field_tag "search[description]",params[:search].nil? ? "" : params[:search][:description]%>
+	</p>
+	<p><button type="submit"><span>搜索</span></button></p>
+</div>
+<% end %>

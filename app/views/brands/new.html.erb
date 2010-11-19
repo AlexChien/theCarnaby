@@ -1,23 +1,36 @@
-<h1>New brand</h1>
+﻿<%content_for :main do%>
+<h2>新增品牌</h2>
 
-<% form_for(@brand) do |f| %>
-  <%= f.error_messages %>
+<hr class="space">
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :logo %><br />
-    <%= f.text_field :logo %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
+<% form_for @brand, :url => brands_url,:html=>{:multipart => true} do |f| %>
+<%= f.error_messages %>
+<fieldset>
+	<p>
+		<%=f.label :name,"品牌名<span class='required'> * </span><br>"%>
+		<%=f.text_field :name%>
+	</p>
 
-<%= link_to 'Back', brands_path %>
+	<p>
+		<% fields_for :asset do |asset| %>
+			<%= asset.label :uploaded_data,"上传图片<span class='required'> * </span><br>"%>
+			<%= file_field "asset" ,"uploaded_data" %>
+		<% end %>
+	</p>
+
+	<p>
+		<%=f.label :description,"简介<span class='required'> * </span><br>"%>
+		<%=f.text_area :description%>
+	</p>
+
+	<p>
+		<button type="submit"><span>提交</span></button> | <a href="/brands">返回</a>
+	</p>
+</fieldset>
+<%end%>
+
+<%end%>
+
+<%content_for :sidebar do%>
+	<%=render :partial=>"search"%>
+<%end%>

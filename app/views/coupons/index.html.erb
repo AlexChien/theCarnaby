@@ -1,30 +1,46 @@
-<h1>Listing coupons</h1>
+<%content_for :main do%>
+<h2>所有优惠券</h2>
+<div class="toolbar">
+	<ul class="actions">
+		<li>
+			<a class="button" href="/coupons/new"><span><img src="/images/admin/add.png" alt="新增"> &nbsp;新增优惠券</span></a>
+		</li>
+	</ul>
+</div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Detail</th>
-    <th>Discount</th>
-    <th>Product</th>
-    <th>Brand</th>
-    <th>Shop</th>
-  </tr>
+<hr class="space">
 
-<% @coupons.each do |coupon| %>
-  <tr>
-    <td><%=h coupon.title %></td>
-    <td><%=h coupon.detail %></td>
-    <td><%=h coupon.discount %></td>
-    <td><%=h coupon.product_id %></td>
-    <td><%=h coupon.brand_id %></td>
-    <td><%=h coupon.shop_id %></td>
-    <td><%= link_to 'Show', coupon %></td>
-    <td><%= link_to 'Edit', edit_coupon_path(coupon) %></td>
-    <td><%= link_to 'Destroy', coupon, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<table class="index">
+	<thead>
+		<th>优惠券名称</th>
+		<th>折扣率</th>
+		<th>适用新品</th>
+		<th>适用店铺</th>
+		<th>适用品牌</th>
+		<th>优惠券描述</th>
+		<th>操作</th>
+	</thead>
+	<tbody>
+		<%@coupons.each do |coupon|%>
+		<tr id="coupon_<%=coupon.id%>">
+			<td><a href="/coupons/<%=coupon.id%>" target="_blank"><%=coupon.name%></a></td>
+			<td><%=coupon.discount%>折</td>
+			<td><%=coupon.product.name%></td>
+			<td><%=coupon.shop.name%></td>
+			<td><%=coupon.brand.nil? ? "无" : coupon.brand.name%></td>
+			<td><%=coupon.description%></td>
+			<td>
+				<%= link_to "<img src='/images/admin/edit.png' alt='编辑'> 编辑", edit_coupon_url(coupon)%>
+				<%= link_to "<img src='/images/admin/delete.png' alt='删除'> 删除", coupon_url(coupon), :method => :delete, :confirm => "确认要删除此优惠券吗?"%>
+			</td>
+		</tr>
+		<%end%>
+	</tbody>
 </table>
 
-<br />
+<%=will_paginate @coupons%>
+<%end%>
 
-<%= link_to 'New coupon', new_coupon_path %>
+<%content_for :sidebar do%>
+	<%=render :partial=>"search"%>
+<%end%>
