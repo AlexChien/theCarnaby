@@ -1,0 +1,47 @@
+<div class="pageTitle">
+  <h1>Edit <%= @video.title %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @video.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @video.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @video.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="video[title]" class="fieldLabel">Title</label>
+            <input type="text" name="video[title]" value="<%= @video.title %>" <%= placeholder( "Title" ) %> />
+          </li>
+      
+          <li>
+            <label for="video[description]" class="fieldLabel">Description</label>
+            <input type="text" name="video[description]" value="<%= @video.description %>" <%= placeholder( "Description" ) %> />
+          </li>
+      
+          <li>
+            <label for="video[url]" class="fieldLabel">Url</label>
+            <input type="text" name="video[url]" value="<%= @video.url %>" <%= placeholder( "Url" ) %> />
+          </li>
+      
+          <li>
+            <label for="video[product_id]" class="fieldLabel">Product</label>
+            <input type="text" name="video[product_id]" value="<%= @video.product_id %>" <%= placeholder( "Product" ) %> />
+          </li>
+      
+          <li>
+            <label for="video[brand_id]" class="fieldLabel">Brand</label>
+            <input type="text" name="video[brand_id]" value="<%= @video.brand_id %>" <%= placeholder( "Brand" ) %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+<div id="pageTitle">
+  <h1><%= @collection.name%></h1>
+</div>
+
+<div id="toolbar">
+  <%= link_to "Back", :action => :index %>
+  <%= link_to "Edit", :action => :edit, :id => @collection.object %>
+</div>
+
+<div id="content">
+  <table>
+    <tr>
+      <td class="itemLabel">Name</td>
+      <td class="itemValue"><%= @collection.name%></td>
+    </tr>
+    <tr>
+      <td class="itemLabel">Description</td>
+      <td class="itemValue"><%= @collection.description%></td>
+    </tr>
+    <tr>
+      <td class="itemLabel">Brand</td>
+      <td class="itemValue"><%= @collection.brand%></td>
+    </tr>
+  </table>
+</div>

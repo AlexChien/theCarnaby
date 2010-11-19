@@ -1,0 +1,49 @@
+<div id="pageTitle">
+    <h1>New Coupon</h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :index %>
+</div>
+
+
+<div id="content">
+
+    <form method="POST" action="<%= url_for :action => :create %>">
+	    <input type="hidden" name="id" value="<%= @coupon.object %>"/>
+        <table>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Title: </td>
+    			  <td class="itemValue"><input type="text" name="coupon[title]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Detail: </td>
+    			  <td class="itemValue"><input type="text" name="coupon[detail]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Discount: </td>
+    			  <td class="itemValue"><input type="text" name="coupon[discount]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Product: </td>
+    			  <td class="itemValue"><input type="text" name="coupon[product_id]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Brand: </td>
+    			  <td class="itemValue"><input type="text" name="coupon[brand_id]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Shop: </td>
+    			  <td class="itemValue"><input type="text" name="coupon[shop_id]"/></td>
+    		  </tr>
+    		
+        </table>
+        <input type="submit" class="standardButton" value="Create" />
+    </form>
+</div>

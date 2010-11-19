@@ -1,0 +1,25 @@
+<%# /app/Brand/ %>
+
+<div class="content">
+  <img src="/public/images/carnaby/cover.jpg" width=100%></img>
+
+  <% if @brands %>
+  <div class='entry' id='brand_entry'>
+    <ul style="padding:0;margin:0;">
+      <li></li>
+      <% @brands.each do |brand| %>
+      <li style="padding:0;margin:0;">
+        <a href="<%= url_for :action => :show, :id => brand.object %>">
+          <%= brand.name %>
+          <!-- <span class='title'><%= brand.name %></span> -->
+          <!-- <span class="disclosure_indicator"></span> -->
+        </a>
+      </li>
+      <% end %>
+     <li></li>
+     <li></li>
+    </ul>
+  </div>
+  <% end %>
+
+</div>

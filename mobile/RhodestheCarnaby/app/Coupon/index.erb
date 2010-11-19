@@ -1,0 +1,30 @@
+<%# /app/Coupon/ %>
+
+<% if false %>
+<div class="pageTitle">
+  <h1>Coupons</h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem regularButton">
+    <a href="<%= Rho::RhoConfig.start_path %>">Home</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :new %>">New</a>
+  </div>
+</div>
+<% end %>
+
+<div class="content">
+  <ul>
+    <% @coupons.each do |coupon| %>
+    
+        <li>
+          <a href="<%= url_for :action => :show, :id => coupon.object %>">
+            <span class="title"><%= coupon.title %></span><span class="disclosure_indicator"></span>
+          </a>
+        </li>
+    
+    <% end %>
+  </ul>
+</div>

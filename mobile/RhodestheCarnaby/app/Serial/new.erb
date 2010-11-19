@@ -1,0 +1,37 @@
+<div class="pageTitle">
+  <h1>New <%= @serial.title %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a class="cancel" href="<%= url_for :action => :index %>">Cancel</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :create %>">
+    <input type="hidden" name="id" value="<%= @serial.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="serial[name]" class="fieldLabel">Name</label>
+            <input type="text" name="serial[name]" <%=
+            placeholder("Name") %> />
+          </li>
+      
+          <li>
+            <label for="serial[description]" class="fieldLabel">Description</label>
+            <input type="text" name="serial[description]" <%=
+            placeholder("Description") %> />
+          </li>
+      
+          <li>
+            <label for="serial[brand_id]" class="fieldLabel">Brand</label>
+            <input type="text" name="serial[brand_id]" <%=
+            placeholder("Brand") %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Create"/>
+  </form>
+</div>

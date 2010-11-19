@@ -1,0 +1,45 @@
+<%# /app/Product/ %>
+
+<%
+NativeBar.create(Rho::RhoApplication::TABBAR_TYPE, @tabbar)
+NativeBar.switch_tab(1)
+%>
+
+<% @products = Product.find(:all) %>
+
+<% if false %>
+<div class="pageTitle">
+  <h1>Products</h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem regularButton">
+    <a href="<%= Rho::RhoConfig.start_path %>">Home</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :new %>">New</a>
+  </div>
+</div>
+<% end %>
+
+<div class="content" id="products">
+  <table>
+  <% counter = @products.size %>
+  <% while counter>0 %>
+  <tr>   
+    <% @products[-counter,3].each do |product| %>
+    <td>
+      <a class="product" href="<%= url_for :action => :show, :id => product.object %>">
+        <img alt="<%= product.name %>" src="/public/images/carnaby/products/<%= product.id %>.jpg" />
+      </a>
+    </td>
+    <% end %>
+  </tr>
+  <% counter-=2 %>
+  <% end %>
+</table>
+
+<%= @params %>
+<hr/>
+<%= @tabs %>
+</div>

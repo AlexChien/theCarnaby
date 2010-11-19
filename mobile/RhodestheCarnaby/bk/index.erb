@@ -1,0 +1,30 @@
+<% if false %>
+<div class="pageTitle">
+  <h1>theCarnaby</h1>
+</div>
+
+<div class="toolbar">
+  <% if SyncEngine::logged_in > 0 %>
+  <div class="leftItem blueButton">
+    <a href="<%= url_for :controller => :Settings, :action => :do_sync %>">Sync</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a href="<%= url_for :controller => :Settings, :action => :logout %>">Logout</a>
+  </div>
+  <% else %>
+  <div class="rightItem regularButton">
+    <a href="<%= url_for :controller => :Settings, :action => :login %>">Login</a>
+  </div>
+  <% end %>
+</div>
+<% end %>
+
+<!-- <div class="content" id="covered"> -->
+<div class="content">
+  <img src="/public/images/carnaby/cover.jpg" width=100% height=100%></img>
+  <ul>
+    <li>
+      <!-- <a href="#"><span class="title">Add link here...</span><span class="disclosure_indicator"/></a> -->
+    </li>
+  </ul>
+</div>

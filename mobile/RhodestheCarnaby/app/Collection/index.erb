@@ -1,0 +1,28 @@
+<%# /app/Collection/ %>
+
+<div class="pageTitle">
+  <h1>Collections</h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem regularButton">
+    <a href="<%= Rho::RhoConfig.start_path %>">Home</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :new %>">New</a>
+  </div>
+</div>
+
+<div class="content">
+  <ul>
+    <% @collections.each do |collection| %>
+    
+        <li>
+          <a href="<%= url_for :action => :show, :id => collection.object %>">
+            <span class="title"><%= collection.name %></span><span class="disclosure_indicator"></span>
+          </a>
+        </li>
+    
+    <% end %>
+  </ul>
+</div>

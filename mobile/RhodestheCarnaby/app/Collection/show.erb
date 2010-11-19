@@ -1,0 +1,62 @@
+<%# /app/Collection/{id}/show %>
+
+<% if false %>
+<div class="pageTitle">
+  <h1><%= @collection.name %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :index %>">Back</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a href="<%= url_for :action => :edit, :id => @collection.object %>">Edit</a>
+  </div>
+</div>
+<% end %>
+
+<% if false %>
+<div class="content">
+  <ul>
+    <li>
+      <div class="itemLabel">Name</div>
+      <div class="itemValue"><%= @collection.name %></div>
+    </li>
+    <li>
+      <div class="itemLabel">Description</div>
+      <div class="itemValue"><%= @collection.description %></div>
+    </li>
+    <li>
+      <div class="itemLabel">Brand</div>
+      <div class="itemValue"><%= @collection.brand %></div>
+    </li>
+  </ul>
+  <ul>
+    <% @products.each do |product| %>
+    <li>
+      <a href="<%= url_for :controller => :Product, :action => :show, :id => product.object %>">
+        <span class="title"><%= product.name %></span><span class="disclosure_indicator"></span>
+      </a>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="content" id="products">
+  <table>
+  <% counter = @products.size %>
+  <% while counter>0 %>
+  <tr>   
+    <% @products[-counter,3].each do |product| %>
+    <td>
+      <a class="product" href="<%= url_for :action => :product, :id => product.object %>">
+        <img alt="<%= product.name %>" src="/public/images/carnaby/products/thumbnails/<%= product.id %>.jpg" />
+      </a>
+    </td>
+    <% end %>    
+  </tr>
+  <% counter-=3 %>
+  <% end %>
+</table>
+</div>

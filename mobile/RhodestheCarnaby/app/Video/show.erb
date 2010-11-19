@@ -1,0 +1,43 @@
+<div class="pageTitle">
+  <h1><%= @video.title %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :index %>">Back</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a href="<%= url_for :action => :edit, :id => @video.object %>">Edit</a>
+  </div>
+</div>
+
+<div class="content">
+  <ul>
+    
+        <li>
+          <div class="itemLabel">Title</div>
+          <div class="itemValue"><%= @video.title %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Description</div>
+          <div class="itemValue"><%= @video.description %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Url</div>
+          <div class="itemValue"><%= @video.url %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">ProductId</div>
+          <div class="itemValue"><%= @video.product_id %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">BrandId</div>
+          <div class="itemValue"><%= @video.brand_id %></div>
+        </li>
+    
+  </ul>
+</div>

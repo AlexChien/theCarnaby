@@ -1,0 +1,52 @@
+<div class="pageTitle">
+  <h1>Edit <%= @image.title %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @image.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @image.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @image.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="image[title]" class="fieldLabel">Title</label>
+            <input type="text" name="image[title]" value="<%= @image.title %>" <%= placeholder( "Title" ) %> />
+          </li>
+      
+          <li>
+            <label for="image[description]" class="fieldLabel">Description</label>
+            <input type="text" name="image[description]" value="<%= @image.description %>" <%= placeholder( "Description" ) %> />
+          </li>
+      
+          <li>
+            <label for="image[brand_id]" class="fieldLabel">Brand</label>
+            <input type="text" name="image[brand_id]" value="<%= @image.brand_id %>" <%= placeholder( "Brand" ) %> />
+          </li>
+      
+          <li>
+            <label for="image[serial_id]" class="fieldLabel">Serial</label>
+            <input type="text" name="image[serial_id]" value="<%= @image.serial_id %>" <%= placeholder( "Serial" ) %> />
+          </li>
+      
+          <li>
+            <label for="image[product_id]" class="fieldLabel">Product</label>
+            <input type="text" name="image[product_id]" value="<%= @image.product_id %>" <%= placeholder( "Product" ) %> />
+          </li>
+      
+          <li>
+            <label for="image[shop_id]" class="fieldLabel">Shop</label>
+            <input type="text" name="image[shop_id]" value="<%= @image.shop_id %>" <%= placeholder( "Shop" ) %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

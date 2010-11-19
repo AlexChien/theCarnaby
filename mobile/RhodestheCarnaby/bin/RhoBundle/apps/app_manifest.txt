@@ -1,0 +1,9 @@
+Video/video
+Status/status
+Shop/shop
+Serial/serial
+Product/product
+Image/image
+Coupon/coupon
+Collection/collection
+Brand/brand

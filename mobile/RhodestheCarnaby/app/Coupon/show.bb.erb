@@ -1,0 +1,46 @@
+<div id="pageTitle">
+	<h1><%= @coupon.title%></h1>
+</div>
+
+<div id="toolbar">
+        <%= link_to "Back", :action => :index %>
+        <%= link_to "Edit", :action => :edit, :id => @coupon.object %>
+</div>
+
+
+<div id="content">
+
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Title</td>
+        <td class="itemValue"><%= @coupon.title%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Detail</td>
+        <td class="itemValue"><%= @coupon.detail%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Discount</td>
+        <td class="itemValue"><%= @coupon.discount%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">ProductId</td>
+        <td class="itemValue"><%= @coupon.product_id%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">BrandId</td>
+        <td class="itemValue"><%= @coupon.brand_id%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">ShopId</td>
+        <td class="itemValue"><%= @coupon.shop_id%></td>
+      </tr>
+      
+    </table>
+</div>

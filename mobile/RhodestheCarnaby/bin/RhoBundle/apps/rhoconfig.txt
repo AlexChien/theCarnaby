@@ -1,0 +1,45 @@
+# Startup page for your application
+start_path = '/app/Brand'
+
+# Path to the options page (in this case handled by javascript)
+options_path = '/app/Settings'
+
+# Location of bundle url (i.e. from rhohub.com)
+rhobundle_zip_url = ''
+
+# Optional password to access bundle (usually not required)
+rhobundle_zip_pwd = nil
+
+# Rhodes runtime properties
+MinSeverity  = 1
+LogToOutput = 1
+LogCategories = *
+ExcludeLogCategories =
+KeepTrackOfLastVisitedPage = 0 
+LastVisitedPage = ''
+
+# Sync server url. Typically this will look like 'http://<hostname>:<port>/application'
+# For example: 'http://localhost:9292/application'
+# syncserver = ''
+
+# To disable auto sync, uncomment the following line.
+# sync_poll_interval=0
+
+# logserver = 'http://rhologs.heroku.com'
+# logname='theCarnaby'
+
+# Hides forward button and animates back button transition
+jqtouch_mode=1
+
+splash_screen='delay=3;center'
+
+# full_screen = 0
+
+# theCarnaby host name
+host_name = 'http://127.0.0.1:3000/'
+# android仿真器不能用localhost访问开发平台的网络，需要用外部ip
+# host_name = 'http://10.0.0.7:3000/'
+# host_name = 'http://192.168.100.123:3000/'
+
+
+app_version='1.0'

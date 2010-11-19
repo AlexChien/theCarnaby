@@ -1,0 +1,52 @@
+<%# /app/Product/{id}/show  %>
+
+<div class="pageTitle" style="display:hidden">
+  <h1><%= @product.brand %></h1>
+</div>
+
+<% if false %>
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <!-- <a href="<%#= url_for :action => :index, :return => 'true' %>">Back</a>  -->
+    <!-- <a href="/app/Product/index?return=true">Back</a>  -->
+    <!-- <a href="<%= $this_page %>?renturn=true">Back</a> -->
+    <a href="<%= url_for :action => :set_tabbar %>">Back</a>
+  </div>
+
+  <div class="rightItem regularButton">
+    <a href="<%= url_for :action => :edit, :id => @product.object %>">Edit</a>
+  </div>
+
+</div>
+<% end %>
+
+<div class="content">
+<% if false %>
+  <ul>
+    <li>
+      <div class="itemLabel">Brand</div>
+      <div class="itemValue"><%= @product.brand %></div>
+    </li>
+    <li>
+      <div class="itemLabel">Name</div>
+      <div class="itemValue"><%= @product.name %></div>
+    </li>
+    <li>
+      <div class="itemLabel">Price</div>
+      <div class="itemValue"><%= @product.price %></div>
+    </li>
+    <li>
+      <div class="itemLabel">Sku</div>
+      <div class="itemValue"><%= @product.sku %></div>
+    </li>
+    <li>
+      <div class="itemLabel">Description</div>
+      <div class="itemValue"><%= @product.description %></div>
+    </li>
+  </ul>
+<% end %>
+<img src="/public/images/carnaby/products/<%= @product.id %>.jpg" width="100%" />  
+<a href="<%= url_for :action => :set_tabbar %>">Back</a>
+  <li><%= link_to "Tab bar", :action => :set_tabbar %></li>  
+  <li><%= link_to "Toolbar", :action => :set_toolbar %></li>
+</div>

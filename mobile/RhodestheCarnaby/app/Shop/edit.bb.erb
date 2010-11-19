@@ -1,0 +1,39 @@
+<div id="pageTitle">
+		<h1>Edit <%= @shop.name%></h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :show, :id => @shop.object %>
+    <%= link_to "Delete", :action => :delete, :id => @shop.object %>
+</div>
+
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+    	<input type="hidden" name="id" value="<%= @shop.object %>"/>
+            <table>
+        		
+                    <tr>
+            			<td class="itemLabel">Name: </td>
+              			<td class="itemValue"><input type="text" name="shop[name]" value="<%= @shop.name %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Description: </td>
+              			<td class="itemValue"><input type="text" name="shop[description]" value="<%= @shop.description %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Address: </td>
+              			<td class="itemValue"><input type="text" name="shop[address]" value="<%= @shop.address %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Coordinate: </td>
+              			<td class="itemValue"><input type="text" name="shop[coordinate]" value="<%= @shop.coordinate %>"/></td>
+          		    </tr>
+        		
+            </table>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

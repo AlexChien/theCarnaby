@@ -1,0 +1,46 @@
+<div id="pageTitle">
+	<h1><%= @image.title%></h1>
+</div>
+
+<div id="toolbar">
+        <%= link_to "Back", :action => :index %>
+        <%= link_to "Edit", :action => :edit, :id => @image.object %>
+</div>
+
+
+<div id="content">
+
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Title</td>
+        <td class="itemValue"><%= @image.title%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Description</td>
+        <td class="itemValue"><%= @image.description%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">BrandId</td>
+        <td class="itemValue"><%= @image.brand_id%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">SerialId</td>
+        <td class="itemValue"><%= @image.serial_id%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">ProductId</td>
+        <td class="itemValue"><%= @image.product_id%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">ShopId</td>
+        <td class="itemValue"><%= @image.shop_id%></td>
+      </tr>
+      
+    </table>
+</div>

@@ -1,0 +1,73 @@
+<%# /app/Product/ %>
+
+<script type="text/javascript" charset="utf-8">
+//change dynamic css
+var jQT = new $.jQTouch({
+  slideSelector: '#jqt li a, .slide',
+  icon: 'jqtouch.png',
+  addGlossToIcon: false,
+  startupScreen: 'jqt_startup.png',
+  statusBar: 'black',
+  preloadImages: [
+  '/public/themes/jqt/img/back_button.png',
+  '/public/themes/jqt/img/back_button_clicked.png',
+  '/public/themes/jqt/img/button_clicked.png',
+  '/public/themes/jqt/img/grayButton.png',
+  '/public/themes/jqt/img/whiteButton.png',
+  '/public/themes/jqt/img/loading.gif'
+  ]
+});
+$(function(){
+  jQT.generateGallery(
+    "photo", 
+    [<% @products.each do |product| %>{src:"/public/images/carnaby/products/<%= product.id %>.jpg"},<% end %>],
+    // {defaultIndex:0}
+    {homeLink:'<a href="/app/Product/set_tabbar" class="home_link">Home</a>'}
+  );
+});
+</script>
+<style type="text/css" media="screen">
+body,.jqt-photo-img,.jqt-photo-slide-list,.jqt-photo-table{padding:0;margin:0;}
+.slide-container,.scroll-container{text-align:center;/*outline:2px solid red;*/}
+.slide-container > img,.scroll-container > img{vertical-align:middle;}
+</style>
+
+
+<% if false %>
+<div class="pageTitle">
+  <h1>Products</h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem regularButton">
+    <a href="<%= Rho::RhoConfig.start_path %>">Home</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :new %>">New</a>
+  </div>
+</div>
+<% end %>
+
+<div id="jqt">
+<div class="content" id="products">
+  <ul class="rounded">
+    <li><a href="/app/Product/set_tabbar">Back</a></li>
+  </ul>  
+  <table>
+  <% counter = @products.size %>
+  <% while counter>0 %>
+  <tr>   
+    <% @products[-counter,3].each do |product| %>
+    <td>
+      <!-- <a class="product" href="<%= url_for :action => :show, :id => product.object %>"> -->
+      <a class="product" href="javascript:jQT.goToSlide('#photo',<%= product.id.to_i - 1 %>)">
+        <img alt="<%= product.name %>" src="/public/images/carnaby/products/thumbnails/<%= product.id %>.jpg" />
+      </a>
+    </td>
+    <% end %>
+  </tr>
+  <% counter-=3 %>
+  <% end %>
+</table>
+</div>
+</div>

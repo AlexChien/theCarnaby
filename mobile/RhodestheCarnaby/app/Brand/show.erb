@@ -1,0 +1,78 @@
+<%# /app/Brand/{id} %>
+
+<% if false %>
+<div class="pageTitle">
+  <h1><%= @brand.name %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :index %>">Back</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a href="<%= url_for :action => :edit, :id => @brand.object %>">Edit</a>
+  </div>
+</div>
+<% end %>
+
+<div class="content">
+  <% if false %>
+  <ul>
+    <li>
+      <div class="itemLabel">ID</div>
+      <div class="itemValue"><%= @brand.id %></div>
+    </li>
+
+    <li>
+      <div class="itemLabel">Name</div>
+      <div class="itemValue"><%= @brand.name %></div>
+    </li>
+
+    <li>
+      <div class="itemLabel">Description</div>
+      <div class="itemValue"><%= @brand.description %></div>
+    </li>
+
+    <li>
+      <div class="itemLabel">Logo URL</div>
+      <div class="itemValue"><%= @brand.logo_url %></div>
+    </li>
+
+    <li>
+      <div class="itemLabel">Logo File Name</div>
+      <div class="itemValue"><%= @brand.logo_file_name %></div>
+    </li>
+
+    <li>
+      <div class="itemLabel">Logo Updated At</div>
+      <div class="itemValue"><%= @brand.logo_updated_at %></div>
+    </li>
+
+    <li>
+      <div class="itemLabel">Updated At</div>
+      <div class="itemValue"><%= @brand.updated_at %></div>
+    </li> 
+  </ul>
+<%= @params %>
+
+  <% end %>
+
+<!-- <img src="<%= @brand.logo_url %>" />  -->
+<img src="/public/images/carnaby/brands/<%= @brand.id %>.jpg" width=100% />
+  <div class='entry' id='collection_entry'>
+  <ul>
+    <li></li>
+    <% @collections.each do |collection| %>
+    <li>
+      <a href="<%= url_for :controller => :Collection, :action => :show, :id => collection.object %>">
+      <!-- <a href="/app/Collection/{<%= collection.object %>}/show"> -->
+        <span class="title"><%= collection.name %></span><span class="disclosure_indicator"></span> 
+      </a>
+    </li>
+    <% end %>
+    <li></li>
+    <li></li>
+    <li></li>        
+  </ul>
+  </div>
+</div>

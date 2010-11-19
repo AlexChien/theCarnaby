@@ -1,0 +1,47 @@
+<div class="pageTitle">
+  <h1>Edit <%= @shop.name %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @shop.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @shop.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @shop.object %>"/>
+    <ul>
+
+      <li>
+        <label for="shop[name]" class="fieldLabel">Name</label>
+        <input type="text" name="shop[name]" value="<%= @shop.name %>" <%= placeholder( "Name" ) %> />
+      </li>
+
+      <li>
+        <label for="shop[description]" class="fieldLabel">Description</label>
+        <input type="text" name="shop[description]" value="<%= @shop.description %>" <%= placeholder( "Description" ) %> />
+      </li>
+
+      <li>
+        <label for="shop[address]" class="fieldLabel">Address</label>
+        <input type="text" name="shop[address]" value="<%= @shop.address %>" <%= placeholder( "Address" ) %> />
+      </li>
+
+      <li>
+        <label for="shop[latitude]" class="fieldLabel">Latitude</label>
+        <input type="text" name="shop[latitude]" value="<%= @shop.latitude %>" <%= placeholder( "Latitude" ) %> />
+      </li>
+
+      <li>
+        <label for="shop[longitude]" class="fieldLabel">Longitude</label>
+        <input type="text" name="shop[longitude]" value="<%= @shop.longitude %>" <%= placeholder( "Longitude" ) %> />
+      </li>
+
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

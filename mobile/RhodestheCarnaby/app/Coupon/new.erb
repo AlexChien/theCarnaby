@@ -1,0 +1,55 @@
+<div class="pageTitle">
+  <h1>New <%= @coupon.title %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a class="cancel" href="<%= url_for :action => :index %>">Cancel</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :create %>">
+    <input type="hidden" name="id" value="<%= @coupon.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="coupon[title]" class="fieldLabel">Title</label>
+            <input type="text" name="coupon[title]" <%=
+            placeholder("Title") %> />
+          </li>
+      
+          <li>
+            <label for="coupon[detail]" class="fieldLabel">Detail</label>
+            <input type="text" name="coupon[detail]" <%=
+            placeholder("Detail") %> />
+          </li>
+      
+          <li>
+            <label for="coupon[discount]" class="fieldLabel">Discount</label>
+            <input type="text" name="coupon[discount]" <%=
+            placeholder("Discount") %> />
+          </li>
+      
+          <li>
+            <label for="coupon[product_id]" class="fieldLabel">Product</label>
+            <input type="text" name="coupon[product_id]" <%=
+            placeholder("Product") %> />
+          </li>
+      
+          <li>
+            <label for="coupon[brand_id]" class="fieldLabel">Brand</label>
+            <input type="text" name="coupon[brand_id]" <%=
+            placeholder("Brand") %> />
+          </li>
+      
+          <li>
+            <label for="coupon[shop_id]" class="fieldLabel">Shop</label>
+            <input type="text" name="coupon[shop_id]" <%=
+            placeholder("Shop") %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Create"/>
+  </form>
+</div>

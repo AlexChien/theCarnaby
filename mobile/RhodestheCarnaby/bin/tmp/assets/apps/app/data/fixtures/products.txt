@@ -1,0 +1,2 @@
+id|name|description|logo_file_name|logo_url|updated_at|logo_updated_at
+3|test|test3|logo.png|logo_url_.png|2010-10-10T00:00:00Z|2010-10-10T00:00:00Z

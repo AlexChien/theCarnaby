@@ -1,0 +1,41 @@
+<div id="pageTitle">
+	<h1><%= @video.title%></h1>
+</div>
+
+<div id="toolbar">
+        <%= link_to "Back", :action => :index %>
+        <%= link_to "Edit", :action => :edit, :id => @video.object %>
+</div>
+
+
+<div id="content">
+
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Title</td>
+        <td class="itemValue"><%= @video.title%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Description</td>
+        <td class="itemValue"><%= @video.description%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Url</td>
+        <td class="itemValue"><%= @video.url%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">ProductId</td>
+        <td class="itemValue"><%= @video.product_id%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">BrandId</td>
+        <td class="itemValue"><%= @video.brand_id%></td>
+      </tr>
+      
+    </table>
+</div>

@@ -1,0 +1,77 @@
+<%# /app/Shop/ %>
+
+<div class="pageTitle">
+  <h1>
+    <% if System.get_locale == "zh-Hans" || System.get_locale == "zh-Hant" %>
+    <%= @shop.name %>
+    <% else %>
+    <%= @shop.name_en %>
+    <% end %>
+  </h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <!-- <a href="<%= url_for :action => :index %>">Back</a> -->
+    <a href="/app/Shop/">Back</a>
+  </div>
+  <% if false %>
+  <div class="rightItem regularButton">
+    <a href="<%= url_for :action => :edit, :id => @shop.object %>">Edit</a>
+  </div>
+  <% end %>
+</div>
+
+<div class="content">
+<%= url_for :action => :index %>  
+  <ul>
+    <li>
+      <div class="itemLabel">Name</div>
+      <div class="itemValue">
+        <% if System.get_locale == "zh-Hans" || System.get_locale == "zh-Hant" %>
+        <%= @shop.name %>
+        <% else %>
+        <%= @shop.name_en %>
+        <% end %>
+      </div>
+    </li>
+
+    <li>
+      <div class="itemLabel">Description</div>
+      <div class="itemValue">
+        <% if System.get_locale == "zh-Hans" || System.get_locale == "zh-Hant" %>
+        <%= @shop.description %>
+        <% else %>
+        <%= @shop.description_en %>
+        <% end %>
+      </div>
+    </li>
+
+    <li>
+      <div class="itemLabel">Address</div>
+      <div class="itemValue">
+        <% if System.get_locale == "zh-Hans" || System.get_locale == "zh-Hant" %>
+        <%= @shop.address %>
+        <% else %>
+        <%= @shop.address_en %>
+        <% end %>
+      </div>
+    </li>
+
+    <li>
+      <div class="itemLabel">Coordinate</div>
+      <div class="itemValue"><%= @shop.coordinate %></div>
+    </li>
+
+  </ul>
+
+  <% if System::get_property('platform') == 'APPLE' or System::get_property('platform') == 'ANDROID' %>
+  <p>
+    <a href="/app/Shop/showmap?id=<%=@shop.object%>"
+      target="_self">
+      [在Google地图显示店铺]
+    </a>
+  </p>
+  <% end %>
+
+</div>

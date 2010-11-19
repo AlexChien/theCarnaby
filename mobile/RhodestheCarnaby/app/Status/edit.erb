@@ -1,0 +1,27 @@
+<div class="pageTitle">
+  <h1>Edit <%= @status.init_data %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @status.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @status.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @status.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="status[init_data]" class="fieldLabel">Init data</label>
+            <input type="text" name="status[init_data]" value="<%= @status.init_data %>" <%= placeholder( "Init data" ) %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

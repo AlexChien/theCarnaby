@@ -1,0 +1,25 @@
+<div class="pageTitle">
+  <h1>New <%= @status.title %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a class="cancel" href="<%= url_for :action => :index %>">Cancel</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :create %>">
+    <input type="hidden" name="id" value="<%= @status.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="status[init_data]" class="fieldLabel">Init data</label>
+            <input type="text" name="status[init_data]" <%=
+            placeholder("Init data") %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Create"/>
+  </form>
+</div>

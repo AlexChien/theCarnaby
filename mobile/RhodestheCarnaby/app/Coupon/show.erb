@@ -1,0 +1,48 @@
+<div class="pageTitle">
+  <h1><%= @coupon.title %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :index %>">Back</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a href="<%= url_for :action => :edit, :id => @coupon.object %>">Edit</a>
+  </div>
+</div>
+
+<div class="content">
+  <ul>
+    
+        <li>
+          <div class="itemLabel">Title</div>
+          <div class="itemValue"><%= @coupon.title %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Detail</div>
+          <div class="itemValue"><%= @coupon.detail %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Discount</div>
+          <div class="itemValue"><%= @coupon.discount %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">ProductId</div>
+          <div class="itemValue"><%= @coupon.product_id %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">BrandId</div>
+          <div class="itemValue"><%= @coupon.brand_id %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">ShopId</div>
+          <div class="itemValue"><%= @coupon.shop_id %></div>
+        </li>
+    
+  </ul>
+</div>

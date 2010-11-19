@@ -1,0 +1,44 @@
+<div id="pageTitle">
+		<h1>Edit <%= @video.title%></h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :show, :id => @video.object %>
+    <%= link_to "Delete", :action => :delete, :id => @video.object %>
+</div>
+
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+    	<input type="hidden" name="id" value="<%= @video.object %>"/>
+            <table>
+        		
+                    <tr>
+            			<td class="itemLabel">Title: </td>
+              			<td class="itemValue"><input type="text" name="video[title]" value="<%= @video.title %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Description: </td>
+              			<td class="itemValue"><input type="text" name="video[description]" value="<%= @video.description %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Url: </td>
+              			<td class="itemValue"><input type="text" name="video[url]" value="<%= @video.url %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Product: </td>
+              			<td class="itemValue"><input type="text" name="video[product_id]" value="<%= @video.product_id %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Brand: </td>
+              			<td class="itemValue"><input type="text" name="video[brand_id]" value="<%= @video.brand_id %>"/></td>
+          		    </tr>
+        		
+            </table>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

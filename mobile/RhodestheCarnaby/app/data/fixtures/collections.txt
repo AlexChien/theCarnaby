@@ -1,0 +1,2 @@
+id|brand_id|name|description|updated_at
+1|3|test|test3|2010-10-10T00:00:00Z

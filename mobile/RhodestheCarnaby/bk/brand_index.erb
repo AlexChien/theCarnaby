@@ -1,0 +1,108 @@
+<%# /app/Brand/ %>
+
+<% if false %>
+<div class="pageTitle">
+  <h1>Brands</h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem regularButton">
+    <a href="<%= Rho::RhoConfig.start_path %>">Home</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :new %>">New</a>
+  </div>
+</div>
+
+<div class="content" id='covered'>
+  <ul>
+    <% @brands.each do |brand| %>
+    
+        <li>
+          <a href="<%= url_for :action => :show, :id => brand.object %>">
+            <span class="title"><%= brand.name %></span><span class="disclosure_indicator"></span>
+          </a>
+        </li>
+    
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+
+<% if true %>
+<style type="text/css" media="screen">
+.brand{positin:absolute;top:75%;}
+</style>
+
+
+<div class="content">
+  <%= System.get_locale %>  
+  <img src="/public/images/carnaby/cover.jpg" width=100% ></img>
+
+  <div id='brand_entry'>
+    <ul>
+    <% @brands.each do |brand| %>  
+    <li>
+      <a href="<%= url_for :action => :show, :id => brand.object %>">
+        <span><%= brand.name %></span>
+        <span></span>
+      </a>
+    </li>
+    <% end %>  
+    </ul>  
+  </div>
+  <a class="button" href="<%= url_for :action => :get_brands %>">get_brands</a>
+</div>
+<% end %>
+
+
+<% if false; '测试代码' %>
+<%= @res %>
+<%= File.join(Rho::RhoFSConnector.get_base_app_path(),'app','data','fixtures','brands'+'.txt') %>
+<%= @remote_brands %>
+<hr/>
+<%= @res %>
+<hr/>
+<%= @parsed.inspect %>
+<hr/>
+<%= @remote_brands.first.inspect %>
+<hr/>
+<%= @brands.find(:first).inspect %>
+<hr/>
+<% @remote_brands.each do |item| %>
+<%= item["brand"] %><br/>
+<%= item["brand"]["name"] %><br/>
+<%= item["brand"]["logo_url"] %>
+<% end %>
+<hr/>
+
+<div class="brand">
+  <%= link_to "YANZI by theCarnaby", {:controller => "brand_controller", :action => "index" } %>
+</div>
+
+<div class="brand">
+  <%= link_to "theCarnaby", "brand_controller" %>
+</div>
+<a type="button" id="btn_seq_del" href="<%=url_for(:action => :delete)%>" target="_self" >Remove</a>
+
+<%#= link_to "异步调用测试", {:controller => "Brand", :action => "async_show" } %>
+<%#= link_to "brand", {:controller => "Brand", :action => "index" } %>
+
+<%#= link_to "异步调用测试", "app/brand_controller/get_brands" %>
+<%#= link_to "brand", "app/brand_controller" %>
+
+<ul>
+  <li><a href="<%= url_for :action => :get_brands %>">异步调用测试</a></li>
+  <li><a href="<%= url_for :action => :index %>">brand</a></li>
+</ul>
+
+<%= link_to "Visit Other Site", "http://www.rhomobile.com/" %>
+<%= link_to "js", WebView.execute_js("test();") %> #call method test from current page
+Suppose that current page has js method:
+<script type="text/javascript" charset="utf-8">
+function test() {
+  alert("Test");
+}  
+</script>
+<% end %>

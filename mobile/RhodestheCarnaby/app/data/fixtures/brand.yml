@@ -1,0 +1,17 @@
+3:
+  id: '3'
+  name: test brand
+  description: MyText
+  logo_file_name: logo.png
+  logo_url: logo_url_.png
+  updated_at: 2010-10-10T00:00:00Z
+  logo_updated_at: 2010-10-10T00:00:00Z
+
+4:
+  id: '4'
+  name: test brand
+  description: MyText
+  logo_file_name: logo.png
+  logo_url: logo_url_.png
+  updated_at: 2010-10-10T00:00:00Z
+  logo_updated_at: 2010-10-10T00:00:00Z

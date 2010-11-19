@@ -1,0 +1,48 @@
+<div class="pageTitle">
+  <h1>Videos</h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem regularButton">
+    <a href="<%= Rho::RhoConfig.start_path %>">Home</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :new %>">New</a>
+  </div>
+</div>
+
+<div class="content">
+  <ul>
+    <% @videos.each do |video| %>
+    
+        <li>
+          <a href="<%= url_for :action => :show, :id => video.object %>">
+            <span class="title"><%= video.title %></span><span class="disclosure_indicator"></span>
+          </a>
+        </li>
+    
+    <% end %>
+  </ul>
+
+<div>
+	<p>Test audio/video</p>
+  <%# WebView.navigate(File.join(Rho::RhoApplication::get_model_path('app','Video'), 'demo.mp4')) %>
+  <%# WebView.navigate(File.join(Rho::RhoApplication::get_base_app_path(), "/public/videos/demo.mp4")) %>
+  <%# WebView.navigate("http://127.0.0.1:3000/demo.mp4") %>
+  <a href="http://videos3.netprofesseur.com/1/videos/130/BRICOLAGE_Changer_un_joints.mp4">Play mp4 online video</a><br/>
+  <!-- <a href="/public/videos/demo.mp4">Local mp4 video</a><br/> -->
+  <a href="file://<%= File.join(Rho::RhoApplication::get_base_app_path(), "/public/videos/demo.mp4") %>">Local mp4 video</a><br/>
+  <a href="/public/videos/demo.mp4">/public/videos/demo.mp4</a><br/>
+  <a href="/videos/demo.mp4">/videos/demo.mp4</a><br/>
+  <!-- <a href="<%= Rho::RhoApplication::get_blob_folder() %>"><%= Rho::RhoApplication::get_blob_folder() %></a><br/> -->
+  <a href="http://news.163.com">163</a><br/>
+  <!-- <video src="<%= File.join(Rho::RhoApplication::get_base_app_path(), "/public/videos/demo.mp4") %>" controls="controls">
+    您的浏览器不支持 audio 标签。
+  </video> -->
+  <audio src="<%= File.join(Rho::RhoApplication::get_base_app_path(), "/public/videos/demo.mp4") %>" controls="controls">
+    您的浏览器不支持 audio 标签。
+  </audio>  
+  
+</div>
+  
+</div>

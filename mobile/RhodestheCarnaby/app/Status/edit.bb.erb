@@ -1,0 +1,24 @@
+<div id="pageTitle">
+		<h1>Edit <%= @status.init_data%></h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :show, :id => @status.object %>
+    <%= link_to "Delete", :action => :delete, :id => @status.object %>
+</div>
+
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+    	<input type="hidden" name="id" value="<%= @status.object %>"/>
+            <table>
+        		
+                    <tr>
+            			<td class="itemLabel">Init data: </td>
+              			<td class="itemValue"><input type="text" name="status[init_data]" value="<%= @status.init_data %>"/></td>
+          		    </tr>
+        		
+            </table>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

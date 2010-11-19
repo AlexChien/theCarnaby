@@ -1,0 +1,37 @@
+<div class="pageTitle">
+  <h1>New <%= @brand.title %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a class="cancel" href="<%= url_for :action => :index %>">Cancel</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :create %>">
+    <input type="hidden" name="id" value="<%= @brand.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="brand[name]" class="fieldLabel">Name</label>
+            <input type="text" name="brand[name]" <%=
+            placeholder("Name") %> />
+          </li>
+      
+          <li>
+            <label for="brand[description]" class="fieldLabel">Description</label>
+            <input type="text" name="brand[description]" <%=
+            placeholder("Description") %> />
+          </li>
+      
+          <li>
+            <label for="brand[logo]" class="fieldLabel">Logo</label>
+            <input type="text" name="brand[logo]" <%=
+            placeholder("Logo") %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Create"/>
+  </form>
+</div>

@@ -1,0 +1,44 @@
+<div id="pageTitle">
+    <h1>New Video</h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :index %>
+</div>
+
+
+<div id="content">
+
+    <form method="POST" action="<%= url_for :action => :create %>">
+	    <input type="hidden" name="id" value="<%= @video.object %>"/>
+        <table>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Title: </td>
+    			  <td class="itemValue"><input type="text" name="video[title]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Description: </td>
+    			  <td class="itemValue"><input type="text" name="video[description]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Url: </td>
+    			  <td class="itemValue"><input type="text" name="video[url]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Product: </td>
+    			  <td class="itemValue"><input type="text" name="video[product_id]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Brand: </td>
+    			  <td class="itemValue"><input type="text" name="video[brand_id]"/></td>
+    		  </tr>
+    		
+        </table>
+        <input type="submit" class="standardButton" value="Create" />
+    </form>
+</div>

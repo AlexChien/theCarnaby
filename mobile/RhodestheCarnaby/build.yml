@@ -1,0 +1,31 @@
+capabilities: 
+- gps
+- pim
+- camera
+- vibrate
+- phone
+- bluetooth
+- calendar
+
+sdk: "/usr/local/lib/ruby/gems/1.8/gems/rhodes-2.1.0"
+sdkversion: 2.1.0
+# sdk: "/usr/local/lib/ruby/gems/1.8/gems/rhodes-2.2.1.beta.1"
+# sdkversion: 2.2.1
+name: theCarnaby
+version: 1.0
+vendor: rhomobile
+build: debug
+bbver: 4.6
+wmsdk: "Windows Mobile 6 Professional SDK (ARMV4I)"
+applog: rholog.txt
+iphone:
+  configuration: Debug
+  sdk: iphonesimulator4.1
+  emulator: 4.1
+  provisionprofile:
+  codesignidentity:
+  entitlements:
+android:
+  apikey: "ABQIAAAAtS1H8Srk9GC_SH7bVtqhhhRi_j0U6kJrkFvY4-OX2XYmEAa76BQkVM4JBY7-_-Jx2afU5CajBntITw"
+  mapping: yes   
+extensions: ["json", "rhoxml", "rholang"]
