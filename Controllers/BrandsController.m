@@ -30,7 +30,45 @@
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
-
+  UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 411.0)];
+  view1.frame = CGRectMake(0.0, 0.0, 320.0, 411.0);
+  view1.alpha = 1.000;
+  view1.autoresizesSubviews = YES;
+  view1.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+  view1.backgroundColor = [UIColor colorWithWhite:1.000 alpha:1.000];
+  view1.clearsContextBeforeDrawing = YES;
+  view1.clipsToBounds = NO;
+  view1.contentMode = UIViewContentModeScaleToFill;
+  view1.contentStretch = CGRectFromString(@"{{0, 0}, {1, 1}}");
+  view1.hidden = NO;
+  view1.multipleTouchEnabled = NO;
+  view1.opaque = YES;
+  view1.tag = 0;
+  view1.userInteractionEnabled = YES;
+  
+  UIImageView *imageview6 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 420.0)];
+  UIImage *coverImage = [UIImage imageNamed:@"Yanzi by the Carnaby Brand.jpg"];
+  imageview6.frame = CGRectMake(0.0, 0.0, 320.0, 420.0);
+  imageview6.alpha = 1.000;
+  imageview6.autoresizesSubviews = YES;
+  imageview6.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
+  imageview6.clearsContextBeforeDrawing = YES;
+  imageview6.clipsToBounds = NO;
+  imageview6.contentMode = UIViewContentModeScaleAspectFit;
+  imageview6.contentStretch = CGRectFromString(@"{{0, 0}, {1, 1}}");
+  imageview6.hidden = NO;
+  imageview6.highlighted = NO;
+  imageview6.image = coverImage;
+  imageview6.multipleTouchEnabled = NO;
+  imageview6.opaque = YES;
+  imageview6.tag = 0;
+  imageview6.userInteractionEnabled = NO;
+  
+  [view1 addSubview:imageview6];
+  self.view  = view1;
+  [imageview6 release];
+  [view1 release];  
+  
 }
 
 

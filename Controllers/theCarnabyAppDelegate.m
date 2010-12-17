@@ -34,7 +34,7 @@
      */
   
   // 导入初始数据
-  // [self importInitData];
+  [self importInitData];
   
   TTNavigator* navigator = [TTNavigator navigator];
   navigator.persistenceMode = TTNavigatorPersistenceModeAll;  
