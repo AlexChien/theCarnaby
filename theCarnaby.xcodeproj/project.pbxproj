@@ -851,7 +851,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080E96DDFE201D6D7F000001 /* Classes */ = {
+		080E96DDFE201D6D7F000001 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				1D3623240D0F684500981E51 /* theCarnabyAppDelegate.h */,
@@ -877,7 +877,7 @@
 				31172D7912BB3338006F448F /* ImagesController.h */,
 				31172D7A12BB3338006F448F /* ImagesController.m */,
 			);
-			path = Classes;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -891,7 +891,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				080E96DDFE201D6D7F000001 /* Classes */,
+				080E96DDFE201D6D7F000001 /* Controllers */,
 				31172E4612BB5584006F448F /* Models */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,

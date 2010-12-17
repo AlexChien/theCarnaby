@@ -12,7 +12,6 @@
 @implementation BrandsController
 
 @synthesize managedObjectContext, addingManagedObjectContext;
-
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,7 +22,6 @@
     }
     return self;
 }
-
 
 //-(id)init{
 //  NSLog(@"%@",self);  
@@ -50,6 +48,8 @@
 //
 //  self.managedObjectContext = [[[UIApplication sharedApplication] delegate] managedObjectContext];
 //  NSLog( @" self.managedObjectContext %@", self.managedObjectContext);
+/*
+  
   NSManagedObjectContext *context = [[[UIApplication sharedApplication] delegate] managedObjectContext]; 
   NSLog( @"context %@", context);
   NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -68,7 +68,7 @@
   NSMutableArray *brands = [[context executeFetchRequest:request error:&error] mutableCopy]; 
   NSLog( @"context %@", brands);
 
-/*
+
   if ([brands lastObject]== nil) {
     // Handle the error.
     NSLog(@"brands: %@", brands);
