@@ -15,11 +15,25 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-      self.title = @"Products";
+      self.title = @"New Products";
       UIImage* image = [UIImage imageNamed:@"new.png"];
-      self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:self.title image:image tag:0] autorelease];  
+      self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:self.title image:image tag:0] autorelease];
+      self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]  initWithTitle:@"Back" 
+                                                                                 style:UIBarButtonItemStyleBordered 
+                                                                                target:self
+                                                                                action:@selector(backHome)] autorelease];
+      
+//      self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"right button" 
+//                                                                                 style:UIBarButtonItemStyleBordered
+//                                                                                target:nil 
+//                                                                                action:nil] autorelease];      
     }
     return self;
+}
+
+-(void)backHome{
+  self.tabBarController.selectedIndex = 0;
+  [self.tabBarController.selectedViewController viewDidAppear:YES];
 }
 
 /*
@@ -53,13 +67,14 @@
 }
 */
 
-
+/*
 -(void)viewWillAppear:(BOOL)animated{
   [super viewWillAppear:animated];  
-  self.navigationItem.backBarButtonItem =
-  [[[UIBarButtonItem alloc] initWithTitle:@"Catalog" style:UIBarButtonItemStyleBordered
-                                    target:@"tt://brands" action:nil] autorelease];  
+//  self.navigationItem.backBarButtonItem =
+//  [[[UIBarButtonItem alloc] initWithTitle:@"Catalog" style:UIBarButtonItemStyleBordered
+//                                    target:@"tt://brands" action:nil] autorelease];  
 }
+ */
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -74,7 +89,7 @@
                       //initWithType:PhotoSourceDelayed
                       // initWithType:PhotoSourceLoadError
                       // initWithType:PhotoSourceDelayed|PhotoSourceSourceLoadError
-                      title:@"Products Photos"
+                      title:@"New Products"
                       photos:[[NSArray alloc] initWithObjects:
                               [[[CIImage alloc]
                                 initWithURL:@"http://farm4.static.flickr.com/3246/2957580101_33c799fc09_o.jpg"

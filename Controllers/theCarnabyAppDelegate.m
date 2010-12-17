@@ -37,7 +37,8 @@
   [self importInitData];
   
   TTNavigator* navigator = [TTNavigator navigator];
-  navigator.persistenceMode = TTNavigatorPersistenceModeAll;  
+  //navigator.persistenceMode = TTNavigatorPersistenceModeAll;
+  navigator.persistenceMode = TTNavigatorPersistenceModeNone;  
   navigator.window = window;
   //navigator.window = [[[UIWindow alloc] initWithFrame:TTScreenBounds()] autorelease];
 
@@ -65,11 +66,16 @@
   if (![navigator restoreViewControllers]) {
     // This is the first launch, so we just start with the tab bar
     [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://tabBar"]];
-    // [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://videos"]];  
+    // [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://videos"]];
   }
   
   return YES;  
   
+}
+
+- (BOOL)application:(UIApplication*)application handleOpenURL:(NSURL*)URL {
+  [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:URL.absoluteString]];
+  return YES;
 }
 
 
