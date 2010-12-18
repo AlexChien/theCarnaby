@@ -32,7 +32,7 @@
   return self;
 }
 
--(id)showPage:(NSNumber *)remote_brand_id{
+-(id)initWithID:(NSNumber *)remote_brand_id{
   [self.view release];
   if (self = [super init]) {
     NSLog( @"brand %@", remote_brand_id); 
