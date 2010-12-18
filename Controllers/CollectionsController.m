@@ -11,6 +11,8 @@
 
 @implementation CollectionsController
 
+@synthesize managedObjectContext, addingManagedObjectContext;
+
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -21,6 +23,10 @@
     return self;
 }
 */
+
+-(id)initWithID:(NSNumber *)remote_collection_id{
+  
+}
 
 /*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -59,7 +65,9 @@
 
 
 - (void)dealloc {
-    [super dealloc];
+  [managedObjectContext release];
+  [addingManagedObjectContext release];    
+  [super dealloc];
 }
 
 

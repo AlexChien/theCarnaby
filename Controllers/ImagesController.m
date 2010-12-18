@@ -17,6 +17,7 @@
 
 
 @synthesize title = _title;
+@synthesize managedObjectContext, addingManagedObjectContext;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // private
@@ -92,6 +93,8 @@
   TT_RELEASE_SAFELY(_photos);
   TT_RELEASE_SAFELY(_tempPhotos);
   TT_RELEASE_SAFELY(_title);
+  [managedObjectContext release];
+  [addingManagedObjectContext release];    
   [super dealloc];
 }
 
@@ -160,6 +163,7 @@
 @implementation CIImage
 
 @synthesize photoSource = _photoSource, size = _size, index = _index, caption = _caption;
+@synthesize managedObjectContext, addingManagedObjectContext;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // NSObject
@@ -187,6 +191,8 @@
   TT_RELEASE_SAFELY(_smallURL);
   TT_RELEASE_SAFELY(_thumbURL);
   TT_RELEASE_SAFELY(_caption);
+  [managedObjectContext release];
+  [addingManagedObjectContext release];    
   [super dealloc];
 }
 

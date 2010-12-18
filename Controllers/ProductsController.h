@@ -10,7 +10,11 @@
 
 
 @interface ProductsController : TTThumbsViewController {
-
+  NSManagedObjectContext *managedObjectContext;
+  NSManagedObjectContext *addingManagedObjectContext;
 }
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSManagedObjectContext *addingManagedObjectContext;
 
 @end

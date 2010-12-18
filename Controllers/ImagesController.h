@@ -31,7 +31,12 @@ typedef enum {
   NSMutableArray* _photos;
   NSArray* _tempPhotos;
   NSTimer* _loadTimer;
+  NSManagedObjectContext *managedObjectContext;
+  NSManagedObjectContext *addingManagedObjectContext;
 }
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSManagedObjectContext *addingManagedObjectContext;
 
 - (id)initWithType:(PhotoSourceType)type title:(NSString*)title
             photos:(NSArray*)photos photos2:(NSArray*)photos2;
@@ -52,7 +57,13 @@ typedef enum {
   CGSize _size;
   NSInteger _index;
   NSString* _caption;
+  
+  NSManagedObjectContext *managedObjectContext;
+  NSManagedObjectContext *addingManagedObjectContext;
 }
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSManagedObjectContext *addingManagedObjectContext;
 
 - (id)initWithURL:(NSString*)URL smallURL:(NSString*)smallURL size:(CGSize)size;
 

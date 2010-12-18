@@ -11,6 +11,8 @@
 
 @implementation ProductsController
 
+@synthesize managedObjectContext, addingManagedObjectContext;
+
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -19,14 +21,15 @@
       UIImage* image = [UIImage imageNamed:@"new.png"];
       self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:self.title image:image tag:0] autorelease];
       self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]  initWithTitle:@"Back" 
-                                                                                 style:UIBarButtonItemStyleBordered 
+                                                                                 style:UIBarButtonItemStyleDone 
                                                                                 target:self
                                                                                 action:@selector(backHome)] autorelease];
       
 //      self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"right button" 
 //                                                                                 style:UIBarButtonItemStyleBordered
-//                                                                                target:nil 
-//                                                                                action:nil] autorelease];      
+//                                                                                target:@"tt://tabBar/1" 
+//                                                                                action:@selector(openURL)] autorelease];
+    
     }
     return self;
 }
@@ -34,6 +37,7 @@
 -(void)backHome{
   self.tabBarController.selectedIndex = 0;
   [self.tabBarController.selectedViewController viewDidAppear:YES];
+//  TTOpenURL([NSString stringWithFormat:@"tt://tabBar/1", self.view]);
 }
 
 /*
@@ -132,13 +136,15 @@
 }
 
 
-/*
+
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations.
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+  NSLog(@"%@", interfaceOrientation);
 }
-*/
+
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -155,6 +161,8 @@
 
 
 - (void)dealloc {
+  [managedObjectContext release];
+  [addingManagedObjectContext release];  
     [super dealloc];
 }
 
