@@ -30,6 +30,15 @@
 }
 */
 
+-(id)initWithIndex:(NSInteger *)tabIndex{
+  if (self = [super init]) {
+    self.selectedIndex = tabIndex;
+    [self.navigationController setNavigationBarHidden:YES animated:NO];    
+    [self.selectedViewController viewDidAppear:YES];
+  }
+  return self;
+}
+
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
