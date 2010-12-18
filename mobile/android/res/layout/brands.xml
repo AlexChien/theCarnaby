@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/brands_bg"
+    >
+<ListView
+	android:id="@+id/col_lt"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:divider="#ccffffff"
+	android:layout_marginTop="260dp" />
+<!--
+<Button 
+	android:id="@+id/col_1"
+	style="@style/theCarnabyCollectionTitleAppearance"
+	android:background="@drawable/translucent_background"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:drawableRight="@drawable/arrow" 
+    android:text="@string/label_collection1"
+    android:layout_marginTop="260dp"/>
+<Button  
+	android:id="@+id/col_2"
+	style="@style/theCarnabyCollectionTitleAppearance"
+	android:background="@drawable/translucent_background"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:drawableRight="@drawable/arrow"
+    android:text="@string/label_collection2"
+    />
+-->
+</LinearLayout>

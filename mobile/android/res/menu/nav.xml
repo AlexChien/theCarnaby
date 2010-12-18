@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/m_brands"
+          android:icon="@drawable/ic_menu_gallery"
+          android:title="@string/title_brands" />
+    <item android:id="@+id/m_newarrivals"
+          android:icon="@drawable/ic_menu_newarrival"
+          android:title="@string/title_newarrivals" />
+    <item android:id="@+id/m_coupons"
+          android:icon="@drawable/ic_menu_coupon"
+          android:title="@string/title_coupons" />
+    <item android:id="@+id/m_shops"
+          android:icon="@drawable/ic_menu_mapmode"
+          android:title="@string/title_shops" />
+    <item android:id="@+id/m_videos"
+          android:icon="@drawable/ic_menu_video"
+          android:title="@string/title_videos" />
+    <item android:id="@+id/m_share"
+          android:icon="@drawable/ic_menu_share"
+          android:title="@string/title_share" />
+    <item android:id="@+id/m_preferences"
+          android:icon="@drawable/ic_menu_preferences"
+          android:title="@string/title_preferences" />
+          
+</menu>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">theCarnaby</string>
+    
+    <string name="title_brands">品牌</string>
+	<string name="title_newarrivals">新品</string>
+	<string name="title_coupons">优惠券</string>
+	<string name="title_shops">店铺</string>
+	<string name="title_videos">视频</string>
+	<string name="title_share">分享</string>
+	<string name="title_preferences">设置</string>
+	
+	<string name="title_gallery">图库</string>
+	<string name="title_collections">系列</string>
+	
+	<!-- brands -->
+	<string name="label_brand1">YANZI by theCanaby</string>
+	<string name="label_brand2">theCanaby</string>
+	<string name="label_collection1">YANZI 2010FW</string>
+	<string name="label_collection2">PUNK</string>
+	<string name="label_collection3">VICTORIA</string>
+	
+	
+	<!-- new arrivals -->
+	
+	
+	<!-- coupons -->
+	
+	
+	<!-- shops -->
+	<string name="title_shopdetail">店铺详情</string>
+	<string name="label_gotomap">查看地图</string>
+	
+	<!-- videos -->
+	
+	
+	<!-- share -->
+	
+	
+	<!-- preferences -->
+</resources>
