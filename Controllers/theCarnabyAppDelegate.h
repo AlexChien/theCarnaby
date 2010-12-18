@@ -14,15 +14,17 @@
   NSManagedObjectModel *managedObjectModel;
   NSManagedObjectContext *managedObjectContext;	    
   NSPersistentStoreCoordinator *persistentStoreCoordinator;
+  TTNavigator *ttNavigator;
   UIWindow *window;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) UIWindow *window;
 
 //The properties provide access to the Core Data stack
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, retain) TTNavigator *ttNavigator;
 
 @end
 
