@@ -9,7 +9,9 @@
 #import "theCarnabyAppDelegate.h"
 #import "TabBarController.h"
 #import "BrandsController.h"
+#import "BrandController.h"
 #import "CollectionsController.h"
+#import "Collection.h"
 #import "ProductsController.h"
 #import "CouponsController.h"
 #import "ShopsController.h"
@@ -20,7 +22,7 @@
 @implementation theCarnabyAppDelegate
 
 @synthesize window;
-
+@synthesize ttNavigator;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -38,9 +40,8 @@
   
   TTNavigator* navigator = [TTNavigator navigator];
   //navigator.persistenceMode = TTNavigatorPersistenceModeAll;
-  navigator.persistenceMode = TTNavigatorPersistenceModeNone;  
-  navigator.window = window;
-  //navigator.window = [[[UIWindow alloc] initWithFrame:TTScreenBounds()] autorelease];
+  navigator.persistenceMode = TTNavigatorPersistenceModeNone;
+  navigator.window = [[[UIWindow alloc] initWithFrame:TTScreenBounds()] autorelease];
 
   TTURLMap* map = navigator.URLMap;
   
@@ -50,17 +51,21 @@
   // The tab bar controller is shared, meaning there will only ever be one created.  Loading
   // This URL will make the existing tab bar controller appear if it was not visible.
   //[map from:@"tt://tabBar/(initWithContext:)" toSharedViewController:[TabBarController class]];
-  [map from:@"tt://tabBar" toSharedViewController:[TabBarController class]];  
+  [map from:@"tt://tabBar" toSharedViewController:[TabBarController class]];
+  [map from:@"tt://tabBar/(initWithIndex:)" toSharedViewController:[TabBarController class]];
   [map from:@"tt://page/(initWithName:)" toSharedViewController:[PagesController class]];  
   
   [map from:@"tt://brands" toViewController:[BrandsController class]];
-  [map from:@"tt://brands/(initWithID:)" toViewController:[BrandsController class]];
+  [map from:@"tt://brand/(initWithID:)" toViewController:[BrandController class]];
+  [map from:@"tt://collections" toViewController:[CollectionsController class]];
+  [map from:@"tt://collection/(initWithID:)" toViewController:[CollectionController class]];
   [map from:@"tt://products/(initWithState:)" toViewController:[ProductsController class]];
   [map from:@"tt://coupons" toViewController:[CouponsController class]];
   [map from:@"tt://shops" toViewController:[ShopsController class]];
   [map from:@"tt://videos" toViewController:[VideosController class]];
-  [map from:@"tt://shares" toViewController:[SharesController class]];  
-  [map from:@"tt://collections/(initWithID:)" toViewController:[CollectionsController class]];  
+  [map from:@"tt://shares" toViewController:[SharesController class]];
+
+  self.ttNavigator = navigator;
   
   // Before opening the tab bar, we see if the controller history was persisted the last time
   if (![navigator restoreViewControllers]) {
