@@ -11,7 +11,7 @@
 #import "BrandsController.h"
 #import "BrandController.h"
 #import "CollectionsController.h"
-#import "Collection.h"
+#import "CollectionController.h"
 #import "ProductsController.h"
 #import "CouponsController.h"
 #import "ShopsController.h"
@@ -37,7 +37,7 @@
   
   // 导入初始数据
   [self importInitData];
-  
+
   TTNavigator* navigator = [TTNavigator navigator];
   //navigator.persistenceMode = TTNavigatorPersistenceModeAll;
   navigator.persistenceMode = TTNavigatorPersistenceModeNone;
@@ -50,19 +50,26 @@
   
   // The tab bar controller is shared, meaning there will only ever be one created.  Loading
   // This URL will make the existing tab bar controller appear if it was not visible.
-  //[map from:@"tt://tabBar/(initWithContext:)" toSharedViewController:[TabBarController class]];
   [map from:@"tt://tabBar" toSharedViewController:[TabBarController class]];
   [map from:@"tt://tabBar/(initWithIndex:)" toSharedViewController:[TabBarController class]];
-  [map from:@"tt://page/(initWithName:)" toSharedViewController:[PagesController class]];  
+ 
+  //[map from:@"tt://page/(initWithName:)" toSharedViewController:[PagesController class]];
   
   [map from:@"tt://brands" toViewController:[BrandsController class]];
-  [map from:@"tt://brand/(initWithID:)" toViewController:[BrandController class]];
+  [map from:@"tt://toBrand/(initWithID:)" toViewController:[BrandsController class]];
+  [map from:@"tt://brand/(initWithID:)" toViewController:[BrandController class]]; 
+  
   [map from:@"tt://collections" toViewController:[CollectionsController class]];
   [map from:@"tt://collection/(initWithID:)" toViewController:[CollectionController class]];
+  
   [map from:@"tt://products/(initWithState:)" toViewController:[ProductsController class]];
+  
   [map from:@"tt://coupons" toViewController:[CouponsController class]];
+  
   [map from:@"tt://shops" toViewController:[ShopsController class]];
+  
   [map from:@"tt://videos" toViewController:[VideosController class]];
+  
   [map from:@"tt://shares" toViewController:[SharesController class]];
 
   self.ttNavigator = navigator;
@@ -71,7 +78,6 @@
   if (![navigator restoreViewControllers]) {
     // This is the first launch, so we just start with the tab bar
     [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://tabBar"]];
-    // [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://videos"]];
   }
   
   return YES;  
