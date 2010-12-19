@@ -224,6 +224,10 @@
 		31D0774912BD926A007EFE11 /* 80s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D076F912BD926A007EFE11 /* 80s.jpg */; };
 		31D0774A12BD926A007EFE11 /* 8s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D076FA12BD926A007EFE11 /* 8s.jpg */; };
 		31D0774B12BD926A007EFE11 /* 9s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D076FB12BD926A007EFE11 /* 9s.jpg */; };
+		31E3639E12BE30D40003A285 /* theCarnaby.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31E3639D12BE30D40003A285 /* theCarnaby.jpg */; };
+		31E3648B12BE374A0003A285 /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E3648A12BE374A0003A285 /* ShopController.m */; };
+		31E364B012BE468A0003A285 /* theCarnaby.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 31E364AF12BE468A0003A285 /* theCarnaby.sqlite */; };
+		31E364CC12BE48530003A285 /* CouponController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E364CB12BE48530003A285 /* CouponController.m */; };
 		31F67D1812BA8527000FDD67 /* libThree20Style.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320CC833B8AF0ACFD35E6224 /* libThree20Style.a */; };
 		31F67D3312BA85E0000FDD67 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F67D3212BA85E0000FDD67 /* TabBarController.m */; };
 		3201088596B4756681693705 /* libThree20UICommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3201088596B4756681693704 /* libThree20UICommon.a */; };
@@ -821,6 +825,12 @@
 		31D076F912BD926A007EFE11 /* 80s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 80s.jpg; sourceTree = "<group>"; };
 		31D076FA12BD926A007EFE11 /* 8s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8s.jpg; sourceTree = "<group>"; };
 		31D076FB12BD926A007EFE11 /* 9s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9s.jpg; sourceTree = "<group>"; };
+		31E3639D12BE30D40003A285 /* theCarnaby.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = theCarnaby.jpg; sourceTree = "<group>"; };
+		31E3648912BE374A0003A285 /* ShopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopController.h; sourceTree = "<group>"; };
+		31E3648A12BE374A0003A285 /* ShopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopController.m; sourceTree = "<group>"; };
+		31E364AF12BE468A0003A285 /* theCarnaby.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = theCarnaby.sqlite; sourceTree = "<group>"; };
+		31E364CA12BE48530003A285 /* CouponController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponController.h; sourceTree = "<group>"; };
+		31E364CB12BE48530003A285 /* CouponController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponController.m; sourceTree = "<group>"; };
 		31F67D3112BA85E0000FDD67 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		31F67D3212BA85E0000FDD67 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		3201088596B4756681693700 /* Three20UICommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UICommon.xcodeproj; path = ../../../../../Volumes/500/Users/stainless/os/apple/iphone/three20/src/Three20UICommon/Three20UICommon.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -867,18 +877,12 @@
 				315345BF12BCBD2C00329E5B /* Shared */,
 				315345A512BCBB9800329E5B /* BrandsController */,
 				3183144C12BCCB7D000BED74 /* CollectionsController */,
-				3144321812BA87A9004D85DE /* ProductsController.h */,
-				3144321912BA87A9004D85DE /* ProductsController.m */,
-				3144321E12BA87C9004D85DE /* CouponsController.h */,
-				3144321F12BA87C9004D85DE /* CouponsController.m */,
-				3144322112BA87D7004D85DE /* ShopsController.h */,
-				3144322212BA87D7004D85DE /* ShopsController.m */,
-				3144322412BA87E5004D85DE /* VideosController.h */,
-				3144322512BA87E5004D85DE /* VideosController.m */,
-				3144322712BA87F3004D85DE /* SharesController.h */,
-				3144322812BA87F3004D85DE /* SharesController.m */,
-				31172D7912BB3338006F448F /* ImagesController.h */,
-				31172D7A12BB3338006F448F /* ImagesController.m */,
+				31E363A212BE33B70003A285 /* ProductsController */,
+				31E363B312BE33DB0003A285 /* CouponsController */,
+				31E363A112BE339A0003A285 /* ShopsController */,
+				31E363B412BE33FE0003A285 /* VideosController */,
+				31E3647C12BE352E0003A285 /* SharesController */,
+				31E3647D12BE354F0003A285 /* ImagesController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -894,6 +898,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				31E364AE12BE468A0003A285 /* db */,
 				080E96DDFE201D6D7F000001 /* Controllers */,
 				31172E4612BB5584006F448F /* Models */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -1028,6 +1033,7 @@
 			isa = PBXGroup;
 			children = (
 				3144324B12BA8BCB004D85DE /* the Carnaby Brand.jpg */,
+				31E3639D12BE30D40003A285 /* theCarnaby.jpg */,
 				3144324C12BA8BCB004D85DE /* Yanzi by the Carnaby Brand.jpg */,
 			);
 			path = brands;
@@ -1284,6 +1290,72 @@
 				31D076FB12BD926A007EFE11 /* 9s.jpg */,
 			);
 			path = thumbnails;
+			sourceTree = "<group>";
+		};
+		31E363A112BE339A0003A285 /* ShopsController */ = {
+			isa = PBXGroup;
+			children = (
+				3144322112BA87D7004D85DE /* ShopsController.h */,
+				3144322212BA87D7004D85DE /* ShopsController.m */,
+				31E3648912BE374A0003A285 /* ShopController.h */,
+				31E3648A12BE374A0003A285 /* ShopController.m */,
+			);
+			name = ShopsController;
+			sourceTree = "<group>";
+		};
+		31E363A212BE33B70003A285 /* ProductsController */ = {
+			isa = PBXGroup;
+			children = (
+				3144321812BA87A9004D85DE /* ProductsController.h */,
+				3144321912BA87A9004D85DE /* ProductsController.m */,
+			);
+			name = ProductsController;
+			sourceTree = "<group>";
+		};
+		31E363B312BE33DB0003A285 /* CouponsController */ = {
+			isa = PBXGroup;
+			children = (
+				3144321E12BA87C9004D85DE /* CouponsController.h */,
+				3144321F12BA87C9004D85DE /* CouponsController.m */,
+				31E364CA12BE48530003A285 /* CouponController.h */,
+				31E364CB12BE48530003A285 /* CouponController.m */,
+			);
+			name = CouponsController;
+			sourceTree = "<group>";
+		};
+		31E363B412BE33FE0003A285 /* VideosController */ = {
+			isa = PBXGroup;
+			children = (
+				3144322412BA87E5004D85DE /* VideosController.h */,
+				3144322512BA87E5004D85DE /* VideosController.m */,
+			);
+			name = VideosController;
+			sourceTree = "<group>";
+		};
+		31E3647C12BE352E0003A285 /* SharesController */ = {
+			isa = PBXGroup;
+			children = (
+				3144322712BA87F3004D85DE /* SharesController.h */,
+				3144322812BA87F3004D85DE /* SharesController.m */,
+			);
+			name = SharesController;
+			sourceTree = "<group>";
+		};
+		31E3647D12BE354F0003A285 /* ImagesController */ = {
+			isa = PBXGroup;
+			children = (
+				31172D7912BB3338006F448F /* ImagesController.h */,
+				31172D7A12BB3338006F448F /* ImagesController.m */,
+			);
+			name = ImagesController;
+			sourceTree = "<group>";
+		};
+		31E364AE12BE468A0003A285 /* db */ = {
+			isa = PBXGroup;
+			children = (
+				31E364AF12BE468A0003A285 /* theCarnaby.sqlite */,
+			);
+			path = db;
 			sourceTree = "<group>";
 		};
 		3201088596B4756681693703 /* Products */ = {
@@ -1951,6 +2023,8 @@
 				31D0774912BD926A007EFE11 /* 80s.jpg in Resources */,
 				31D0774A12BD926A007EFE11 /* 8s.jpg in Resources */,
 				31D0774B12BD926A007EFE11 /* 9s.jpg in Resources */,
+				31E3639E12BE30D40003A285 /* theCarnaby.jpg in Resources */,
+				31E364B012BE468A0003A285 /* theCarnaby.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1984,6 +2058,8 @@
 				31C6407F12BB8EB7002CA745 /* Status.m in Sources */,
 				315345A412BCBB5B00329E5B /* BrandController.m in Sources */,
 				3183145012BCCBA4000BED74 /* CollectionController.m in Sources */,
+				31E3648B12BE374A0003A285 /* ShopController.m in Sources */,
+				31E364CC12BE48530003A285 /* CouponController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
