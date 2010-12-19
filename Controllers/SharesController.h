@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SharesController : UIViewController {
+@interface SharesController : TTViewController {
   NSManagedObjectContext *managedObjectContext;
   NSManagedObjectContext *addingManagedObjectContext;
 }

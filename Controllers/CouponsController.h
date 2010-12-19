@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface CouponsController : UIViewController {
+@interface CouponsController : TTTableViewController {
   NSManagedObjectContext *managedObjectContext;
   NSManagedObjectContext *addingManagedObjectContext;
 }

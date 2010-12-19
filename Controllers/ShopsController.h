@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ShopsController : UIViewController {
+@interface ShopsController : TTTableViewController {
   NSManagedObjectContext *managedObjectContext;
   NSManagedObjectContext *addingManagedObjectContext;
 }

@@ -10,7 +10,7 @@
 #import "Collection.h"
 
 
-@interface CollectionsController : UIViewController {
+@interface CollectionsController : TTViewController {
   NSManagedObjectContext *managedObjectContext;
   NSManagedObjectContext *addingManagedObjectContext;
 }
