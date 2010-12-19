@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface VideosController : UIViewController {
+@interface VideosController : TTViewController {
   NSManagedObjectContext *managedObjectContext;
   NSManagedObjectContext *addingManagedObjectContext;
 }
