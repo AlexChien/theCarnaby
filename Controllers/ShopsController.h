@@ -6,7 +6,7 @@
 //  Copyright 2010 Koocaa Interactive. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Shop.h"
 
 
 @interface ShopsController : TTTableViewController {
