@@ -14,7 +14,9 @@
 #import "CollectionController.h"
 #import "ProductsController.h"
 #import "CouponsController.h"
+#import "CouponController.h"
 #import "ShopsController.h"
+#import "ShopController.h"
 #import "VideosController.h"
 #import "SharesController.h"
 #import "PagesController.h"
@@ -65,8 +67,10 @@
   [map from:@"tt://products/(initWithState:)" toViewController:[ProductsController class]];
   
   [map from:@"tt://coupons" toViewController:[CouponsController class]];
+  [map from:@"tt://coupon/(initWithID:)" toViewController:[CouponController class]];
   
   [map from:@"tt://shops" toViewController:[ShopsController class]];
+  [map from:@"tt://shop/(initWithID:)" toViewController:[ShopController class]];  
   
   [map from:@"tt://videos" toViewController:[VideosController class]];
   
@@ -176,6 +180,7 @@
 	
 	
 	NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"theCarnaby.sqlite"];
+
 	/*
 	 Set up the store.
 	 For the sake of illustration, provide a pre-populated default store.
@@ -239,6 +244,9 @@
     theCarnabyVictoria.name =@"the Carnaby Victoria";
     theCarnabyVictoria.brand = brandCarnaby;
     theCarnabyVictoria.remote_collection_id = [NSNumber numberWithInt:3];
+    //导入店铺
+    //Shop *shop = [NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:context];
+    
     //标记状态
     Status *initStatus = [NSEntityDescription insertNewObjectForEntityForName:@"Status" inManagedObjectContext:context];  
     initStatus.init_data = [NSNumber numberWithInt:1];      
@@ -248,6 +256,7 @@
       NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
   } 
+  [status release];
 }
 
 
