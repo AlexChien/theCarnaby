@@ -44,7 +44,7 @@
 
     // 按钮需要动态生成    
     NSManagedObjectContext *context = [[[UIApplication sharedApplication] delegate] managedObjectContext]; 
-    NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init]autorelease];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Brand" 
                                               inManagedObjectContext:context];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:
@@ -165,6 +165,8 @@
       [imageview6 release];      
       [decoration release];
     }
+
+    [fetchRequest release];
   }
   return self;  
 }

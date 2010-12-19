@@ -80,8 +80,6 @@
                                                                  ascending:NO]; 
   NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
   [request setSortDescriptors:sortDescriptors];
-  [sortDescriptors release];
-  [sortDescriptor release];
   
   NSError *error = nil;
   NSMutableArray *brands = [[context executeFetchRequest:request error:&error] mutableCopy]; 
@@ -149,6 +147,9 @@
     [decoration release];
   }
   [brands release];
+  [request release];
+  [sortDescriptor release];
+  [sortDescriptors release];
 }
 
 -(void)initWithID:(id)sender{
