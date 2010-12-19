@@ -147,15 +147,15 @@
         [self.view addSubview: button];            
         UIButton *button0 = [UIButton buttonWithType:UIButtonTypeCustom];
         button0.frame = CGRectMake(0, 330 - (0*37), 320, 37);
-        [button0 setTitle:[[collections objectAtIndex:0] name] forState:UIControlStateNormal];
+        [button0 setTitle:[[collections objectAtIndex:1] name] forState:UIControlStateNormal];
         button0.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
         [button0 addTarget:@"tt://collection/3" action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
         UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
         button1.frame = CGRectMake(0, 330 - (1*37), 320, 37);
-        [button1 setTitle:[[collections objectAtIndex:1] name] forState:UIControlStateNormal];
+        [button1 setTitle:[[collections objectAtIndex:0] name] forState:UIControlStateNormal];
         button1.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
         [button1 addTarget:@"tt://collection/2" action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
-        UIImage *coverImage = [UIImage imageNamed:@"default.png"];
+        UIImage *coverImage = [UIImage imageNamed:@"theCarnaby.jpg"];
         imageview6.image = coverImage;        
         [self.view addSubview:imageview6];
         [self.view addSubview: button0];        
