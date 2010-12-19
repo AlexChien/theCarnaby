@@ -37,7 +37,7 @@
     NSLog( @"collection_id %d", self.collection_id); 
     
     NSManagedObjectContext *context = [[[UIApplication sharedApplication] delegate] managedObjectContext]; 
-    NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init]autorelease];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Collection" 
                                               inManagedObjectContext:context];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:
@@ -48,6 +48,7 @@
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     Collection *collection = [fetchedObjects lastObject];
     self.colletion_title = collection.name;
+    [fetchRequest release];
   }
   return self;
 }    
