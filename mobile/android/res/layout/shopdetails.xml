@@ -4,26 +4,29 @@
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
   android:orientation="vertical"
+  android:background="@drawable/splash_bg"
 >
 	<ImageView
 		android:id="@+id/sd_image"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:src="@drawable/shop_pic_demo" 
-		android:layout_marginTop="0dp" android:layout_gravity="top"
-	/>
+		android:layout_marginTop="0dp" android:layout_marginBottom="10dp"
+		android:adjustViewBounds="true"/>
+	
 	 <TextView 
-	 	android:id="@+id/sd_name_txt" style="@style/theCarnaby.CollectionCoverTitle"
+	 	android:id="@+id/sd_name_txt" style="@style/theCarnaby.ShopDetailTitleApperance"
 	 	android:layout_width="fill_parent" android:layout_height="wrap_content"
 	 	android:layout_below="@id/sd_image" />
 	 <TextView 
-	 	android:id="@+id/sd_address_txt"
+	 	android:id="@+id/sd_address_txt" style="@style/theCarnaby.ShopDetailTextApperance"
 	 	android:layout_width="fill_parent" android:layout_height="wrap_content" 
-	 	android:layout_below="@id/sd_name_txt" />
+	 	android:layout_below="@id/sd_name_txt" 
+	 	android:singleLine="false" />
 	 <Button
 	 	android:id="@+id/goto_map_btn" 
 	 	android:text="@string/label_gotomap" 
 	 	android:layout_width="fill_parent" 
 	 	android:layout_height="wrap_content"
-	 	android:layout_alignParentBottom="true" 
-	 />
+	 	android:layout_alignParentBottom="true" />
+	 
 </RelativeLayout>

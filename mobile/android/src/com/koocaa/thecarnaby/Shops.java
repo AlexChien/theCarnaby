@@ -4,7 +4,9 @@
 package com.koocaa.thecarnaby;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -63,7 +65,7 @@ public class Shops extends Nav {
         setupTitle(R.string.title_shops);
         
         ExpandableListView shops_elv = (ExpandableListView) findViewById(R.id.shops_lt);
-        esa = new ExpandableShopsAdapter();
+        esa = new ExpandableShopsAdapter(this);
         shops_elv.setAdapter(esa);
         
         shops_elv.setOnChildClickListener(new OnChildClickListener(){
@@ -96,10 +98,15 @@ public class Shops extends Nav {
     public class ExpandableShopsAdapter extends BaseExpandableListAdapter {
     	// Sample data set.  children[i] contains the children (String[]) for groups[i].
     	private String[] groups = {"北京","上海","辽宁","福建","浙江","江苏","黑龙江","山东","重庆"};
+    	private String[] groups_en = {"Beijing", "Shanghai", "Liaoning", "Fujian", "Zhejiang", "Jiangsu", "Heilongjiang", "Shandong", "Chonqin"};
+    	
+    	private Context mContext;
     	
         private ArrayList <ArrayList <Shop>> children = new ArrayList <ArrayList <Shop>>();
         
-        public ExpandableShopsAdapter(){
+        public ExpandableShopsAdapter(Context context){
+        	this.mContext = context;
+        	
         	int l = groups.length;
         	int m = shops.length;
         	for (int i = 0; i < l; i++) {
@@ -148,13 +155,17 @@ public class Shops extends Nav {
         	}
 
             Shop child = (Shop) getChild(groupPosition, childPosition);
-            ((TextView) convertView).setText(child.name);
+            ((TextView) convertView).setText(FieldHelper.getLocalFieldValue(mContext, Shop.class, "name", child));
             ((TextView) convertView).setTag(child.id);
             return convertView;
         }
 
         public Object getGroup(int groupPosition) {
-            return groups[groupPosition];
+        	if (mContext.getResources().getConfiguration().locale.getLanguage().equals(Locale.CHINESE.toString())) {
+                return groups[groupPosition];
+        	} else {
+        		return groups_en[groupPosition];
+        	}
         }
 
         public int getGroupCount() {

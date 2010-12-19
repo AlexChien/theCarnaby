@@ -15,7 +15,7 @@ public class SplashScreen extends Activity {
         new Handler().postDelayed(new Runnable(){ 
             public void run() { 
                  /* Create an Intent that will start the Main Brands Activity. */ 
-            	SplashScreen.this.startActivity(new Intent(SplashScreen.this, Shops.class)); 
+            	SplashScreen.this.startActivity(new Intent(SplashScreen.this, Brands.class)); 
                 SplashScreen.this.finish(); 
             } 
        }, 2900); //2900 for release

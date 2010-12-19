@@ -75,48 +75,48 @@
 	</style>
 	
 	<style name="theCarnaby.ShopListTextApperance" parent="@android:style/TextAppearance">
+    	<item name="android:textColor">#FF000000</item>
     	<item name="android:singleLine">true</item>
         <item name="android:shadowRadius">2.75</item>
-    	<item name="android:textColor">#FFffffff</item>
         <item name="android:textStyle">bold</item>
 	</style>
 	
-	<style name="theCarnaby.ShopDetailTitleTextApperance" parent="@android:style/TextAppearance">
+	<style name="theCarnaby.ShopDetailTitleApperance" parent="@android:style/TextAppearance">
     	<item name="android:singleLine">true</item>
         <item name="android:shadowRadius">2.75</item>
-    	<item name="android:textColor">#FFffffff</item>
+    	<item name="android:textColor">#FF000000</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:paddingLeft">5dp</item>
-        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
 	</style>
 	
 	<style name="theCarnaby.ShopDetailTextApperance" parent="@android:style/TextAppearance">
     	<item name="android:singleLine">true</item>
         <item name="android:shadowRadius">2.75</item>
-    	<item name="android:textColor">#FFffffff</item>
-        <item name="android:paddingLeft">5dp</item>
-        <item name="android:paddingRight">5dp</item>
+    	<item name="android:textColor">#FF333333</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
 	</style>
     
     <style name="theCarnabyTextAppearance" parent="@android:style/TextAppearance">
-    	<item name="android:textColor">#FFeeeeee</item>
+    	<item name="android:textColor">#FF000000</item>
   	</style>
     
     <style name="theCarnabyTitleAppearance" parent="@android:style/TextAppearance">
     	<item name="android:singleLine">true</item>
+    	<item name="android:textColor">#FFFFFFFF</item>
     	<item name="android:shadowColor">#BB000000</item>
         <item name="android:shadowRadius">2.75</item>
-    	<item name="android:textColor">#FFffffff</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
   	</style>
   	
   	<style name="theCarnabyCollectionTitleAppearance" parent="@android:style/TextAppearance">
     	<item name="android:singleLine">true</item>
+    	<item name="android:textColor">#FFFFFFFF</item>
     	<item name="android:shadowColor">#BB333333</item>
         <item name="android:shadowRadius">2.75</item>
-    	<item name="android:textColor">#FFffffff</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:paddingTop">10dp</item>

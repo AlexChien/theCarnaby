@@ -11,3 +11,5 @@ db/*.sqlite3
 db/schema.rb
 config/database.yml
 public/images/assets
+mobile/android/bin/com/koocaa/thecarnaby/*.class
+mobile/android/bin/com/koocaa/thecarnaby/model/*.class

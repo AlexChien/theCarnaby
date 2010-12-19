@@ -8,6 +8,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.koocaa.thecarnaby.model.Coupon;
 import com.koocaa.thecarnaby.model.Shop;
 
 public class ShopDetail extends Nav {
@@ -35,8 +36,8 @@ public class ShopDetail extends Nav {
         TextView shopaddr_txt = (TextView) findViewById(R.id.sd_address_txt);
         Button gotomap_btn = (Button) findViewById(R.id.goto_map_btn);
         
-        shopname_txt.setText(theShop.name);
-        shopaddr_txt.setText(theShop.address);
+        shopname_txt.setText(FieldHelper.getLocalFieldValue(getApplicationContext(), Shop.class, "name", theShop));
+        shopaddr_txt.setText(FieldHelper.getLocalFieldValue(getApplicationContext(), Shop.class, "address", theShop));
         
         gotomap_btn.setOnClickListener(new View.OnClickListener(){
 

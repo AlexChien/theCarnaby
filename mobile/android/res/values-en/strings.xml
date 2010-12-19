@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">theCarnaby</string>
+    
+    <string name="title_brands">Brands</string>
+	<string name="title_newarrivals">New Arrivals</string>
+	<string name="title_coupons">Coupons</string>
+	<string name="title_shops">Shops</string>
+	<string name="title_videos">Video</string>
+	<string name="title_share">Share</string>
+	<string name="title_preferences">Preferences</string>
+	
+	<string name="title_gallery">Gallery</string>
+	<string name="title_collections">Collections</string>
+	
+	<!-- brands -->
+	<string name="label_brand1">YANZI by theCanaby</string>
+	<string name="label_brand2">theCanaby</string>
+	<string name="label_collection1">YANZI 2010FW</string>
+	<string name="label_collection2">PUNK</string>
+	<string name="label_collection3">VICTORIA</string>
+	
+	
+	<!-- new arrivals -->
+	
+	
+	<!-- coupons -->
+	<string name="lable_viewshop">View shop details</string>
+	<string name="lable_sharecoupon">Share with friends</string>
+	
+	<!-- shops -->
+	<string name="title_shopdetail">Shop Details</string>
+	<string name="label_gotomap">View Map</string>
+	
+	<!-- videos -->
+	
+	
+	<!-- share -->
+	<string name="label_share_subject_app">Share: Good APP</string>
+	<string name="label_share_content_app">I found this good APP - theCarnaby, go and download it now.</string>
+	
+	<string name="label_share_subject_coupon">Share: theCarnaby Coupons</string>
+	
+	<!-- preferences -->
+</resources>

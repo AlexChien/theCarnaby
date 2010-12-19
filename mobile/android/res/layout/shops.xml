@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/splash_bg"
     >
 <ExpandableListView
 	android:id="@+id/shops_lt"
@@ -10,5 +11,6 @@
 	android:layout_height="fill_parent"
 	android:divider="@drawable/list_divider" 
 	android:childDivider="@drawable/list_divider_child"
-	android:cacheColorHint="#00000000" android:fastScrollEnabled="true" />
+	android:cacheColorHint="#00000000" android:fastScrollEnabled="true" 
+	/>
 </LinearLayout>

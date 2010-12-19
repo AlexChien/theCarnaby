@@ -47,15 +47,20 @@ public class Nav extends Activity {
 	        return true;
 
 		case R.id.m_share:
-			startActivity(new Intent(this, Share.class));
+			Intent intent = new Intent(Intent.ACTION_SEND);
+			intent.setType("text/plain");
+			intent.putExtra(Intent.EXTRA_SUBJECT, R.string.label_share_subject_app);
+			intent.putExtra(Intent.EXTRA_TEXT, R.string.label_share_content_app);
+			startActivity(Intent.createChooser(intent, getResources().getString(R.string.title_share)));
 	        return true;
 
-		case R.id.m_preferences:
-			startActivity(new Intent(this, Preferences.class));
-	        return true;
+//		case R.id.m_preferences:
+//			startActivity(new Intent(this, Preferences.class));
+//	        return true;
 
 		default:
 			return super.onOptionsItemSelected(item);
 		}
+		
 	}
 }

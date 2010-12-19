@@ -25,7 +25,8 @@
 	
 	
 	<!-- coupons -->
-	
+	<string name="lable_viewshop">查看店铺详情</string>
+	<string name="lable_sharecoupon">分享给好友</string>
 	
 	<!-- shops -->
 	<string name="title_shopdetail">店铺详情</string>
@@ -35,7 +36,10 @@
 	
 	
 	<!-- share -->
+	<string name="label_share_subject_app">分享精彩APP</string>
+	<string name="label_share_content_app">跟您分享下我找到的这个很棒的APP－theCarnaby,去下载看看吧。</string>
 	
+	<string name="label_share_subject_coupon">分享theCarnaby优惠券</string>
 	
 	<!-- preferences -->
 </resources>

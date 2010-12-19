@@ -18,8 +18,9 @@
     <item android:id="@+id/m_share"
           android:icon="@drawable/ic_menu_share"
           android:title="@string/title_share" />
+          <!--
     <item android:id="@+id/m_preferences"
           android:icon="@drawable/ic_menu_preferences"
           android:title="@string/title_preferences" />
-          
+          -->
 </menu>
