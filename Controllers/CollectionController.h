@@ -10,12 +10,16 @@
 #import "Product.h"
 
 
-@interface CollectionController : UIViewController {
+@interface CollectionController : TTThumbsViewController {
   NSManagedObjectContext *managedObjectContext;
   NSManagedObjectContext *addingManagedObjectContext;
+  NSNumber *collection_id;
+  NSString  *colletion_title;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSManagedObjectContext *addingManagedObjectContext;
+@property (nonatomic, retain) NSNumber *collection_id;
+@property (nonatomic, retain) NSString  *colletion_title;
 
 @end
