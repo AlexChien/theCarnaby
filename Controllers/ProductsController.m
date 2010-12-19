@@ -88,6 +88,30 @@
   //[_delegate thumbsViewController:self.columnCount = 3];  
   //self.columnCount = 3;
   //self.thumbSize=100;
+  
+  NSMutableArray  *photos_array = [[[NSMutableArray alloc] init] autorelease];
+  for (int i = 1; i<81; ++i) {
+    //NSLog(@"%d",i);
+    NSString  *url = [NSString stringWithFormat:@"bundle://%d.jpg", i];
+    NSString *tUrl = [NSString stringWithFormat:@"bundle://%ds.jpg", i];
+    //NSLog(@"%@",tUrl);    
+    [photos_array addObject:[[[CIImage alloc]  initWithURL:url smallURL:tUrl 
+                                                      size:CGSizeMake(75, 75)] autorelease]];
+    }
+  
+//  [photos_array addObject:nil];
+  NSArray *array = [NSArray arrayWithArray:photos_array];
+//  NSLog(@"array %@", array);  
+     self.photoSource = [[PhotoSource alloc]
+                         initWithType:PhotoSourceNormal
+                         //initWithType:PhotoSourceDelayed
+                         // initWithType:PhotoSourceLoadError
+                         // initWithType:PhotoSourceDelayed|PhotoSourceSourceLoadError
+                         title:@"New Products"
+                         photos:array photos2:nil];
+
+  
+/*
   self.photoSource = [[PhotoSource alloc]
                       initWithType:PhotoSourceNormal
                       //initWithType:PhotoSourceDelayed
@@ -96,31 +120,31 @@
                       title:@"New Products"
                       photos:[[NSArray alloc] initWithObjects:
                               [[[CIImage alloc]
-                                initWithURL:@"http://farm4.static.flickr.com/3246/2957580101_33c799fc09_o.jpg"
-                                smallURL:@"http://farm4.static.flickr.com/3246/2957580101_d63ef56b15_t.jpg"
-                                size:CGSizeMake(960, 1280)] autorelease],
+                                initWithURL:@"bundle://1.jpg"
+                                smallURL:@"bundle://1s.jpg"
+                                size:CGSizeMake(75, 75)] autorelease],
                               [[[CIImage alloc]
-                                initWithURL:@"http://farm4.static.flickr.com/3444/3223645618_13fe36887a_o.jpg"
-                                smallURL:@"http://farm4.static.flickr.com/3444/3223645618_f5e2fa7fea_t.jpg"
-                                size:CGSizeMake(320, 480)
+                                initWithURL:@"bundle://2.jpg"
+                                smallURL:@"bundle://2s.jpg"
+                                size:CGSizeMake(75, 75)
                                 caption:@"These are the wood tiles that we had installed after the accident."] autorelease],
                               [[[CIImage alloc]
-                                initWithURL:@"http://farm2.static.flickr.com/1124/3164979509_bcfdd72123.jpg?v=0"
-                                smallURL:@"http://farm2.static.flickr.com/1124/3164979509_bcfdd72123_t.jpg"
-                                size:CGSizeMake(320, 480)
+                                initWithURL:@"bundle://3.jpg"
+                                smallURL:@"bundle://3s.jpg"
+                                size:CGSizeMake(75, 75)
                                 caption:@"A hike."] autorelease],
                               [[[CIImage alloc]
-                                initWithURL:@"http://farm4.static.flickr.com/3106/3203111597_d849ef615b.jpg?v=0"
-                                smallURL:@"http://farm4.static.flickr.com/3106/3203111597_d849ef615b_t.jpg"
-                                size:CGSizeMake(320, 480)] autorelease],
+                                initWithURL:@"bundle://4.jpg"
+                                smallURL:@"bundle://4s.jpg"
+                                size:CGSizeMake(75, 75)] autorelease],
                               [[[CIImage alloc]
-                                initWithURL:@"http://farm4.static.flickr.com/3099/3164979221_6c0e583f7d.jpg?v=0"
-                                smallURL:@"http://farm4.static.flickr.com/3099/3164979221_6c0e583f7d_t.jpg"
-                                size:CGSizeMake(320, 480)] autorelease],
+                                initWithURL:@"bundle://5.jpg"
+                                smallURL:@"bundle://5s.jpg"
+                                size:CGSizeMake(75, 75)] autorelease],
                               [[[CIImage alloc]
-                                initWithURL:@"http://farm4.static.flickr.com/3081/3164978791_3c292029f2.jpg?v=0"
-                                smallURL:@"http://farm4.static.flickr.com/3081/3164978791_3c292029f2_t.jpg"
-                                size:CGSizeMake(320, 480)] autorelease],
+                                initWithURL:@"bundle://6.jpg"
+                                smallURL:@"bundle://6s.jpg"
+                                size:CGSizeMake(75, 75)] autorelease],
                               nil
                               ]
                       
@@ -131,10 +155,13 @@
 //                                 smallURL:@"http://farm4.static.flickr.com/3280/2949707060_8139284ba5_t.jpg"
 //                                 size:CGSizeMake(800, 533)] autorelease],
 //                               nil]
-                      ];  
-  
+                      ]; 
+*/   
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+  return 150;
+}
 
 
 // Override to allow orientations other than the default portrait orientation.
