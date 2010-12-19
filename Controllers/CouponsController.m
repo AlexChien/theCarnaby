@@ -20,6 +20,19 @@
       self.title = @"Coupons";
       UIImage* image = [UIImage imageNamed:@"coupon.png"];
       self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:self.title image:image tag:0] autorelease];
+      self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
+                         @"Food",
+                         [TTTableTextItem itemWithText:@"Porridge" URL:@"tt://shop/1"],
+                         [TTTableTextItem itemWithText:@"Bacon & Eggs" URL:@"tt://shop/2"],
+                         [TTTableTextItem itemWithText:@"French Toast" URL:@"tt://shop/3"],
+                         @"Drinks",
+                         [TTTableTextItem itemWithText:@"Coffee" URL:@"tt://shop/4"],
+                         [TTTableTextItem itemWithText:@"Orange Juice" URL:@"tt://shop/5"],
+                         @"Other",
+                         [TTTableTextItem itemWithText:@"Just Desserts" URL:@"tt://shop/6"],
+                         [TTTableTextItem itemWithText:@"Complaints" URL:@"tt://shop/7"],
+                         nil];      
+      
     }
     return self;
 }
@@ -33,12 +46,12 @@
 }
 */
  
-
+/*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
 
 }
-
+*/
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
