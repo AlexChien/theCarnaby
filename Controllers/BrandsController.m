@@ -7,6 +7,7 @@
 //
 
 #import "BrandsController.h"
+#import "BrandController.h"
 
 
 @implementation BrandsController
@@ -32,29 +33,17 @@
 - (void)loadView {
   UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 411.0)];
   view1.frame = CGRectMake(0.0, 0.0, 320.0, 411.0);
-  view1.alpha = 1.000;
-  view1.autoresizesSubviews = YES;
-  view1.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-  view1.backgroundColor = [UIColor colorWithWhite:1.000 alpha:1.000];
-  view1.clearsContextBeforeDrawing = YES;
-  view1.clipsToBounds = NO;
-  view1.contentMode = UIViewContentModeScaleToFill;
-  view1.contentStretch = CGRectFromString(@"{{0, 0}, {1, 1}}");
-  view1.hidden = NO;
-  view1.multipleTouchEnabled = NO;
-  view1.opaque = YES;
-  view1.tag = 0;
   view1.userInteractionEnabled = YES;
   
   UIImageView *imageview6 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 420.0)];
-  UIImage *coverImage = [UIImage imageNamed:@"Yanzi by the Carnaby Brand.jpg"];
+  UIImage *coverImage = [UIImage imageNamed:@"14.jpg"];
   imageview6.frame = CGRectMake(0.0, 0.0, 320.0, 420.0);
   imageview6.alpha = 1.000;
   imageview6.autoresizesSubviews = YES;
   imageview6.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
   imageview6.clearsContextBeforeDrawing = YES;
   imageview6.clipsToBounds = NO;
-  imageview6.contentMode = UIViewContentModeScaleAspectFit;
+  imageview6.contentMode = UIViewContentModeScaleAspectFill;
   imageview6.contentStretch = CGRectFromString(@"{{0, 0}, {1, 1}}");
   imageview6.hidden = NO;
   imageview6.highlighted = NO;
@@ -67,8 +56,7 @@
   [view1 addSubview:imageview6];
   self.view  = view1;
   [imageview6 release];
-  [view1 release];  
-  
+  [view1 release];
 }
 
 
@@ -79,17 +67,10 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-//
-//  NSLog(@"sharedApplication %@",[[UIApplication sharedApplication] delegate]);
-//  NSLog( @"managedObjectContext %@", [[[UIApplication sharedApplication] delegate] managedObjectContext] );
-//  
-//
-//  self.managedObjectContext = [[[UIApplication sharedApplication] delegate] managedObjectContext];
-//  NSLog( @" self.managedObjectContext %@", self.managedObjectContext);
-/*
-  
+  [super viewDidLoad];
+  // 按钮需要动态生成  
   NSManagedObjectContext *context = [[[UIApplication sharedApplication] delegate] managedObjectContext]; 
-  NSLog( @"context %@", context);
+  //NSLog( @"context %@", context);
   NSFetchRequest *request = [[NSFetchRequest alloc] init];
   NSEntityDescription *entity = [NSEntityDescription entityForName:@"Brand" 
                                             inManagedObjectContext:context];
@@ -104,36 +85,55 @@
   
   NSError *error = nil;
   NSMutableArray *brands = [[context executeFetchRequest:request error:&error] mutableCopy]; 
-  NSLog( @"context %@", brands);
-
-
+  //NSLog( @"brands %@", brands);
+  
   if ([brands lastObject]== nil) {
     // Handle the error.
     NSLog(@"brands: %@", brands);
   }else {
-    // 按钮需要动态生成
-    Brand *element;
-    int j = 0;
-    for (element in brands)
-    {
-      UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-      //setframe (where on screen)
-      button.frame = CGRectMake(0, 374 - (j*37), 320, 37);
-      [button setTitle:element.name forState:UIControlStateNormal];
-      button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-      
-      //[button addTarget:self action:@selector(listBrands:) forControlEvents:UIControlEventTouchUpInside];
-      [button addTarget:self action:@selector(brandShowView:) forControlEvents:UIControlEventTouchUpInside];
-      
-      int remote_brand_id = [element.remote_brand_id integerValue];
-      [button setTag:remote_brand_id];
-      [self.view addSubview: button];
-      j++;
-    }
+//    Brand *element;
+//    int j = 0;
+//    for (element in brands){
+//      UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//      //setframe (where on screen)
+//      button.frame = CGRectMake(0, 374 - (j*37), 320, 37);
+//      [button setTitle:element.name forState:UIControlStateNormal];
+//      button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+//      NSString *brandUrl = [NSString stringWithFormat:@"tt://brand/%@", element.remote_brand_id];
+//      NSLog(brandUrl);
+//      // NSLog(@"%@",[NSString stringWithFormat:@"tt://brand/%d", [element.remote_brand_id intValue]]);
+//      //[button addTarget:brandUrl
+//      //           action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
+//      //[button addTarget:@"tt://brand/1" action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
+//      //[button addTarget:self action:@selector(listBrands:) forControlEvents:UIControlEventTouchUpInside];
+//      int remote_brand_id = [element.remote_brand_id integerValue];
+//      [button setTag:remote_brand_id];
+//      [self.view addSubview: button];
+//      j++;
+//    }
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 374 - (-1*37), 320, 37);
+    button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+    [self.view addSubview: button];    
+    
+    UIButton *button0 = [UIButton buttonWithType:UIButtonTypeCustom];
+    button0.frame = CGRectMake(0, 374 - (0*37), 320, 37);
+    [button0 setTitle:[[brands objectAtIndex:0] name] forState:UIControlStateNormal];
+    button0.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+    [button0 addTarget:@"tt://brand/2" action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview: button0];
+    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    button1.frame = CGRectMake(0, 374 - (1*37), 320, 37);
+    [button1 setTitle:[[brands objectAtIndex:1] name] forState:UIControlStateNormal];
+    button1.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+    [button1 addTarget:@"tt://brand/1" action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview: button1];
+    
     UIImageView *decoration = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 209.0, 320.0, 128.0)];
     UIImage *decorationImage = [UIImage imageNamed:@"li_background.png"];
-    //decoration.frame = CGRectMake(0, 172, 320, 128);
-    decoration.frame = CGRectMake(0, 374-(j-1)*37-128, 320, 128);  
+//    decoration.frame = CGRectMake(0, 374-(j-1)*37-128, 320, 128);
+    decoration.frame = CGRectMake(0, 374-(2-1)*37-128, 320, 128);      
     decoration.alpha = 1.000;
     decoration.autoresizesSubviews = YES;
     decoration.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
@@ -141,19 +141,24 @@
     decoration.clipsToBounds = NO;
     decoration.contentMode = UIViewContentModeScaleToFill;
     decoration.contentStretch = CGRectFromString(@"{{0, 0}, {1, 1}}");
-    decoration.hidden = NO;
-    decoration.highlighted = NO;
     decoration.image = decorationImage;
     decoration.multipleTouchEnabled = NO;
     decoration.opaque = YES;
-    decoration.tag = 0;
     decoration.userInteractionEnabled = NO;  
     [self.view addSubview: decoration];
+    [decoration release];
   }
   [brands release];
-  [request release];
-*/
-  [super viewDidLoad];
+}
+
+-(void)initWithID:(id)sender{
+  NSLog("%@",sender);
+  static int counter = 0;
+  if (counter++ && counter%2==0) {
+    self.view.backgroundColor= [UIColor blueColor]; 
+  }else {
+    self.view.backgroundColor=[UIColor redColor];
+  }
 }
 
 

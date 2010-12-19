@@ -10,7 +10,7 @@
 #import "Brand.h"
 #import "Collection.h"
 
-@interface BrandController : UIViewController {
+@interface BrandController : TTViewController {
   NSManagedObjectContext *managedObjectContext;
   NSManagedObjectContext *addingManagedObjectContext;
   TTNavigator *ttNavigator;

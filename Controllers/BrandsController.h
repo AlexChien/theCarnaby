@@ -9,7 +9,7 @@
 #import "Brand.h"
 
 
-@interface BrandsController : UIViewController {
+@interface BrandsController : TTViewController {
   NSManagedObjectContext *managedObjectContext;
   NSManagedObjectContext *addingManagedObjectContext;
 }
