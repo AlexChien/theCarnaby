@@ -20,21 +20,25 @@
       self.title = @"Coupons";
       UIImage* image = [UIImage imageNamed:@"coupon.png"];
       self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:self.title image:image tag:0] autorelease];
-      self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
-                         @"Food",
-                         [TTTableTextItem itemWithText:@"Porridge" URL:@"tt://shop/1"],
-                         [TTTableTextItem itemWithText:@"Bacon & Eggs" URL:@"tt://shop/2"],
-                         [TTTableTextItem itemWithText:@"French Toast" URL:@"tt://shop/3"],
-                         @"Drinks",
-                         [TTTableTextItem itemWithText:@"Coffee" URL:@"tt://shop/4"],
-                         [TTTableTextItem itemWithText:@"Orange Juice" URL:@"tt://shop/5"],
-                         @"Other",
-                         [TTTableTextItem itemWithText:@"Just Desserts" URL:@"tt://shop/6"],
-                         [TTTableTextItem itemWithText:@"Complaints" URL:@"tt://shop/7"],
-                         nil];      
+      self.tableView.rowHeight = 84;
+//      self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
+//                         @"限时优惠",
+//                         [TTTableTextItem itemWithText:@"全场7-8折 9月1日～9月30日" URL:@"tt://coupon/1"],
+//                         nil];      
+      self.dataSource = [TTListDataSource dataSourceWithObjects:
+                         [TTTableImageItem itemWithText:@"" 
+                                               imageURL:@"bundle://coupon_demo.jpg" URL:@"tt://coupon/1"],
+                         //[self itemForURL:@"tt://coupon/1"],
+                         nil];
       
     }
     return self;
+}
+
+- (TTTableImageItem*)itemForURL:(NSString*)URL {
+  return [TTTableSubtitleItem itemWithText:@"Table Row" subtitle:nil imageURL:URL
+                              defaultImage:TTIMAGE(@"bundle://coupon_demo.jpg")
+                                       URL:nil accessoryURL:nil];
 }
 
 /*
@@ -45,21 +49,19 @@
   return self;
 }
 */
- 
+
 /*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
-
 }
 */
-
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-  self.navigationItem.backBarButtonItem =
-  [[[UIBarButtonItem alloc] initWithTitle:@"Catalog" style:UIBarButtonItemStyleBordered
-                                   target:@"tt://brands" action:nil] autorelease];      
+//  self.navigationItem.backBarButtonItem =
+//  [[[UIBarButtonItem alloc] initWithTitle:@"Catalog" style:UIBarButtonItemStyleBordered
+//                                   target:@"tt://brands" action:nil] autorelease];      
 }
 
 
