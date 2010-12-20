@@ -7,17 +7,20 @@
 //
 
 #import "Shop.h"
+#import <MapKit/MapKit.h>
 
-
-@interface ShopController : TTViewController {
+@interface ShopController : TTViewController <MKAnnotation> {
   NSManagedObjectContext *managedObjectContext;
   NSManagedObjectContext *addingManagedObjectContext;
   NSNumber *shop_id;
   NSString  *shop_name;
+  Shop *_shop;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSManagedObjectContext *addingManagedObjectContext;
 @property (nonatomic, retain) NSNumber *shop_id;
 @property (nonatomic, retain) NSString  *shop_name;
+@property (nonatomic, retain) Shop  *_shop;
+
 @end

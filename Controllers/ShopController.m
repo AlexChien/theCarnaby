@@ -11,7 +11,7 @@
 
 @implementation ShopController
 
-@synthesize managedObjectContext, addingManagedObjectContext, shop_id, shop_name;
+@synthesize managedObjectContext, addingManagedObjectContext, shop_id, shop_name, _shop;
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 /*
@@ -42,14 +42,30 @@
     NSLog( @"fetchedObjects %@", fetchedObjects);
     Shop *shop = [fetchedObjects lastObject];
     self.shop_name = shop.name;
+    self._shop = shop;
     NSLog( @"shop %@", shop.name);
-    
-    
     [fetchRequest release];
   }
   return self;
 }
 
+
+- (CLLocationCoordinate2D)coordinate;{
+  CLLocationCoordinate2D theCoordinate;
+  theCoordinate.latitude =  [self._shop.latitude floatValue];
+  theCoordinate.longitude = [self._shop.longitude floatValue];
+  return theCoordinate; 
+}
+
+// required if you set the MKPinAnnotationView's "canShowCallout" property to YES
+- (NSString *)title {
+  return self._shop.name;
+}
+
+// optional
+- (NSString *)subtitle {
+  return self._shop.description;
+}
 
 /*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -57,12 +73,46 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    [super viewDidLoad];  
+  UIImageView *imageview6 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 420.0)];
+  UIImage *coverImage = [UIImage imageNamed:@"shop_pic_demo.jpg"];
+  imageview6.frame = CGRectMake(0.0, 0.0, 320.0, 420.0);
+  imageview6.alpha = 1.000;
+  imageview6.autoresizesSubviews = YES;
+  imageview6.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
+  imageview6.clearsContextBeforeDrawing = YES;
+  imageview6.clipsToBounds = NO;
+  imageview6.contentMode = UIViewContentModeScaleAspectFill;
+  imageview6.contentStretch = CGRectFromString(@"{{0, 0}, {1, 1}}");
+  imageview6.hidden = NO;
+  imageview6.highlighted = NO;
+  imageview6.image = coverImage;
+  imageview6.multipleTouchEnabled = NO;
+  imageview6.opaque = YES;
+  imageview6.tag = 0;
+  imageview6.userInteractionEnabled = NO;
+  
+  [self.view addSubview:imageview6];
+  [imageview6 release];
+  
+  NSString  *mapUrl = [NSString stringWithFormat:@"tt://shopmap/%@",_shop.remote_shop_id];
+  NSLog(mapUrl);
+  UIButton *button0 = [UIButton buttonWithType:UIButtonTypeCustom];
+  button0.frame = CGRectMake(0, 330 - (0*37), 320, 37);
+  [button0 setTitle:_shop.address forState:UIControlStateNormal];
+  button0.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+  [button0 addTarget:mapUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
+  UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
+  button1.frame = CGRectMake(0, 330 - (1*37), 320, 37);
+  [button1 setTitle:_shop.name forState:UIControlStateNormal];
+  button1.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+  [button1 addTarget:mapUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview: button0];        
+  [self.view addSubview: button1];
 }
-*/
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -87,6 +137,11 @@
 
 
 - (void)dealloc {
+  [managedObjectContext release];
+  [addingManagedObjectContext release];
+  [shop_id release];
+  [shop_name release];
+  [_shop release];
     [super dealloc];
 }
 
