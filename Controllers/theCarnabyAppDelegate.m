@@ -17,6 +17,7 @@
 #import "CouponController.h"
 #import "ShopsController.h"
 #import "ShopController.h"
+#import "MapController.h"
 #import "VideosController.h"
 #import "SharesController.h"
 #import "PagesController.h"
@@ -70,7 +71,8 @@
   [map from:@"tt://coupon/(initWithID:)" toViewController:[CouponController class]];
   
   [map from:@"tt://shops" toViewController:[ShopsController class]];
-  [map from:@"tt://shop/(initWithID:)" toViewController:[ShopController class]];  
+  [map from:@"tt://shop/(initWithID:)" toViewController:[ShopController class]];
+  [map from:@"tt://shopmap/(initWithID:)" toViewController:[MapController class]];  
   
   [map from:@"tt://videos" toViewController:[VideosController class]];
   
@@ -257,6 +259,7 @@
     }
   } 
   [status release];
+  [request release];
 }
 
 

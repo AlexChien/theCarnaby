@@ -226,6 +226,7 @@
 
 
 - (void)dealloc {
+  [ttNavigator release];
   [managedObjectContext release];
   [addingManagedObjectContext release];    
   [super dealloc];
