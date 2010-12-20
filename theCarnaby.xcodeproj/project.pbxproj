@@ -228,6 +228,11 @@
 		31E3648B12BE374A0003A285 /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E3648A12BE374A0003A285 /* ShopController.m */; };
 		31E364B012BE468A0003A285 /* theCarnaby.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 31E364AF12BE468A0003A285 /* theCarnaby.sqlite */; };
 		31E364CC12BE48530003A285 /* CouponController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E364CB12BE48530003A285 /* CouponController.m */; };
+		31E367B012BE7F520003A285 /* shop_pic_demo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31E367AF12BE7F520003A285 /* shop_pic_demo.jpg */; };
+		31E367EB12BE85110003A285 /* coupon_demo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31E367EA12BE85110003A285 /* coupon_demo.jpg */; };
+		31E368AF12BE95AF0003A285 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E368AE12BE95AF0003A285 /* MapKit.framework */; };
+		31E368B112BE95B90003A285 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E368B012BE95B90003A285 /* CoreLocation.framework */; };
+		31E368BC12BE97090003A285 /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E368BB12BE97090003A285 /* MapController.m */; };
 		31F67D1812BA8527000FDD67 /* libThree20Style.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320CC833B8AF0ACFD35E6224 /* libThree20Style.a */; };
 		31F67D3312BA85E0000FDD67 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F67D3212BA85E0000FDD67 /* TabBarController.m */; };
 		3201088596B4756681693705 /* libThree20UICommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3201088596B4756681693704 /* libThree20UICommon.a */; };
@@ -831,6 +836,12 @@
 		31E364AF12BE468A0003A285 /* theCarnaby.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = theCarnaby.sqlite; sourceTree = "<group>"; };
 		31E364CA12BE48530003A285 /* CouponController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponController.h; sourceTree = "<group>"; };
 		31E364CB12BE48530003A285 /* CouponController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponController.m; sourceTree = "<group>"; };
+		31E367AF12BE7F520003A285 /* shop_pic_demo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shop_pic_demo.jpg; sourceTree = "<group>"; };
+		31E367EA12BE85110003A285 /* coupon_demo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coupon_demo.jpg; sourceTree = "<group>"; };
+		31E368AE12BE95AF0003A285 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		31E368B012BE95B90003A285 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		31E368BA12BE97090003A285 /* MapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
+		31E368BB12BE97090003A285 /* MapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
 		31F67D3112BA85E0000FDD67 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		31F67D3212BA85E0000FDD67 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		3201088596B4756681693700 /* Three20UICommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UICommon.xcodeproj; path = ../../../../../Volumes/500/Users/stainless/os/apple/iphone/three20/src/Three20UICommon/Three20UICommon.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -864,6 +875,8 @@
 				31F67D1812BA8527000FDD67 /* libThree20Style.a in Frameworks */,
 				31172E6C12BB57DB006F448F /* CoreData.framework in Frameworks */,
 				31D0748612BD85D8007EFE11 /* MediaPlayer.framework in Frameworks */,
+				31E368AF12BE95AF0003A285 /* MapKit.framework in Frameworks */,
+				31E368B112BE95B90003A285 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,6 +957,8 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				31172E6B12BB57DB006F448F /* CoreData.framework */,
 				31D0748512BD85D8007EFE11 /* MediaPlayer.framework */,
+				31E368AE12BE95AF0003A285 /* MapKit.framework */,
+				31E368B012BE95B90003A285 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1020,6 +1035,8 @@
 		3144324912BA8BCB004D85DE /* theCarnaby */ = {
 			isa = PBXGroup;
 			children = (
+				31E367E912BE85110003A285 /* coupons */,
+				31E367AE12BE7F520003A285 /* shops */,
 				31D0746A12BD8476007EFE11 /* videos */,
 				3144324A12BA8BCB004D85DE /* brands */,
 				3144324D12BA8BCB004D85DE /* collections */,
@@ -1299,6 +1316,8 @@
 				3144322212BA87D7004D85DE /* ShopsController.m */,
 				31E3648912BE374A0003A285 /* ShopController.h */,
 				31E3648A12BE374A0003A285 /* ShopController.m */,
+				31E368BA12BE97090003A285 /* MapController.h */,
+				31E368BB12BE97090003A285 /* MapController.m */,
 			);
 			name = ShopsController;
 			sourceTree = "<group>";
@@ -1356,6 +1375,22 @@
 				31E364AF12BE468A0003A285 /* theCarnaby.sqlite */,
 			);
 			path = db;
+			sourceTree = "<group>";
+		};
+		31E367AE12BE7F520003A285 /* shops */ = {
+			isa = PBXGroup;
+			children = (
+				31E367AF12BE7F520003A285 /* shop_pic_demo.jpg */,
+			);
+			path = shops;
+			sourceTree = "<group>";
+		};
+		31E367E912BE85110003A285 /* coupons */ = {
+			isa = PBXGroup;
+			children = (
+				31E367EA12BE85110003A285 /* coupon_demo.jpg */,
+			);
+			path = coupons;
 			sourceTree = "<group>";
 		};
 		3201088596B4756681693703 /* Products */ = {
@@ -2025,6 +2060,8 @@
 				31D0774B12BD926A007EFE11 /* 9s.jpg in Resources */,
 				31E3639E12BE30D40003A285 /* theCarnaby.jpg in Resources */,
 				31E364B012BE468A0003A285 /* theCarnaby.sqlite in Resources */,
+				31E367B012BE7F520003A285 /* shop_pic_demo.jpg in Resources */,
+				31E367EB12BE85110003A285 /* coupon_demo.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2060,6 +2097,7 @@
 				3183145012BCCBA4000BED74 /* CollectionController.m in Sources */,
 				31E3648B12BE374A0003A285 /* ShopController.m in Sources */,
 				31E364CC12BE48530003A285 /* CouponController.m in Sources */,
+				31E368BC12BE97090003A285 /* MapController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
