@@ -290,15 +290,14 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>69</integer>
-									<integer>65</integer>
-									<integer>56</integer>
-									<integer>51</integer>
+									<integer>33</integer>
+									<integer>29</integer>
+									<integer>2</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 855}, {220, 784}}</string>
+							<string>{{0, 13}, {220, 784}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -335,7 +334,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>BrandController.m</string>
+								<string>ShopController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -343,11 +342,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>BrandController.m</string>
+										<string>ShopController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>31A0B4C612C350E300D95813</string>
+										<string>31A0B4E112C3543800D95813</string>
 										<key>history</key>
 										<array>
 											<string>31E367CF12BE82B30003A285</string>
@@ -367,27 +366,27 @@
 											<string>31A0B41412C3385400D95813</string>
 											<string>31A0B41512C3385400D95813</string>
 											<string>31A0B41712C3385400D95813</string>
-											<string>31A0B41A12C3385400D95813</string>
 											<string>31A0B41C12C3385400D95813</string>
 											<string>31A0B41D12C3385400D95813</string>
 											<string>31A0B43912C33A0100D95813</string>
 											<string>31A0B43A12C33A0100D95813</string>
 											<string>31A0B43B12C33A0100D95813</string>
-											<string>31A0B46012C33CA500D95813</string>
-											<string>31A0B46112C33CA500D95813</string>
 											<string>31A0B46B12C344BD00D95813</string>
 											<string>31A0B46C12C344BD00D95813</string>
 											<string>31A0B46D12C344BD00D95813</string>
 											<string>31A0B46E12C344BD00D95813</string>
 											<string>31A0B46F12C344BD00D95813</string>
-											<string>31A0B47012C344BD00D95813</string>
-											<string>31A0B47112C344BD00D95813</string>
 											<string>31A0B47B12C345B200D95813</string>
 											<string>31A0B47C12C345B200D95813</string>
 											<string>31A0B47D12C345B200D95813</string>
 											<string>31A0B49812C3472700D95813</string>
-											<string>31A0B49D12C3484700D95813</string>
-											<string>31A0B49E12C3484700D95813</string>
+											<string>31A0B4D412C3536C00D95813</string>
+											<string>31A0B4DC12C3543800D95813</string>
+											<string>31A0B4DD12C3543800D95813</string>
+											<string>31A0B4DE12C3543800D95813</string>
+											<string>31A0B4DF12C3543800D95813</string>
+											<string>31A0B4E012C3543800D95813</string>
+											<string>31A0B4D512C3536C00D95813</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -635,7 +634,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>theCarnabyAppDelegate.m</string>
+								<string>ShopController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>

@@ -100,8 +100,6 @@
         button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
         NSString *collectionUrl = [[NSString alloc] initWithFormat:@"tt://collection/%@", element.remote_collection_id];
         [button addTarget:collectionUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
-        int remote_collection_id = [element.remote_collection_id integerValue];
-        [button setTag:remote_collection_id];
         [self.view addSubview: button];
         j++;
       }
