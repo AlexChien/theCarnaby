@@ -279,9 +279,9 @@
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>31A0B3FF12C337F000D95813</string>
-								<string>320B6C86F11D9990244A9730</string>
-								<string>31A0B39B12C331AC00D95813</string>
-								<string>31A0B3A412C331AC00D95813</string>
+								<string>3144323312BA8BCB004D85DE</string>
+								<string>3144324912BA8BCB004D85DE</string>
+								<string>3144324A12BA8BCB004D85DE</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FAAC04509CD000000102</string>
@@ -290,14 +290,15 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>5</integer>
-									<integer>3</integer>
-									<integer>2</integer>
+									<integer>69</integer>
+									<integer>65</integer>
+									<integer>56</integer>
+									<integer>51</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {220, 684}}</string>
+							<string>{{0, 855}, {220, 784}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -309,14 +310,14 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {237, 702}}</string>
+						<string>{{0, 0}, {237, 802}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
 							<real>220</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>52 130 1280 743 0 0 1440 878 </string>
+						<string>0 35 1440 843 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -334,7 +335,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>theCarnabyAppDelegate.m</string>
+								<string>BrandController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -342,11 +343,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>theCarnabyAppDelegate.m</string>
+										<string>BrandController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>31A0B48312C345C000D95813</string>
+										<string>31A0B4C612C350E300D95813</string>
 										<key>history</key>
 										<array>
 											<string>31E367CF12BE82B30003A285</string>
@@ -374,7 +375,6 @@
 											<string>31A0B43B12C33A0100D95813</string>
 											<string>31A0B46012C33CA500D95813</string>
 											<string>31A0B46112C33CA500D95813</string>
-											<string>31A0B46A12C344BD00D95813</string>
 											<string>31A0B46B12C344BD00D95813</string>
 											<string>31A0B46C12C344BD00D95813</string>
 											<string>31A0B46D12C344BD00D95813</string>
@@ -382,13 +382,12 @@
 											<string>31A0B46F12C344BD00D95813</string>
 											<string>31A0B47012C344BD00D95813</string>
 											<string>31A0B47112C344BD00D95813</string>
-											<string>31A0B47812C345B200D95813</string>
-											<string>31A0B47912C345B200D95813</string>
-											<string>31A0B47A12C345B200D95813</string>
 											<string>31A0B47B12C345B200D95813</string>
 											<string>31A0B47C12C345B200D95813</string>
 											<string>31A0B47D12C345B200D95813</string>
-											<string>31A0B48212C345C000D95813</string>
+											<string>31A0B49812C3472700D95813</string>
+											<string>31A0B49D12C3484700D95813</string>
+											<string>31A0B49E12C3484700D95813</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -400,14 +399,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1038, 697}}</string>
+								<string>{{0, 0}, {1198, 797}}</string>
 								<key>RubberWindowFrame</key>
-								<string>52 130 1280 743 0 0 1440 878 </string>
+								<string>0 35 1440 843 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>697pt</string>
+							<string>797pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -420,9 +419,9 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 702}, {1038, 0}}</string>
+								<string>{{0, 802}, {1198, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>52 130 1280 743 0 0 1440 878 </string>
+								<string>0 35 1440 843 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -431,7 +430,7 @@
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>1038pt</string>
+					<string>1198pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -615,7 +614,7 @@
 		<string>/Volumes/500/Users/stainless/pro/phone/theCarnaby/theCarnaby.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>52 130 1280 743 0 0 1440 878 </string>
+	<string>0 35 1440 843 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
