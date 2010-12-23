@@ -17,7 +17,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-      self.title = @"Shops";
+      //self.title = @"Shops";
+      self.title = NSLocalizedString(@"shops", nil);      
       UIImage* image = [UIImage imageNamed:@"shop.png"];
       self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:self.title image:image tag:0] autorelease];
     }

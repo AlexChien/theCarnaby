@@ -17,7 +17,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-      self.title = @"Coupons";
+//      self.title = @"Coupons";
+      self.title = NSLocalizedString(@"coupons", nil);      
       UIImage* image = [UIImage imageNamed:@"coupon.png"];
       self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:self.title image:image tag:0] autorelease];
       self.tableView.rowHeight = 84;

@@ -1,0 +1,28 @@
+/* 
+   Localizable.strings
+   theCarnaby
+
+   Created by Johnson Qu on 10-12-23.
+   Copyright 2010 Koocaa Interactive. All rights reserved.
+ */
+
+//应用相关
+
+"back" = "返回";
+
+
+//业务相关
+
+"brands" = "品牌";
+
+"news" = "新闻";
+
+"coupons" = "优惠券";
+
+"shops" = "店铺";
+
+"videos" = "视频";
+
+"shares" = "分享";
+
+"new_products" = "新品";

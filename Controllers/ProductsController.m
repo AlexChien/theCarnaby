@@ -17,10 +17,10 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-      self.title = @"New Products";
+      self.title = NSLocalizedString(@"new_products", nil); 
       UIImage* image = [UIImage imageNamed:@"new.png"];
       self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:self.title image:image tag:0] autorelease];
-      self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]  initWithTitle:@"Back" 
+      self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]  initWithTitle:NSLocalizedString(@"back", nil)
                                                                                  style:UIBarButtonItemStyleDone 
                                                                                 target:self
                                                                                 action:@selector(backHome)] autorelease];
@@ -107,7 +107,8 @@
                          //initWithType:PhotoSourceDelayed
                          // initWithType:PhotoSourceLoadError
                          // initWithType:PhotoSourceDelayed|PhotoSourceSourceLoadError
-                         title:@"New Products"
+                         //title:@"New Products"
+                         title : NSLocalizedString(@"new_products", nil)
                          photos:array photos2:nil];
 
   

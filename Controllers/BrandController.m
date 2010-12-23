@@ -21,7 +21,8 @@
     self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:self.title image:image tag:0] autorelease];  
 
     self.navigationItem.backBarButtonItem =
-    [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered
+    [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back", nil)
+                                      style:UIBarButtonItemStyleBordered
                                      target:nil action:nil] autorelease];
     
   }
