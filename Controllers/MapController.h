@@ -13,13 +13,15 @@
   NSMutableArray *mapAnnotations;
   NSNumber *shop_id;
   NSString  *shop_name;
-  Shop *_shop;  
+  Shop *_shop;
+  MKMapView *mapView;
 }
 
 @property (nonatomic, retain) NSMutableArray *mapAnnotations;
 @property (nonatomic, retain) NSNumber *shop_id;
 @property (nonatomic, retain) NSString  *shop_name;
 @property (nonatomic, retain) Shop  *_shop;
+@property (nonatomic, retain) MKMapView *mapView;
 
 + (CGFloat)annotationPadding;
 

@@ -43,28 +43,10 @@
     Shop *shop = [fetchedObjects lastObject];
     self.shop_name = shop.name;
     self._shop = shop;
-    NSLog( @"shop %@", shop.name);
+    NSLog( @"shop %@", shop.name);  
     [fetchRequest release];
   }
   return self;
-}
-
-
-- (CLLocationCoordinate2D)coordinate;{
-  CLLocationCoordinate2D theCoordinate;
-  theCoordinate.latitude =  [self._shop.latitude floatValue];
-  theCoordinate.longitude = [self._shop.longitude floatValue];
-  return theCoordinate; 
-}
-
-// required if you set the MKPinAnnotationView's "canShowCallout" property to YES
-- (NSString *)title {
-  return self._shop.name;
-}
-
-// optional
-- (NSString *)subtitle {
-  return self._shop.description;
 }
 
 /*
@@ -98,13 +80,18 @@
   [self.view addSubview:imageview6];
   [imageview6 release];
   
-  NSString  *mapUrl = [NSString stringWithFormat:@"tt://shopmap/%@",_shop.remote_shop_id];
-  NSLog(mapUrl);
+  //NSString  *mapUrl = [NSString stringWithFormat:@"tt://shopmap/%@",_shop.remote_shop_id];
+  //NSString  *mapUrl = [NSString stringWithFormat:@"tt://shopmap"];
+  NSString  *mapUrl = [[NSString alloc] initWithFormat:@"tt://shopmap/%@",_shop.remote_shop_id];
+
+  NSLog(@"shopmap url: %@",mapUrl);
+  //[mapUrl description];
   UIButton *button0 = [UIButton buttonWithType:UIButtonTypeCustom];
   button0.frame = CGRectMake(0, 330 - (0*37), 320, 37);
   [button0 setTitle:_shop.address forState:UIControlStateNormal];
   button0.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
   [button0 addTarget:mapUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
+  //[button0 addTarget:@"tt://shopmap" action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];  
   UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
   button1.frame = CGRectMake(0, 330 - (1*37), 320, 37);
   [button1 setTitle:_shop.name forState:UIControlStateNormal];
