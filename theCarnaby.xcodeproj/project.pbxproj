@@ -141,6 +141,7 @@
 		3144341B12BA99AE004D85DE /* PagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144341A12BA99AE004D85DE /* PagesController.m */; };
 		315345A412BCBB5B00329E5B /* BrandController.m in Sources */ = {isa = PBXBuildFile; fileRef = 315345A312BCBB5B00329E5B /* BrandController.m */; };
 		3183145012BCCBA4000BED74 /* CollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3183144F12BCCBA4000BED74 /* CollectionController.m */; };
+		31A0B40012C337F000D95813 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 31A0B3FF12C337F000D95813 /* Localizable.strings */; };
 		31C6407F12BB8EB7002CA745 /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C6407E12BB8EB7002CA745 /* Status.m */; };
 		31D0746C12BD8476007EFE11 /* demo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 31D0746B12BD8476007EFE11 /* demo.mp4 */; };
 		31D0748612BD85D8007EFE11 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D0748512BD85D8007EFE11 /* MediaPlayer.framework */; };
@@ -224,6 +225,7 @@
 		31D0774912BD926A007EFE11 /* 80s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D076F912BD926A007EFE11 /* 80s.jpg */; };
 		31D0774A12BD926A007EFE11 /* 8s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D076FA12BD926A007EFE11 /* 8s.jpg */; };
 		31D0774B12BD926A007EFE11 /* 9s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31D076FB12BD926A007EFE11 /* 9s.jpg */; };
+		31D5DB4D12BF4464008F209A /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D5DB4C12BF4464008F209A /* Annotation.m */; };
 		31E3639E12BE30D40003A285 /* theCarnaby.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31E3639D12BE30D40003A285 /* theCarnaby.jpg */; };
 		31E3648B12BE374A0003A285 /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E3648A12BE374A0003A285 /* ShopController.m */; };
 		31E364B012BE468A0003A285 /* theCarnaby.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 31E364AF12BE468A0003A285 /* theCarnaby.sqlite */; };
@@ -746,6 +748,9 @@
 		315345A312BCBB5B00329E5B /* BrandController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandController.m; sourceTree = "<group>"; };
 		3183144E12BCCBA4000BED74 /* CollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionController.h; sourceTree = "<group>"; };
 		3183144F12BCCBA4000BED74 /* CollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionController.m; sourceTree = "<group>"; };
+		31A0B3B712C331DF00D95813 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		31A0B40112C337FC00D95813 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		31A0B42D12C338DC00D95813 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		31C6407D12BB8EB7002CA745 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
 		31C6407E12BB8EB7002CA745 /* Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Status.m; sourceTree = "<group>"; };
 		31D0746B12BD8476007EFE11 /* demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.mp4; sourceTree = "<group>"; };
@@ -830,6 +835,8 @@
 		31D076F912BD926A007EFE11 /* 80s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 80s.jpg; sourceTree = "<group>"; };
 		31D076FA12BD926A007EFE11 /* 8s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8s.jpg; sourceTree = "<group>"; };
 		31D076FB12BD926A007EFE11 /* 9s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9s.jpg; sourceTree = "<group>"; };
+		31D5DB4B12BF4464008F209A /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		31D5DB4C12BF4464008F209A /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 		31E3639D12BE30D40003A285 /* theCarnaby.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = theCarnaby.jpg; sourceTree = "<group>"; };
 		31E3648912BE374A0003A285 /* ShopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopController.h; sourceTree = "<group>"; };
 		31E3648A12BE374A0003A285 /* ShopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopController.m; sourceTree = "<group>"; };
@@ -934,6 +941,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				31A0B3FF12C337F000D95813 /* Localizable.strings */,
 				3144323312BA8BCB004D85DE /* Images */,
 				320B6C86F11D9990244A9730 /* Three20.bundle */,
 				8D1107310486CEB800E47090 /* theCarnaby-Info.plist */,
@@ -1318,6 +1326,8 @@
 				31E3648A12BE374A0003A285 /* ShopController.m */,
 				31E368BA12BE97090003A285 /* MapController.h */,
 				31E368BB12BE97090003A285 /* MapController.m */,
+				31D5DB4B12BF4464008F209A /* Annotation.h */,
+				31D5DB4C12BF4464008F209A /* Annotation.m */,
 			);
 			name = ShopsController;
 			sourceTree = "<group>";
@@ -1525,6 +1535,9 @@
 				Japanese,
 				French,
 				German,
+				zh,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -2062,6 +2075,7 @@
 				31E364B012BE468A0003A285 /* theCarnaby.sqlite in Resources */,
 				31E367B012BE7F520003A285 /* shop_pic_demo.jpg in Resources */,
 				31E367EB12BE85110003A285 /* coupon_demo.jpg in Resources */,
+				31A0B40012C337F000D95813 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2098,6 +2112,7 @@
 				31E3648B12BE374A0003A285 /* ShopController.m in Sources */,
 				31E364CC12BE48530003A285 /* CouponController.m in Sources */,
 				31E368BC12BE97090003A285 /* MapController.m in Sources */,
+				31D5DB4D12BF4464008F209A /* Annotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2140,6 +2155,19 @@
 			targetProxy = 320F2C48872C2E2C4DF86202 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		31A0B3FF12C337F000D95813 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31A0B3B712C331DF00D95813 /* English */,
+				31A0B40112C337FC00D95813 /* zh-Hans */,
+				31A0B42D12C338DC00D95813 /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
