@@ -17,7 +17,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-      self.title = @"Brands";
+      //self.title = @"Brands";
+      self.title = NSLocalizedString(@"brands", nil);
       UIImage* image = [UIImage imageNamed:@"brand.png"];
       self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:self.title image:image tag:0] autorelease];  
     }
@@ -89,49 +90,26 @@
     // Handle the error.
     NSLog(@"brands: %@", brands);
   }else {
-//    Brand *element;
-//    int j = 0;
-//    for (element in brands){
-//      UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//      //setframe (where on screen)
-//      button.frame = CGRectMake(0, 374 - (j*37), 320, 37);
-//      [button setTitle:element.name forState:UIControlStateNormal];
-//      button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-//      NSString *brandUrl = [NSString stringWithFormat:@"tt://brand/%@", element.remote_brand_id];
-//      NSLog(brandUrl);
-//      // NSLog(@"%@",[NSString stringWithFormat:@"tt://brand/%d", [element.remote_brand_id intValue]]);
-//      //[button addTarget:brandUrl
-//      //           action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
-//      //[button addTarget:@"tt://brand/1" action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
-//      //[button addTarget:self action:@selector(listBrands:) forControlEvents:UIControlEventTouchUpInside];
-//      int remote_brand_id = [element.remote_brand_id integerValue];
-//      [button setTag:remote_brand_id];
-//      [self.view addSubview: button];
-//      j++;
-//    }
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 374 - (-1*37), 320, 37);
-    button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-    [self.view addSubview: button];    
-    
-    UIButton *button0 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button0.frame = CGRectMake(0, 374 - (0*37), 320, 37);
-    [button0 setTitle:[[brands objectAtIndex:0] name] forState:UIControlStateNormal];
-    button0.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-    [button0 addTarget:@"tt://brand/2" action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview: button0];
-    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button1.frame = CGRectMake(0, 374 - (1*37), 320, 37);
-    [button1 setTitle:[[brands objectAtIndex:1] name] forState:UIControlStateNormal];
-    button1.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-    [button1 addTarget:@"tt://brand/1" action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview: button1];
+    Brand *element;
+    int j = 0;
+    for (element in brands){
+      UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+      //setframe (where on screen)
+      button.frame = CGRectMake(0, 374 - (j*37), 320, 37);
+      [button setTitle:element.name forState:UIControlStateNormal];
+      button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+      //NSString *brandUrl = [NSString stringWithFormat:@"tt://brand/%@", element.remote_brand_id];
+      NSString *brandUrl = [[NSString alloc] initWithFormat:@"tt://brand/%@", element.remote_brand_id];
+      [button addTarget:brandUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
+      int remote_brand_id = [element.remote_brand_id integerValue];
+      [button setTag:remote_brand_id];
+      [self.view addSubview: button];
+      j++;
+    }
     
     UIImageView *decoration = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 209.0, 320.0, 128.0)];
     UIImage *decorationImage = [UIImage imageNamed:@"li_background.png"];
-//    decoration.frame = CGRectMake(0, 374-(j-1)*37-128, 320, 128);
-    decoration.frame = CGRectMake(0, 374-(2-1)*37-128, 320, 128);      
+    decoration.frame = CGRectMake(0, 374-(j-1)*37-128, 320, 128);
     decoration.alpha = 1.000;
     decoration.autoresizesSubviews = YES;
     decoration.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;

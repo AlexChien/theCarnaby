@@ -42,8 +42,24 @@
     int *brand_id = [remote_brand_id integerValue];
     
     NSLog( @"brand %d", brand_id); 
+    
+    // 品牌背景图片
+    UIImageView *imageview6 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 420.0)];
+    imageview6.frame = CGRectMake(0.0, 0.0, 320.0, 420.0);
+    imageview6.alpha = 1.000;
+    imageview6.autoresizesSubviews = YES;
+    imageview6.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
+    imageview6.contentMode = UIViewContentModeScaleAspectFill;
+    imageview6.highlighted = NO;
+    imageview6.multipleTouchEnabled = NO;
+    imageview6.userInteractionEnabled = NO;
+    NSString *imageName = [[NSString alloc] initWithFormat:@"%dbrand.jpg", brand_id];    
+    UIImage *coverImage = [UIImage imageNamed:imageName];
+    imageview6.image = coverImage;
+    [self.view addSubview:imageview6];
+    [imageview6 release];    
 
-    // 按钮需要动态生成    
+    // 按钮需要动态生成
     NSManagedObjectContext *context = [[[UIApplication sharedApplication] delegate] managedObjectContext]; 
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Brand" 
@@ -55,18 +71,18 @@
     NSError *error;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     Brand *brand = [fetchedObjects lastObject];
+    self.title = brand.name;     
     // 会crash
     //NSSortDescriptor *sortNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"remote_collection_id" ascending:YES];
     //NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortNameDescriptor, nil];
     //NSArray *collections = [[brand.collections allObjects] sortedArrayUsingDescriptors:sortDescriptors];
-     NSArray *collections = [brand.collections allObjects];
+    //[sortNameDescriptor release];
+    //[sortDescriptors release];    
+    NSArray *collections = [brand.collections allObjects];
     // NSLog(@"brand---- %@",brand);
     // NSSet *collections = brand.collections;
     // NSLog(@"one of collections---- %@",[[collections allObjects] lastObject]);
-    NSLog(@"collections---- %@",collections);
-
-//    [sortDescriptors release];
-//    [sortDescriptor release];
+    // NSLog(@"collections---- %@",collections);
     
     if (collections == nil) {
       // Handle the error.
@@ -75,40 +91,23 @@
       NSLog(@"selectedBrandCollections: %@", collections);
       // 按钮需要动态生成    
       Collection *element;
-//      int j = 0;
-//      for (element in collections) {
-//        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//        //setframe (where on screen)
-//        button.frame = CGRectMake(0, 374 - (j*37), 320, 37);
-//        [button setTitle:element.name forState:UIControlStateNormal];
-//        button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-//        
-//        [button addTarget:self action:@selector(listBrands:) forControlEvents:UIControlEventTouchUpInside];
-//        //[button addTarget:self action:@selector(brandShowView:) forControlEvents:UIControlEventTouchUpInside];
-//        //[map from:@"tt://collection/(initWithID:)" toViewController:[CollectionController class]];
-////        NSString *collectionUrl = [NSString stringWithFormat:@"tt://collection/%@", element.remote_collection_id];
-////        NSLog(collectionUrl);
-////        [button addTarget:collectionUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
-//
-//        int remote_collection_id = [element.remote_collection_id integerValue];
-//        [button setTag:remote_collection_id];
-//        [self.view addSubview: button];
-//        j++;
-//      }
-      
-      UIImageView *imageview6 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 420.0)];
-      imageview6.frame = CGRectMake(0.0, 0.0, 320.0, 420.0);
-      imageview6.alpha = 1.000;
-      imageview6.autoresizesSubviews = YES;
-      imageview6.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
-      imageview6.contentMode = UIViewContentModeScaleAspectFill;
-      imageview6.highlighted = NO;
-      imageview6.multipleTouchEnabled = NO;
-      imageview6.userInteractionEnabled = NO;          
-      
+      int j = 0;
+      for (element in collections) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        //setframe (where on screen)
+        button.frame = CGRectMake(0, 330 - (j*37), 320, 37);
+        [button setTitle:element.name forState:UIControlStateNormal];
+        button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+        NSString *collectionUrl = [[NSString alloc] initWithFormat:@"tt://collection/%@", element.remote_collection_id];
+        [button addTarget:collectionUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
+        int remote_collection_id = [element.remote_collection_id integerValue];
+        [button setTag:remote_collection_id];
+        [self.view addSubview: button];
+        j++;
+      }
       UIImageView *decoration = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 209.0, 320.0, 128.0)];
       UIImage *decorationImage = [UIImage imageNamed:@"li_background.png"];
-//      decoration.frame = CGRectMake(0, 330-(j-1)*37-128, 320, 128);  
+      decoration.frame = CGRectMake(0, 330-(j-1)*37-128, 320, 128);
       decoration.alpha = 1.000;
       decoration.autoresizesSubviews = YES;
       decoration.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
@@ -122,66 +121,14 @@
       decoration.multipleTouchEnabled = NO;
       decoration.opaque = YES;
       decoration.tag = 0;
-      decoration.userInteractionEnabled = NO;  
-      
-       self.title = brand.name; 
-      if (brand_id == 1) {       
-      decoration.frame = CGRectMake(0, 330-(1-1)*37-128, 320, 128);
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(0, 374 - (-1*37), 320, 37);
-        button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-        [self.view addSubview: button];    
-        UIButton *button0 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button0.frame = CGRectMake(0, 330 - (0*37), 320, 37);
-        [button0 setTitle:[[collections objectAtIndex:0] name] forState:UIControlStateNormal];
-        button0.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-        [button0 addTarget:@"tt://collection/1" action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
-        UIImage *coverImage = [UIImage imageNamed:@"Yanzi by the Carnaby Brand.jpg"];
-        imageview6.image = coverImage;
-        [self.view addSubview:imageview6];
-        [self.view addSubview: button0];
-      }else if (brand_id == 2) {
-      decoration.frame = CGRectMake(0, 330-(2-1)*37-128, 320, 128);       
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(0, 374 - (-1*37), 320, 37);
-        button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-        [self.view addSubview: button];            
-        UIButton *button0 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button0.frame = CGRectMake(0, 330 - (0*37), 320, 37);
-        [button0 setTitle:[[collections objectAtIndex:1] name] forState:UIControlStateNormal];
-        button0.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-        [button0 addTarget:@"tt://collection/3" action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
-        UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button1.frame = CGRectMake(0, 330 - (1*37), 320, 37);
-        [button1 setTitle:[[collections objectAtIndex:0] name] forState:UIControlStateNormal];
-        button1.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-        [button1 addTarget:@"tt://collection/2" action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
-        UIImage *coverImage = [UIImage imageNamed:@"theCarnaby.jpg"];
-        imageview6.image = coverImage;        
-        [self.view addSubview:imageview6];
-        [self.view addSubview: button0];        
-        [self.view addSubview: button1];
-      }    
+      decoration.userInteractionEnabled = NO; 
       [self.view addSubview: decoration];
-      [imageview6 release];      
       [decoration release];
     }
-
     [fetchRequest release];
   }
   return self;  
 }
-
--(IBAction)listBrands:(id)sender{
-  NSLog("%@",sender);
-  static int counter = 0;
-  if (counter++ && counter%2==0) {
-    self.view.backgroundColor= [UIColor blueColor]; 
-  }else {
-    self.view.backgroundColor=[UIColor redColor];
-  }
-}
-
 
  // Implement loadView to create a view hierarchy programmatically, without using a nib.
  - (void)loadView {
