@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.koocaa.thecarnaby.model.Coupon;
@@ -32,10 +33,12 @@ public class ShopDetail extends Nav {
         
         setupTitle(R.string.title_shopdetail);
         
+        ImageView shop_image = (ImageView) findViewById(R.id.sd_image);
         TextView shopname_txt = (TextView) findViewById(R.id.sd_name_txt);
         TextView shopaddr_txt = (TextView) findViewById(R.id.sd_address_txt);
         Button gotomap_btn = (Button) findViewById(R.id.goto_map_btn);
         
+        shop_image.setImageResource(theShop.image_res_id);
         shopname_txt.setText(FieldHelper.getLocalFieldValue(getApplicationContext(), Shop.class, "name", theShop));
         shopaddr_txt.setText(FieldHelper.getLocalFieldValue(getApplicationContext(), Shop.class, "address", theShop));
         

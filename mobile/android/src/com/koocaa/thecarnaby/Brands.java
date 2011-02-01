@@ -6,6 +6,7 @@ package com.koocaa.thecarnaby;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -41,17 +42,22 @@ public class Brands extends Nav {
         	public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
         		if (view != null) {
-        			int collection_id = position+1;
+        			int collection_id = position+4;
         			Intent act;
+        			
 //        			if YANZI, go to gallery directly
-        			if (collection_id == 1) {
-        				act = new Intent(Brands.this, GalleryAct.class);
-        			} 
+//        			if (collection_id == 1) {
+//        				act = new Intent(Brands.this, GalleryAct.class);
+//        			} 
 //        			if theCarnaby, go to collection list
-        			else {
-        				act = new Intent(Brands.this, Collections.class);
-        				act.putExtra("brand_name", colAdapter.getTitle(position));
-        			}
+//        			else {
+//        				act = new Intent(Brands.this, Collections.class);
+//        				act.putExtra("brand_name", colAdapter.getTitle(position));
+//        			}
+        			
+        			act = new Intent(Brands.this, GalleryAct.class);
+        			act.putExtra("brand_name", colAdapter.getTitle(position));
+        			Log.w("BRANDS","BrandName: "+colAdapter.getTitle(position));
         			
         			act.putExtra("collection_id", collection_id);
         			act.putExtra("type", 1);
@@ -63,7 +69,8 @@ public class Brands extends Nav {
     
     class ColAdapter extends BaseAdapter {
     	Context container;
-    	private int[] cols = {R.string.label_brand1,R.string.label_brand2};
+    	//private int[] cols = {R.string.label_brand1,R.string.label_brand2};
+    	private int[] cols = {R.string.label_collection4,R.string.label_collection5};
     	public ColAdapter(Context context) {
     		container = context;
 		}

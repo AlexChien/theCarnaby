@@ -24,14 +24,18 @@ import android.widget.AdapterView.OnItemClickListener;
 //collection_id: 1:YANZI 2:punk 3:
 public class GalleryAct extends Nav {
 	private final String TAG = "GalleryAct";
-	private Integer[] mThumbsNewArrival = {R.drawable.thumb_46,R.drawable.thumb_47,R.drawable.thumb_48,R.drawable.thumb_49,R.drawable.thumb_50,R.drawable.thumb_51,R.drawable.thumb_52,R.drawable.thumb_53,R.drawable.thumb_54,R.drawable.thumb_55,R.drawable.thumb_56,R.drawable.thumb_57,R.drawable.thumb_58,R.drawable.thumb_59,R.drawable.thumb_60,R.drawable.thumb_61,R.drawable.thumb_62,R.drawable.thumb_63,R.drawable.thumb_64,R.drawable.thumb_12,R.drawable.thumb_13,R.drawable.thumb_14,R.drawable.thumb_15,R.drawable.thumb_16,R.drawable.thumb_17,R.drawable.thumb_18,R.drawable.thumb_19,R.drawable.thumb_20,R.drawable.thumb_21,R.drawable.thumb_22,R.drawable.thumb_23,R.drawable.thumb_1,R.drawable.thumb_2,R.drawable.thumb_3,R.drawable.thumb_4,R.drawable.thumb_5};
-	private Integer[] mLargesNewArrival = {R.drawable.c_46,R.drawable.c_47,R.drawable.c_48,R.drawable.c_49,R.drawable.c_50,R.drawable.c_51,R.drawable.c_52,R.drawable.c_53,R.drawable.c_54,R.drawable.c_55,R.drawable.c_56,R.drawable.c_57,R.drawable.c_58,R.drawable.c_59,R.drawable.c_60,R.drawable.c_61,R.drawable.c_62,R.drawable.c_63,R.drawable.c_64,R.drawable.c_12,R.drawable.c_13,R.drawable.c_14,R.drawable.c_15,R.drawable.c_16,R.drawable.c_17,R.drawable.c_18,R.drawable.c_19,R.drawable.c_20,R.drawable.c_21,R.drawable.c_22,R.drawable.c_23,R.drawable.c_1,R.drawable.c_2,R.drawable.c_3,R.drawable.c_4,R.drawable.c_5};
-	private Integer[] mThumbs_1 = {R.drawable.thumb_1,R.drawable.thumb_2,R.drawable.thumb_3,R.drawable.thumb_4,R.drawable.thumb_5,R.drawable.thumb_6,R.drawable.thumb_7,R.drawable.thumb_8,R.drawable.thumb_9,R.drawable.thumb_10,R.drawable.thumb_11,R.drawable.thumb_12,R.drawable.thumb_13,R.drawable.thumb_14,R.drawable.thumb_15};
-	private Integer[] mLarges_1 = {R.drawable.c_1,R.drawable.c_2,R.drawable.c_3,R.drawable.c_4,R.drawable.c_5,R.drawable.c_6,R.drawable.c_7,R.drawable.c_8,R.drawable.c_9,R.drawable.c_10,R.drawable.c_11,R.drawable.c_12,R.drawable.c_13,R.drawable.c_14,R.drawable.c_15};
-	private Integer[] mThumbs_2 = {R.drawable.thumb_16,R.drawable.thumb_17,R.drawable.thumb_18,R.drawable.thumb_19,R.drawable.thumb_20,R.drawable.thumb_21,R.drawable.thumb_22,R.drawable.thumb_23,R.drawable.thumb_24,R.drawable.thumb_25,R.drawable.thumb_26,R.drawable.thumb_27,R.drawable.thumb_28,R.drawable.thumb_29,R.drawable.thumb_30,R.drawable.thumb_31,R.drawable.thumb_32,R.drawable.thumb_33,R.drawable.thumb_34,R.drawable.thumb_35,R.drawable.thumb_36,R.drawable.thumb_37,R.drawable.thumb_38,R.drawable.thumb_39,R.drawable.thumb_40,R.drawable.thumb_41,R.drawable.thumb_42,R.drawable.thumb_43,R.drawable.thumb_44,R.drawable.thumb_45,R.drawable.thumb_46,R.drawable.thumb_47,R.drawable.thumb_48};
-	private Integer[] mLarges_2 = {R.drawable.c_16,R.drawable.c_17,R.drawable.c_18,R.drawable.c_19,R.drawable.c_20,R.drawable.c_21,R.drawable.c_22,R.drawable.c_23,R.drawable.c_24,R.drawable.c_25,R.drawable.c_26,R.drawable.c_27,R.drawable.c_28,R.drawable.c_29,R.drawable.c_30,R.drawable.c_31,R.drawable.c_32,R.drawable.c_33,R.drawable.c_34,R.drawable.c_35,R.drawable.c_36,R.drawable.c_37,R.drawable.c_38,R.drawable.c_39,R.drawable.c_40,R.drawable.c_41,R.drawable.c_42,R.drawable.c_43,R.drawable.c_44,R.drawable.c_45,R.drawable.c_46,R.drawable.c_47,R.drawable.c_48};
-	private Integer[] mThumbs_3 = {R.drawable.thumb_49,R.drawable.thumb_50,R.drawable.thumb_51,R.drawable.thumb_52,R.drawable.thumb_53,R.drawable.thumb_54,R.drawable.thumb_55,R.drawable.thumb_56,R.drawable.thumb_57,R.drawable.thumb_58,R.drawable.thumb_59,R.drawable.thumb_60,R.drawable.thumb_61,R.drawable.thumb_62,R.drawable.thumb_63,R.drawable.thumb_64,R.drawable.thumb_65,R.drawable.thumb_66,R.drawable.thumb_67,R.drawable.thumb_68,R.drawable.thumb_69,R.drawable.thumb_70,R.drawable.thumb_71,R.drawable.thumb_72,R.drawable.thumb_73,R.drawable.thumb_74,R.drawable.thumb_75,R.drawable.thumb_76,R.drawable.thumb_77,R.drawable.thumb_78,R.drawable.thumb_79,R.drawable.thumb_80};
-	private Integer[] mLarges_3 = {R.drawable.c_49,R.drawable.c_50,R.drawable.c_51,R.drawable.c_52,R.drawable.c_53,R.drawable.c_54,R.drawable.c_55,R.drawable.c_56,R.drawable.c_57,R.drawable.c_58,R.drawable.c_59,R.drawable.c_60,R.drawable.c_61,R.drawable.c_62,R.drawable.c_63,R.drawable.c_64,R.drawable.c_65,R.drawable.c_66,R.drawable.c_67,R.drawable.c_68,R.drawable.c_69,R.drawable.c_70,R.drawable.c_71,R.drawable.c_72,R.drawable.c_73,R.drawable.c_74,R.drawable.c_75,R.drawable.c_76,R.drawable.c_77,R.drawable.c_78,R.drawable.c_79,R.drawable.c_80};
+//	private Integer[] mThumbsNewArrival = {R.drawable.thumb_46,R.drawable.thumb_47,R.drawable.thumb_48,R.drawable.thumb_49,R.drawable.thumb_50,R.drawable.thumb_51,R.drawable.thumb_52,R.drawable.thumb_53,R.drawable.thumb_54,R.drawable.thumb_55,R.drawable.thumb_56,R.drawable.thumb_57,R.drawable.thumb_58,R.drawable.thumb_59,R.drawable.thumb_60,R.drawable.thumb_61,R.drawable.thumb_62,R.drawable.thumb_63,R.drawable.thumb_64,R.drawable.thumb_12,R.drawable.thumb_13,R.drawable.thumb_14,R.drawable.thumb_15,R.drawable.thumb_16,R.drawable.thumb_17,R.drawable.thumb_18,R.drawable.thumb_19,R.drawable.thumb_20,R.drawable.thumb_21,R.drawable.thumb_22,R.drawable.thumb_23,R.drawable.thumb_1,R.drawable.thumb_2,R.drawable.thumb_3,R.drawable.thumb_4,R.drawable.thumb_5};
+//	private Integer[] mLargesNewArrival = {R.drawable.c_46,R.drawable.c_47,R.drawable.c_48,R.drawable.c_49,R.drawable.c_50,R.drawable.c_51,R.drawable.c_52,R.drawable.c_53,R.drawable.c_54,R.drawable.c_55,R.drawable.c_56,R.drawable.c_57,R.drawable.c_58,R.drawable.c_59,R.drawable.c_60,R.drawable.c_61,R.drawable.c_62,R.drawable.c_63,R.drawable.c_64,R.drawable.c_12,R.drawable.c_13,R.drawable.c_14,R.drawable.c_15,R.drawable.c_16,R.drawable.c_17,R.drawable.c_18,R.drawable.c_19,R.drawable.c_20,R.drawable.c_21,R.drawable.c_22,R.drawable.c_23,R.drawable.c_1,R.drawable.c_2,R.drawable.c_3,R.drawable.c_4,R.drawable.c_5};
+//	private Integer[] mThumbs_1 = {R.drawable.thumb_1,R.drawable.thumb_2,R.drawable.thumb_3,R.drawable.thumb_4,R.drawable.thumb_5,R.drawable.thumb_6,R.drawable.thumb_7,R.drawable.thumb_8,R.drawable.thumb_9,R.drawable.thumb_10,R.drawable.thumb_11,R.drawable.thumb_12,R.drawable.thumb_13,R.drawable.thumb_14,R.drawable.thumb_15};
+//	private Integer[] mLarges_1 = {R.drawable.c_1,R.drawable.c_2,R.drawable.c_3,R.drawable.c_4,R.drawable.c_5,R.drawable.c_6,R.drawable.c_7,R.drawable.c_8,R.drawable.c_9,R.drawable.c_10,R.drawable.c_11,R.drawable.c_12,R.drawable.c_13,R.drawable.c_14,R.drawable.c_15};
+//	private Integer[] mThumbs_2 = {R.drawable.thumb_16,R.drawable.thumb_17,R.drawable.thumb_18,R.drawable.thumb_19,R.drawable.thumb_20,R.drawable.thumb_21,R.drawable.thumb_22,R.drawable.thumb_23,R.drawable.thumb_24,R.drawable.thumb_25,R.drawable.thumb_26,R.drawable.thumb_27,R.drawable.thumb_28,R.drawable.thumb_29,R.drawable.thumb_30,R.drawable.thumb_31,R.drawable.thumb_32,R.drawable.thumb_33,R.drawable.thumb_34,R.drawable.thumb_35,R.drawable.thumb_36,R.drawable.thumb_37,R.drawable.thumb_38,R.drawable.thumb_39,R.drawable.thumb_40,R.drawable.thumb_41,R.drawable.thumb_42,R.drawable.thumb_43,R.drawable.thumb_44,R.drawable.thumb_45,R.drawable.thumb_46,R.drawable.thumb_47,R.drawable.thumb_48};
+//	private Integer[] mLarges_2 = {R.drawable.c_16,R.drawable.c_17,R.drawable.c_18,R.drawable.c_19,R.drawable.c_20,R.drawable.c_21,R.drawable.c_22,R.drawable.c_23,R.drawable.c_24,R.drawable.c_25,R.drawable.c_26,R.drawable.c_27,R.drawable.c_28,R.drawable.c_29,R.drawable.c_30,R.drawable.c_31,R.drawable.c_32,R.drawable.c_33,R.drawable.c_34,R.drawable.c_35,R.drawable.c_36,R.drawable.c_37,R.drawable.c_38,R.drawable.c_39,R.drawable.c_40,R.drawable.c_41,R.drawable.c_42,R.drawable.c_43,R.drawable.c_44,R.drawable.c_45,R.drawable.c_46,R.drawable.c_47,R.drawable.c_48};
+//	private Integer[] mThumbs_3 = {R.drawable.thumb_49,R.drawable.thumb_50,R.drawable.thumb_51,R.drawable.thumb_52,R.drawable.thumb_53,R.drawable.thumb_54,R.drawable.thumb_55,R.drawable.thumb_56,R.drawable.thumb_57,R.drawable.thumb_58,R.drawable.thumb_59,R.drawable.thumb_60,R.drawable.thumb_61,R.drawable.thumb_62,R.drawable.thumb_63,R.drawable.thumb_64,R.drawable.thumb_65,R.drawable.thumb_66,R.drawable.thumb_67,R.drawable.thumb_68,R.drawable.thumb_69,R.drawable.thumb_70,R.drawable.thumb_71,R.drawable.thumb_72,R.drawable.thumb_73,R.drawable.thumb_74,R.drawable.thumb_75,R.drawable.thumb_76,R.drawable.thumb_77,R.drawable.thumb_78,R.drawable.thumb_79,R.drawable.thumb_80};
+//	private Integer[] mLarges_3 = {R.drawable.c_49,R.drawable.c_50,R.drawable.c_51,R.drawable.c_52,R.drawable.c_53,R.drawable.c_54,R.drawable.c_55,R.drawable.c_56,R.drawable.c_57,R.drawable.c_58,R.drawable.c_59,R.drawable.c_60,R.drawable.c_61,R.drawable.c_62,R.drawable.c_63,R.drawable.c_64,R.drawable.c_65,R.drawable.c_66,R.drawable.c_67,R.drawable.c_68,R.drawable.c_69,R.drawable.c_70,R.drawable.c_71,R.drawable.c_72,R.drawable.c_73,R.drawable.c_74,R.drawable.c_75,R.drawable.c_76,R.drawable.c_77,R.drawable.c_78,R.drawable.c_79,R.drawable.c_80};
+	private Integer[] mThumbs_4 = {R.drawable.thumb_4_2,R.drawable.thumb_4_3,R.drawable.thumb_4_4,R.drawable.thumb_4_5,R.drawable.thumb_4_6,R.drawable.thumb_4_7,R.drawable.thumb_4_8,R.drawable.thumb_4_9,R.drawable.thumb_4_10,R.drawable.thumb_4_11};
+	private Integer[] mLarges_4 = {R.drawable.c_4_2,R.drawable.c_4_3,R.drawable.c_4_4,R.drawable.c_4_5,R.drawable.c_4_6,R.drawable.c_4_7,R.drawable.c_4_8,R.drawable.c_4_9,R.drawable.c_4_10,R.drawable.c_4_11};
+	private Integer[] mThumbs_5 = {R.drawable.thumb_5_2,R.drawable.thumb_5_3,R.drawable.thumb_5_4,R.drawable.thumb_5_5,R.drawable.thumb_5_6,R.drawable.thumb_5_7,R.drawable.thumb_5_8,R.drawable.thumb_5_9,R.drawable.thumb_5_10,R.drawable.thumb_5_11,R.drawable.thumb_5_12,R.drawable.thumb_5_13,R.drawable.thumb_5_14,R.drawable.thumb_5_15,R.drawable.thumb_5_16,R.drawable.thumb_5_17,R.drawable.thumb_5_18,R.drawable.thumb_5_19,R.drawable.thumb_5_20,R.drawable.thumb_5_21};
+	private Integer[] mLarges_5 = {R.drawable.c_5_2,R.drawable.c_5_3,R.drawable.c_5_4,R.drawable.c_5_5,R.drawable.c_5_6,R.drawable.c_5_7,R.drawable.c_5_8,R.drawable.c_5_9,R.drawable.c_5_10,R.drawable.c_5_11,R.drawable.c_5_12,R.drawable.c_5_13,R.drawable.c_5_14,R.drawable.c_5_15,R.drawable.c_5_16,R.drawable.c_5_17,R.drawable.c_5_18,R.drawable.c_5_19,R.drawable.c_5_20,R.drawable.c_5_21};
 	private Integer[] mThumbs;
 	private Integer[] mLarges;
 	private ImageView bigImage;
@@ -55,6 +59,7 @@ public class GalleryAct extends Nav {
         try {
         	collection_id = extras.getInt("collection_id");
             type = extras.getInt("type");
+            
             Log.i(TAG, "Collection Id: " + collection_id);
             Log.i(TAG, "Type: " + type);
 		} catch (Exception e) {
@@ -64,42 +69,56 @@ public class GalleryAct extends Nav {
 //		determine images
 		if (type == 2) {
 			//new arrivals
-			mThumbs = mThumbsNewArrival;
-			mLarges = mLargesNewArrival;
-			title = R.string.title_newarrivals;
+//			mThumbs = mThumbsNewArrival;
+//			mLarges = mLargesNewArrival;
+//			title = R.string.title_newarrivals;
+			mThumbs = mThumbs_4;
+			mLarges = mLarges_4;
+			title = R.string.label_collection4;
 		} else if (type == 1) {
 			switch (collection_id) {
 //			YANZI - 2010FW
-			case 1:
-				mThumbs = mThumbs_1;
-				mLarges = mLarges_1;
-				title = R.string.label_collection1;
+//			case 1:
+//				mThumbs = mThumbs_1;
+//				mLarges = mLarges_1;
+//				title = R.string.label_collection1;
+//				break;
+//
+////			theCanraby - PUNK
+//			case 2:
+//				mThumbs = mThumbs_2;
+//				mLarges = mLarges_2;
+//				title = R.string.label_collection2;
+//				break;
+//				
+////			theCarnaby - VICTORIA
+//			case 3:
+//				mThumbs = mThumbs_3;
+//				mLarges = mLarges_3;
+//				title = R.string.label_collection4;
+//				break;
+			
+			case 4:
+				mThumbs = mThumbs_4;
+				mLarges = mLarges_4;
+				title = R.string.label_collection4;
 				break;
-
-//			theCanraby - PUNK
-			case 2:
-				mThumbs = mThumbs_2;
-				mLarges = mLarges_2;
-				title = R.string.label_collection2;
+			
+			case 5:
+				mThumbs = mThumbs_5;
+				mLarges = mLarges_5;
+				title = R.string.label_collection5;
 				break;
-				
-//			theCarnaby - VICTORIA
-			case 3:
-				mThumbs = mThumbs_3;
-				mLarges = mLarges_3;
-				title = R.string.label_collection3;
-				break;
-				
 			default:
-				mThumbs = mThumbs_1;
-				mLarges = mLarges_1;
-				title = R.string.label_collection1;
+				mThumbs = mThumbs_4;
+				mLarges = mLarges_4;
+				title = R.string.label_collection4;
 				break;
 			}
 		} else {
 			Log.e(TAG,"invalid collection type");
-			mThumbs = mThumbs_1;
-			mLarges = mLarges_1;
+			mThumbs = mThumbs_4;
+			mLarges = mLarges_4;
 		}
 		
 		setupTitle(title);

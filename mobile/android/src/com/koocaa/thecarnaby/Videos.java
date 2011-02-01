@@ -24,7 +24,7 @@ public class Videos extends Nav {
 	private SurfaceHolder holder;
 	private MediaPlayer mp;
 	
-	private int ResId = R.raw.demo;
+	private int ResId = R.raw.yanzi_2011ss_design_concept;
 	
 	/** Called when the activity is first created. */
     @Override

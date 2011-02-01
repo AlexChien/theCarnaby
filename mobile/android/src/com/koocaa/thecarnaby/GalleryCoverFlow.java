@@ -76,16 +76,16 @@ public class GalleryCoverFlow extends Nav {
 		private FileInputStream fis;
 
 		private Integer[] mImageIds = {
-			R.drawable.c_71,
-			R.drawable.c_72,
-			R.drawable.c_73,
-			R.drawable.c_74,
-			R.drawable.c_75,
-			R.drawable.c_76,
-			R.drawable.c_77,
-			R.drawable.c_78,
-			R.drawable.c_79,
-			R.drawable.c_80
+//			R.drawable.c_71,
+//			R.drawable.c_72,
+//			R.drawable.c_73,
+//			R.drawable.c_74,
+//			R.drawable.c_75,
+//			R.drawable.c_76,
+//			R.drawable.c_77,
+//			R.drawable.c_78,
+//			R.drawable.c_79,
+//			R.drawable.c_80
 		};
 
 			private ImageView[] mImages;
