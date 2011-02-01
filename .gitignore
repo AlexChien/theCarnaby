@@ -13,3 +13,6 @@ config/database.yml
 public/images/assets
 mobile/android/bin/com/koocaa/thecarnaby/*.class
 mobile/android/bin/com/koocaa/thecarnaby/model/*.class
+mobile/android/bin/
+mobile/RhodestheCarnaby/bin
+mobile/android/gen/com/koocaa/thecarnaby/R.java
