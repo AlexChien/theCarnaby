@@ -1,0 +1,28 @@
+<% content_for :main do -%>
+	<% source = "public static Shop[] shops = {\r\n" %>
+	<% @shops.each do |shop|
+		source += "\tnew Shop(#{@shops.index(shop)+1},
+			\"#{shop.display_shop_type}\",
+			\"#{shop.name}\",
+			\"\",
+			\"#{shop.province}\",\"#{shop.city}\",
+			\"#{shop.address}\",
+			\"#{shop.name_en}\",
+			\"\",
+			\"#{shop.province_en}\",\"#{shop.city_en}\",
+			\"#{shop.address_en}\",
+			\"#{shop.latitude}\",\"#{shop.longtitude}\""
+		unless shop.assets.empty?
+			source += ",R.drawable.#{shop.assets.first.uploaded_data.original_filename()}"	
+		else
+			source += ",R.drawable.shop_pic_demo"	
+		end
+		source += "),\r\n"
+	end %>
+	<% source += "};" %>
+	<pre class="brush: java"><%= source %></pre>
+	
+	<script type="text/javascript" charset="utf-8">
+		SyntaxHighlighter.all()
+	</script>
+<% end -%>

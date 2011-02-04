@@ -7,10 +7,14 @@ class ShopsController < ApplicationController
       @shop = @shop.address_contain(params[:search][:address]) unless params[:search][:address].blank?
       @shop = @shop.province_contain(params[:search][:province]) unless params[:search][:province].blank?
       @shop = @shop.city_contain(params[:search][:city]) unless params[:search][:city].blank?
-      @shop = @shop.description_contain(params[:search][:description]) unless params[:search][:description].blank?
-      @shop = @shop.shop_type_equal(params[:search][:shop_type]) unless params[:search][:shop_type].blank?
     end
-    @shops = @shop.paginate(:all,:page => params[:page],:per_page=>15,:order=>"created_at DESC")
+
+    options = {:page => params[:page], :per_page => 15, :order => "created_at desc"}
+    options[:include] = "assets" if request_source_for?(:android)
+    
+    @shops = @shop.paginate(:all, options);
+
+    render :action => "android" and return if request_source_for?(:android)
   end
 
   def show
@@ -27,6 +31,8 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(params[:shop])
+    @asset = Asset.new(params[:asset])
+    @shop.assets << @asset
     if @shop.save
       redirect_to(@shop, :notice => '店铺新增成功！')
     else
@@ -36,6 +42,13 @@ class ShopsController < ApplicationController
 
   def update
     @shop = Shop.find(params[:id])
+    if @shop.assets.empty?
+      @asset = Asset.new(params[:asset])
+      @shop.assets << @asset
+    else
+      @shop.assets.first.update_attributes(params[:asset])
+    end
+    
     if @shop.update_attributes(params[:shop])
       redirect_to(@shop, :notice => '店铺更新成功！')
     else
@@ -52,4 +65,6 @@ class ShopsController < ApplicationController
     end
     redirect_to shops_url
   end
+  
+  def android; end
 end

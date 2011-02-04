@@ -1,0 +1,28 @@
+<%content_for :main do%>
+<h2><%=@news.title%></h2>
+
+<hr class="space">
+
+<fieldset>
+	<%= display_field("标题", @news, "title") %>
+
+
+	<p>
+		<b>新闻时间:</b>
+		<%=h @news.news_date %>
+	</p>
+
+	<p>
+		<b>是否发布:</b>
+		<%=h @news.published %>
+	</p>
+	
+	<%= display_field("正文", @news, "body") %>
+	
+
+
+
+
+	<%= link_to 'Edit', edit_news_path(@news) %> |
+	<%= link_to 'Back', "/news" %>
+<% end %>

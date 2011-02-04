@@ -4,34 +4,26 @@
 <hr class="space">
 
 <fieldset>
-	<p>
-		<b>店铺名称:</b>
-		<%=h @shop.name%>
-	</p>
+	<%= display_field("店铺名称", @shop, "name") %>
 
-	<p>
-		<b>店铺地址:</b>
-		<%=h @shop.address%>
-	</p>
+	<%= display_field("店铺地址", @shop, "address") %>
 
-	<p>
-		<b>所在省份:</b>
-		<%=h @shop.province%>
-	</p>
+	<%= display_field("所在省份", @shop, "province") %>
 
-	<p>
-		<b>所在城市:</b>
-		<%=h @shop.city%>
-	</p>
+	<%= display_field("所在城市", @shop, "city") %>
 
 	<p>
 		<b>是否旗舰店:</b>
 		<%=h @shop.display_shop_type%>
 	</p>
+	
+	<%@shop.assets.each do |asset|%>
+	<p>
+		<%= image_tag asset.uploaded_data.url(:thumb) %>
+	</p>
+	<%end%>
 
 	<p>
-		<b>店铺简介:</b>
-		<%=h @shop.description%>
 	</p>
 
 	<p>

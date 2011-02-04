@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
+  def request_source_for?(platform)
+    !params[:platform].blank? && params[:platform] == platform.to_s
+  end
+  
 end

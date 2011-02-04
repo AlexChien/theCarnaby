@@ -10,30 +10,51 @@
 		<%=f.label :name,"店铺名称<span class='required'> * </span><br>"%>
 		<%=f.text_field :name%>
 	</p>
+	<p>
+		<%=f.label :name_en,"店铺名称<span class='required'> * </span><br>"%>
+		<%=f.text_field :name_en%>
+	</p>
 
 	<p>
 		<%=f.label :address,"店铺地址<span class='required'> * </span><br>"%>
 		<%=f.text_field :address%>
+	</p>
+	<p>
+		<%=f.label :address_en,"店铺地址<span class='required'> * </span><br>"%>
+		<%=f.text_field :address_en%>
 	</p>
 
 	<p>
 		<%=f.label :province,"所在省份<span class='required'> * </span><br>"%>
 		<%=f.text_field :province%>
 	</p>
-
 	<p>
-		<%=f.label :shop_type,"是否旗舰店<span class='required'> * </span><br>"%>
-		<%=f.check_box :shop_type%>
+		<%=f.label :province_en,"所在省份<span class='required'> * </span><br>"%>
+		<%=f.text_field :province_en%>
 	</p>
 
 	<p>
 		<%=f.label :city,"所在城市<span class='required'> * </span><br>"%>
 		<%=f.text_field :city%>
 	</p>
+	<p>
+		<%=f.label :city_en,"所在城市<span class='required'> * </span><br>"%>
+		<%=f.text_field :city_en%>
+	</p>
 
 	<p>
-		<%=f.label :description,"店铺简介<span class='required'> * </span><br>"%>
-		<%=f.text_area :description%>
+		<%=f.label :shop_type_id,"是否旗舰店<span class='required'> * </span><br>"%>
+		<%=f.text_field :shop_type_id%>
+	</p>
+	
+	<p>
+		<% fields_for :asset do |asset| %>
+			<%= asset.label :uploaded_data,"上传图片<span class='required'> * </span><br>"%>
+			<%= file_field "asset" ,"uploaded_data" %>
+			<%unless @shop.assets.empty?%>
+				<%=link_to "查看图片","#{@shop.assets.first.uploaded_data.url(:thumb)}",:target=>"_blank"%>
+			<%end%>
+		<% end %>
 	</p>
 
 	<p>

@@ -22,7 +22,7 @@
 	<tbody>
 		<%@products.each do |product|%>
 		<tr id="product_<%=product.id%>">
-			<td><a href="/products/<%=product.id%>" target="_blank"><%=product.name%></a></td>
+			<td><a href="/products/<%=product.id%>"><%=product.name%></a></td>
 			<td><%=product.sku%></td>
 			<td>￥<%=product.price%></td>
 			<td><%=product.brand.name%></td>

@@ -23,7 +23,7 @@
 	<tbody>
 		<%@coupons.each do |coupon|%>
 		<tr id="coupon_<%=coupon.id%>">
-			<td><a href="/coupons/<%=coupon.id%>" target="_blank"><%=coupon.name%></a></td>
+			<td><a href="/coupons/<%=coupon.id%>"><%=coupon.name%></a></td>
 			<td><%=coupon.discount%>折</td>
 			<td><%=coupon.product.name%></td>
 			<td><%=coupon.shop.name%></td>
