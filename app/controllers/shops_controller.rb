@@ -14,7 +14,8 @@ class ShopsController < ApplicationController
     
     @shops = @shop.paginate(:all, options);
 
-    render :action => "android" and return if request_source_for?(:android)
+    (@shops = @shop.all; render :action => "android" and return) if request_source_for?(:android)
+    (@shops = @shop.all; render :action => "iphone" and return) if request_source_for?(:iphone)
   end
 
   def show
@@ -67,4 +68,5 @@ class ShopsController < ApplicationController
   end
   
   def android; end
+  def iphone; end
 end

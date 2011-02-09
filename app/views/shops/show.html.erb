@@ -19,7 +19,12 @@
 	
 	<%@shop.assets.each do |asset|%>
 	<p>
-		<%= image_tag asset.uploaded_data.url(:thumb) %>
+	  <span>缩略图</span><br/>
+		<%= image_tag asset.uploaded_data.url(:thumb) %><br/>
+	  <span>android图</span><br/>
+		<%= image_tag asset.uploaded_data.url(:android) %><br/>
+	  <span>iphone图</span><br/>
+		<%= image_tag asset.uploaded_data.url(:iphone) %><br/>
 	</p>
 	<%end%>
 

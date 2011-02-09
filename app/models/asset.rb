@@ -6,7 +6,7 @@ class Asset < ActiveRecord::Base
   has_attached_file :uploaded_data,
                     :url => "/images/assets/:attachment/:id/:style/:normalized_filename",
                     :path => ":rails_root/public/images/assets/:attachment/:id/:style/:normalized_filename",
-                    :styles => {:thumb => "150x150", :android => "450x"}
+                    :styles => {:thumb => "150x150", :android => "450x", :iphone => "640x"}
                     
   Paperclip.interpolates :normalized_filename do |attachment, style|
     attachment.instance.normalized_filename

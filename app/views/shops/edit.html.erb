@@ -52,7 +52,9 @@
 			<%= asset.label :uploaded_data,"上传图片<span class='required'> * </span><br>"%>
 			<%= file_field "asset" ,"uploaded_data" %>
 			<%unless @shop.assets.empty?%>
-				<%=link_to "查看图片","#{@shop.assets.first.uploaded_data.url(:thumb)}",:target=>"_blank"%>
+				<%=link_to "查看缩略图片","#{@shop.assets.first.uploaded_data.url(:thumb)}",:target=>"_blank"%>
+				<%=link_to "查看android图片","#{@shop.assets.first.uploaded_data.url(:android)}",:target=>"_blank"%>
+				<%=link_to "查看iphone图片","#{@shop.assets.first.uploaded_data.url(:iphone)}",:target=>"_blank"%>
 			<%end%>
 		<% end %>
 	</p>
