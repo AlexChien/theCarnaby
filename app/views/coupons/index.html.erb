@@ -25,8 +25,8 @@
 		<tr id="coupon_<%=coupon.id%>">
 			<td><a href="/coupons/<%=coupon.id%>"><%=coupon.name%></a></td>
 			<td><%=coupon.discount%>折</td>
-			<td><%=coupon.product.name%></td>
-			<td><%=coupon.shop.name%></td>
+			<td><%=coupon.product.nil? ? "无" : coupon.product.name%></td>
+			<td><%=coupon.shop.nil? ? "无" : coupon.shop.name%></td>
 			<td><%=coupon.brand.nil? ? "无" : coupon.brand.name%></td>
 			<td><%=coupon.description%></td>
 			<td>
