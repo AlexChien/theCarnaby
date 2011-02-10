@@ -1,13 +1,17 @@
+<% if false %>
 <% if params[:lang]=='zh' %>
 <h2>theCarnaby 新闻</h2>
 <% else %>
 <h2>theCarnaby News</h2>
 <% end %>
+<% end %>
 
-<%@news.each do |news|%>
+<%@news.each_with_index do |news, index|%>
 <% if params[:lang]=='zh' %>
-<hr>
-<div id="news_<%=news.id%>">
+<div id="news_<%=news.id%>" class="news">
+  <% if index != 0 %>
+  <hr />
+  <% end %>
   <h3><%= news.title %></h3>
   <span><%=news.news_date.strftime("%Y %m %d")%></span>
   <p>
@@ -15,8 +19,10 @@
   </p>
 </div>
 <% else %>
-<hr>
-<div id="news_<%=news.id%>">
+<div id="news_<%=news.id%>" class="news">
+  <% if index != 0 %>
+  <hr />
+  <% end %>  
   <h3><%= news.title_en %></a></h3>
   <span><%=news.news_date.strftime("%Y %m %d")%></span>
   <p>
