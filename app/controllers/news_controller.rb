@@ -11,6 +11,10 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.iphone do
+        @news = News.published.paginate(:all,:page => params[:page],:per_page=>15,:order=>"created_at DESC")
+        render :layout => false 
+      end
       format.xml  { render :xml => @news }
       format.json  { render :json => @news }
     end
@@ -23,6 +27,7 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.iphone { render :layout => false }    
       format.xml  { render :xml => @news }
       format.json  { render :json => @news }
     end

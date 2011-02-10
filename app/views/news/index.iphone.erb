@@ -1,0 +1,29 @@
+<% if params[:lang]=='zh' %>
+<h2>theCarnaby 新闻</h2>
+<% else %>
+<h2>theCarnaby News</h2>
+<% end %>
+
+<%@news.each do |news|%>
+<% if params[:lang]=='zh' %>
+<hr>
+<div id="news_<%=news.id%>">
+  <h3><%= news.title %></h3>
+  <span><%=news.news_date.strftime("%Y %m %d")%></span>
+  <p>
+    <%= news.body %>
+  </p>
+</div>
+<% else %>
+<hr>
+<div id="news_<%=news.id%>">
+  <h3><%= news.title_en %></a></h3>
+  <span><%=news.news_date.strftime("%Y %m %d")%></span>
+  <p>
+    <%= news.body_en %>
+  </p>
+</div>
+<% end %>
+<%end%>
+
+<%=will_paginate @news%>

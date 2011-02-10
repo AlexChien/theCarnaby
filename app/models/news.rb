@@ -7,4 +7,7 @@ class News < ActiveRecord::Base
   named_scope :body_contain, 
     lambda{ |body| { :conditions => ["news.body like ? or news.body_en like ?", "%#{title}%", "%#{title}%"] } }
   
+  named_scope :published, :conditions => {:published => true}
+  named_scope :unpublished, :conditions => {:published => false}
+  
 end
