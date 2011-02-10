@@ -17,12 +17,12 @@
 	</p>
 
 	<p>
-		<%=f.label :product_id,"适用新品<span class='required'> * </span><br>"%>
+		<%=f.label :product_id,"适用新品<br>"%>
 		<%=f.select :product_id,Product.all.collect{|p| [p.name, p.id]},{:include_blank=>"请选择"},{:style=>"width:220px;"}%>
 	</p>
 
 	<p>
-		<%=f.label :shop_id,"适用店铺<span class='required'> * </span><br>"%>
+		<%=f.label :shop_id,"适用店铺<br>"%>
 		<%=f.select :shop_id,Shop.all.collect{|p| [p.name, p.id]},{:include_blank=>"请选择"},{:style=>"width:220px;"}%>
 	</p>
 

@@ -16,12 +16,12 @@
 
 	<p>
 		<b>适用新品:</b>
-		<%=h @coupon.product.name%>
+		<%=h @coupon.product.nil? ? "无" : @coupon.product.name%>
 	</p>
 
 	<p>
 		<b>适用店铺:</b>
-		<%=h @coupon.shop.name%>
+		<%=h @coupon.shop.nil? ? "无" : @coupon.shop.name%>
 	</p>
 	
 	<p>
