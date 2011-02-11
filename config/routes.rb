@@ -1,5 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :news, :collections => {:published => :get}
+
+  map.published_news "published_news.:format", :controller => 'news', :action => 'published', :method => :get
+
+  map.resources :news
 
   map.resources :shops
 
