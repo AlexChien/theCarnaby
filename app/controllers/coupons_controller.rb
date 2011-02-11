@@ -17,7 +17,7 @@ class CouponsController < ApplicationController
   end
   
   def published
-    @news = Coupon.paginate(:all,:page => params[:page],:per_page=>15,:order=>"created_at DESC")    
+    @coupons = Coupon.paginate(:all,:page => params[:page],:per_page=>15,:order=>"created_at DESC")
     respond_to do |format|
       format.html # index.html.erb
       format.iphone { render :layout => 'application.iphone' }
