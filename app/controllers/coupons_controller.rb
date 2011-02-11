@@ -10,10 +10,17 @@ class CouponsController < ApplicationController
     
     respond_to do |format|
       format.html # index.html.erb
-      format.iphone do
-        @news = Coupon.paginate(:all,:page => params[:page],:per_page=>15,:order=>"created_at DESC")
-        render :layout => 'application.iphone' 
-      end
+      format.iphone { render :layout => 'application.iphone' }
+      format.xml  { render :xml => @coupons }
+      format.json  { render :json => @coupons }
+    end
+  end
+  
+  def published
+    @news = Coupon.paginate(:all,:page => params[:page],:per_page=>15,:order=>"created_at DESC")    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.iphone { render :layout => 'application.iphone' }
       format.xml  { render :xml => @coupons }
       format.json  { render :json => @coupons }
     end
