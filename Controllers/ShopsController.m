@@ -34,7 +34,18 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    [super viewDidLoad];  
+//  NSLog(@"%@",[NSBundle localizations]);
+//  NSArray *locl = [NSBundle localizations];
+//  NSArray *prelocl = [NSBundle preferredLocalizations];
+//  NSUserDefaults* defs = [NSUserDefaults standardUserDefaults]; 
+//  NSArray* languages = [defs objectForKey:@"AppleLanguages"]; 
+//  NSString* preferredLang = [languages objectAtIndex:0];
+  NSString *locale = [[NSLocale currentLocale] localeIdentifier];
+  NSString *current_lang = [[NSLocale preferredLanguages] objectAtIndex:0];
+  NSLog(@"current locale: %@", locale);
+  NSLog(@"current lang: %@", current_lang);
+  
+  [super viewDidLoad];  
   NSManagedObjectContext *context = [[[UIApplication sharedApplication] delegate] managedObjectContext]; 
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
   NSEntityDescription *entity = [NSEntityDescription entityForName:@"Shop" 
@@ -48,7 +59,11 @@
   Shop *shop;
   NSMutableArray  *shopsBejing = [[NSMutableArray alloc]init];
   for (shop in fetchedBejing) {
-    [shopsBejing addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+      [shopsBejing addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+    } else {
+      [shopsBejing addObject:[TTTableTextItem itemWithText:shop.name_en URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];      
+    }
   }
   // NSLog(@"shopsBejing %@",shopsBejing);
   NSPredicate *predicateShanghai = [NSPredicate predicateWithFormat:@"(province = %@)", @"上海"];
@@ -57,25 +72,37 @@
   NSArray *fetchedShanghai = [context executeFetchRequest:fetchRequest error:&error];
   NSMutableArray  *shopsShanghai = [[NSMutableArray alloc]init];
   for (shop in fetchedShanghai) {
-    [shopsShanghai addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+      [shopsShanghai addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+    } else {
+      [shopsShanghai addObject:[TTTableTextItem itemWithText:shop.name_en URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];      
+    }
   }
   // NSLog(@"shopsShanghai %@",shopsShanghai);
-  NSPredicate *predicateShandong = [NSPredicate predicateWithFormat:@"(province = %@)", @"山东"];
-  [fetchRequest setPredicate:predicateShandong];
-  [fetchRequest setEntity:entity];
-  NSArray *fetchedShandong = [context executeFetchRequest:fetchRequest error:&error];
-  NSMutableArray  *shopsShandong = [[NSMutableArray alloc]init];
-  for (shop in fetchedShandong) {
-    [shopsShandong addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
-  }
-  // NSLog(@"shopsShandong %@",shopsShandong);
+//  NSPredicate *predicateShandong = [NSPredicate predicateWithFormat:@"(province = %@)", @"山东"];
+//  [fetchRequest setPredicate:predicateShandong];
+//  [fetchRequest setEntity:entity];
+//  NSArray *fetchedShandong = [context executeFetchRequest:fetchRequest error:&error];
+//  NSMutableArray  *shopsShandong = [[NSMutableArray alloc]init];
+//  for (shop in fetchedShandong) {
+//    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+//      [shopsShandong addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+//    } else {
+//      [shopsShandong addObject:[TTTableTextItem itemWithText:shop.name_en URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];      
+//    }
+//  }
+//  // NSLog(@"shopsShandong %@",shopsShandong);
   NSPredicate *predicateJiangsu = [NSPredicate predicateWithFormat:@"(province = %@)", @"江苏"];
   [fetchRequest setPredicate:predicateJiangsu];
   [fetchRequest setEntity:entity];
   NSArray *fetchedJiangsu = [context executeFetchRequest:fetchRequest error:&error];
   NSMutableArray  *shopsJiangsu = [[NSMutableArray alloc]init];
   for (shop in fetchedJiangsu) {
-    [shopsJiangsu addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+      [shopsJiangsu addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+    } else {
+      [shopsJiangsu addObject:[TTTableTextItem itemWithText:shop.name_en URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];      
+    }
   }
   // NSLog(@"shopsJiangsu %@",shopsJiangsu);
   NSPredicate *predicateZejiang = [NSPredicate predicateWithFormat:@"(province = %@)", @"浙江"];
@@ -84,7 +111,11 @@
   NSArray *fetchedZejiang = [context executeFetchRequest:fetchRequest error:&error];
   NSMutableArray  *shopsZejiang = [[NSMutableArray alloc]init];
   for (shop in fetchedZejiang) {
-    [shopsZejiang addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+      [shopsZejiang addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+    } else {
+      [shopsZejiang addObject:[TTTableTextItem itemWithText:shop.name_en URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];      
+    }
   }
   // NSLog(@"shopsZejiang %@",shopsZejiang);
   NSPredicate *predicateFujian = [NSPredicate predicateWithFormat:@"(province = %@)", @"福建"];
@@ -93,57 +124,91 @@
   NSArray *fetchedFujian = [context executeFetchRequest:fetchRequest error:&error];
   NSMutableArray  *shopsFujian = [[NSMutableArray alloc]init];
   for (shop in fetchedFujian) {
-    [shopsFujian addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+      [shopsFujian addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+    } else {
+      [shopsFujian addObject:[TTTableTextItem itemWithText:shop.name_en URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];      
+    }
   }
   // NSLog(@"shopsFujian %@",shopsFujian);
-  NSPredicate *predicateLiaoning = [NSPredicate predicateWithFormat:@"(province = %@)", @"辽宁"];
-  [fetchRequest setPredicate:predicateLiaoning];
-  [fetchRequest setEntity:entity];
-  NSArray *fetchedLiaoning = [context executeFetchRequest:fetchRequest error:&error];
-  NSMutableArray  *shopsLiaoning = [[NSMutableArray alloc]init];
-  for (shop in fetchedLiaoning) {
-    [shopsLiaoning addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
-  }
-  // NSLog(@"shopsLiaoning %@",shopsLiaoning);
+//  NSPredicate *predicateLiaoning = [NSPredicate predicateWithFormat:@"(province = %@)", @"辽宁"];
+//  [fetchRequest setPredicate:predicateLiaoning];
+//  [fetchRequest setEntity:entity];
+//  NSArray *fetchedLiaoning = [context executeFetchRequest:fetchRequest error:&error];
+//  NSMutableArray  *shopsLiaoning = [[NSMutableArray alloc]init];
+//  for (shop in fetchedLiaoning) {
+//    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+//      [shopsLiaoning addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+//    } else {
+//      [shopsLiaoning addObject:[TTTableTextItem itemWithText:shop.name_en URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];      
+//    }
+//  }
+//  // NSLog(@"shopsLiaoning %@",shopsLiaoning);
   NSPredicate *predicateChongqing = [NSPredicate predicateWithFormat:@"(province = %@)", @"重庆"];
   [fetchRequest setPredicate:predicateChongqing];
   [fetchRequest setEntity:entity];
   NSArray *fetchedChongqing = [context executeFetchRequest:fetchRequest error:&error];
   NSMutableArray  *shopsChongqing = [[NSMutableArray alloc]init];
   for (shop in fetchedChongqing) {
-    [shopsChongqing addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+      [shopsChongqing addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+    } else {
+      [shopsChongqing addObject:[TTTableTextItem itemWithText:shop.name_en URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];      
+    }
   }
   // NSLog(@"shopsChongqing %@",shopsChongqing);
-  NSPredicate *predicateHeilongjiang = [NSPredicate predicateWithFormat:@"(province = %@)", @"黑龙江"];
-  [fetchRequest setPredicate:predicateHeilongjiang];
-  [fetchRequest setEntity:entity];
-  NSArray *fetchedHeilongjiang = [context executeFetchRequest:fetchRequest error:&error];
-  NSMutableArray  *shopsHeilongjiang = [[NSMutableArray alloc]init];
-  for (shop in fetchedHeilongjiang) {
-    [shopsHeilongjiang addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+//  NSPredicate *predicateHeilongjiang = [NSPredicate predicateWithFormat:@"(province = %@)", @"黑龙江"];
+//  [fetchRequest setPredicate:predicateHeilongjiang];
+//  [fetchRequest setEntity:entity];
+//  NSArray *fetchedHeilongjiang = [context executeFetchRequest:fetchRequest error:&error];
+//  NSMutableArray  *shopsHeilongjiang = [[NSMutableArray alloc]init];
+//  for (shop in fetchedHeilongjiang) {
+//    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+//      [shopsHeilongjiang addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+//    } else {
+//      [shopsHeilongjiang addObject:[TTTableTextItem itemWithText:shop.name_en URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];      
+//    }
+//  }
+//  // NSLog(@"shopsHeilongjiang %@",shopsHeilongjiang);
+  
+  if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+    self.dataSource = [TTSectionedDataSource dataSourceWithArrays:
+                       @"北京",  shopsBejing,
+                       @"上海",  shopsShanghai,
+//                       @"山东",  shopsShandong,
+                       @"江苏",  shopsJiangsu,
+                       @"浙江",  shopsZejiang,
+                       @"福建",  shopsFujian,
+//                       @"辽宁",  shopsLiaoning,
+                       @"重庆",  shopsChongqing,
+//                       @"黑龙江", shopsHeilongjiang,                  
+                       nil];
+    NSLog(@"中文");
+  } else {
+    self.dataSource = [TTSectionedDataSource dataSourceWithArrays:
+                       @"Beijing",  shopsBejing,
+                       @"Shanghai",  shopsShanghai,
+//                       @"Shandong",  shopsShandong,
+                       @"Jiangsu",  shopsJiangsu,
+                       @"Zejiang",  shopsZejiang,
+                       @"Fujian",  shopsFujian,
+//                       @"Liaoning",  shopsLiaoning,
+                       @"Chongqing",  shopsChongqing,
+//                       @"Heilongjiang", shopsHeilongjiang,                  
+                       nil];
+    NSLog(@"English");
   }
-  // NSLog(@"shopsHeilongjiang %@",shopsHeilongjiang);  
 
-  self.dataSource = [TTSectionedDataSource dataSourceWithArrays:
-                     @"北京",  shopsBejing,
-                     @"上海",  shopsShanghai,
-                     @"山东",  shopsShandong,
-                     @"江苏",  shopsJiangsu,
-                     @"浙江",  shopsZejiang,
-                     @"福建",  shopsFujian,
-                     @"辽宁",  shopsLiaoning,
-                     @"重庆",  shopsChongqing,
-                     @"黑龙江", shopsHeilongjiang,                  
-                     nil];
+
   [shopsBejing release];
   [shopsShanghai release];
-  [shopsShandong release];
+//  [shopsShandong release];
   [shopsJiangsu release];
   [shopsZejiang release];
   [shopsFujian release];
-  [shopsLiaoning release];
+//  [shopsLiaoning release];
   [shopsChongqing release];
-  [shopsHeilongjiang release];
+//  [shopsHeilongjiang release];
   shop = nil;
   [fetchRequest release];  
 }

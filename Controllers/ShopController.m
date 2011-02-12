@@ -1,4 +1,4 @@
-    //
+//
 //  ShopController.m
 //  theCarnaby
 //
@@ -25,6 +25,7 @@
 */
 
 -(id)initWithID:(NSInteger*)remote_shop_id{
+  NSString *current_lang = [[NSLocale preferredLanguages] objectAtIndex:0];  
   if (self = [super init]) {
     self.shop_id  = [NSNumber numberWithInt:[remote_shop_id integerValue]];
     NSLog( @"shop_id %@", self.shop_id); 
@@ -41,9 +42,13 @@
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     NSLog( @"fetchedObjects %@", fetchedObjects);
     Shop *shop = [fetchedObjects lastObject];
-    self.shop_name = shop.name;
+    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+      self.shop_name = shop.name;
+    }else{
+      self.shop_name = shop.name_en;      
+    }
     self._shop = shop;
-    NSLog( @"shop %@", shop.name);  
+    NSLog( @"shop %@", self.shop_name);  
     [fetchRequest release];
   }
   return self;
@@ -59,6 +64,8 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];  
+  NSString *current_lang = [[NSLocale preferredLanguages] objectAtIndex:0];
+
   UIImageView *imageview6 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 420.0)];
   UIImage *coverImage = [UIImage imageNamed:@"shop_pic_demo.jpg"];
   imageview6.frame = CGRectMake(0.0, 0.0, 320.0, 420.0);
@@ -87,12 +94,20 @@
   //[mapUrl description];
   UIButton *button0 = [UIButton buttonWithType:UIButtonTypeCustom];
   button0.frame = CGRectMake(0, 330 - (0*37), 320, 37);
-  [button0 setTitle:_shop.address forState:UIControlStateNormal];
+  if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+    [button0 setTitle:_shop.address forState:UIControlStateNormal];
+  }else{
+    [button0 setTitle:_shop.address_en forState:UIControlStateNormal];    
+  }
   button0.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
   [button0 addTarget:mapUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
   UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
   button1.frame = CGRectMake(0, 330 - (1*37), 320, 37);
-  [button1 setTitle:_shop.name forState:UIControlStateNormal];
+  if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+    [button1 setTitle:_shop.name forState:UIControlStateNormal];    
+  }else{
+    [button1 setTitle:_shop.name_en forState:UIControlStateNormal];      
+  }
   button1.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
   [button1 addTarget:mapUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview: button0];        
