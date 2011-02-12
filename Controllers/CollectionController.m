@@ -51,7 +51,7 @@
     [fetchRequest release];
   }
   return self;
-}    
+}
 
 /*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -59,9 +59,13 @@
 }
 */
 
+-(void)viewWillAppear:(BOOL)animated{
+  [super viewWillAppear:animated];   
+  [self.navigationController setNavigationBarHidden:NO animated:NO];   
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
+- (void)viewDidLoad2010 {
     [super viewDidLoad];
   int remote_collection_id = [self.collection_id integerValue];
   
@@ -114,6 +118,44 @@
                          title:self.colletion_title
                          photos:array photos2:nil];   
    }
+}
+
+  // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  int remote_collection_id = [self.collection_id integerValue];
+  
+  if (remote_collection_id == 1) {
+    NSMutableArray  *photos_array = [[[NSMutableArray alloc] init] autorelease];
+    for (int i = 1; i<10; ++i) {
+        //NSLog(@"%d",i);
+      NSString  *url = [NSString stringWithFormat:@"bundle://%d.jpg", i];
+      NSString *tUrl = [NSString stringWithFormat:@"bundle://%ds.jpg", i];
+        //NSLog(@"%@",tUrl);    
+      [photos_array addObject:[[[CIImage alloc]  initWithURL:url smallURL:tUrl 
+                                                        size:CGSizeMake(75, 75)] autorelease]];
+    }
+    NSArray *array = [NSArray arrayWithArray:photos_array];
+    self.photoSource = [[PhotoSource alloc]
+                        initWithType:PhotoSourceNormal
+                        title:self.colletion_title
+                        photos:array photos2:nil];  
+  }else if (remote_collection_id == 2) {
+    NSMutableArray  *photos_array = [[[NSMutableArray alloc] init] autorelease];
+    for (int i = 11; i<31; ++i) {
+        //NSLog(@"%d",i);
+      NSString  *url = [NSString stringWithFormat:@"bundle://%d.jpg", i];
+      NSString *tUrl = [NSString stringWithFormat:@"bundle://%ds.jpg", i];
+        //NSLog(@"%@",tUrl);    
+      [photos_array addObject:[[[CIImage alloc]  initWithURL:url smallURL:tUrl 
+                                                        size:CGSizeMake(75, 75)] autorelease]];
+    }
+    NSArray *array = [NSArray arrayWithArray:photos_array];
+    self.photoSource = [[PhotoSource alloc]
+                        initWithType:PhotoSourceNormal
+                        title:self.colletion_title
+                        photos:array photos2:nil];     
+  }
 }
 
 /*

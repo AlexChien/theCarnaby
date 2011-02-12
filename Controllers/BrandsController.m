@@ -37,7 +37,7 @@
   view1.userInteractionEnabled = YES;
   
   UIImageView *imageview6 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 420.0)];
-  UIImage *coverImage = [UIImage imageNamed:@"14.jpg"];
+  UIImage *coverImage = [UIImage imageNamed:@"cover.jpg"];
   imageview6.frame = CGRectMake(0.0, 0.0, 320.0, 420.0);
   imageview6.alpha = 1.000;
   imageview6.autoresizesSubviews = YES;
