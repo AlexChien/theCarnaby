@@ -43,8 +43,12 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self setTabURLs:[NSArray arrayWithObjects:@"tt://brands",
-                    @"tt://products/new",
+  [self setTabURLs:[NSArray arrayWithObjects:
+                    //@"tt://brands",
+                    @"tt://collections",
+                    //@"tt://products/new",
+                    @"tt://news",
+                    //@"http://127.0.0.1:3000/news.iphone",
                     @"tt://coupons",
                     @"tt://shops",
                     @"tt://videos",

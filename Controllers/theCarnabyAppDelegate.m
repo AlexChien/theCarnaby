@@ -12,9 +12,12 @@
 #import "BrandController.h"
 #import "CollectionsController.h"
 #import "CollectionController.h"
-#import "ProductsController.h"
+#import "NewsController.h"
+//#import "ProductsController.h"
+//#import "CouponsController.h"
+//#import "CouponController.h"
+#import "WebCouponsController.h"
 #import "CouponsController.h"
-#import "CouponController.h"
 #import "ShopsController.h"
 #import "ShopController.h"
 #import "MapController.h"
@@ -31,12 +34,13 @@
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    
-    // Override point for customization after application launch.
-    /*
-    [self.window makeKeyAndVisible];    
-    return YES;
-     */
+  /*
+  //  window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  //	window.backgroundColor = [UIColor whiteColor];
+  // Override point for customization after application launch.
+  [self.window makeKeyAndVisible];    
+  return YES;
+  */
   
   // 导入初始数据
   [self importInitData];
@@ -64,11 +68,15 @@
   
   [map from:@"tt://collections" toViewController:[CollectionsController class]];
   [map from:@"tt://collection/(initWithID:)" toViewController:[CollectionController class]];
+
+  [map from:@"tt://news" toViewController:[NewsController class]];
+  [map from:@"tt://news/(initWithID:)" toViewController:[NewsController class]];
+
+  //[map from:@"tt://products/(initWithState:)" toViewController:[ProductsController class]];
   
-  [map from:@"tt://products/(initWithState:)" toViewController:[ProductsController class]];
-  
-  [map from:@"tt://coupons" toViewController:[CouponsController class]];
-  [map from:@"tt://coupon/(initWithID:)" toViewController:[CouponController class]];
+  //[map from:@"tt://coupons" toViewController:[CouponsController class]];
+  //[map from:@"tt://coupon/(initWithID:)" toViewController:[CouponController class]];
+  [map from:@"tt://coupons" toViewController:[WebCouponsController class]];
   
   [map from:@"tt://shops" toViewController:[ShopsController class]];
   [map from:@"tt://shop/(initWithID:)" toViewController:[ShopController class]];
@@ -216,7 +224,7 @@
 #pragma mark -
 #pragma mark Init Data Import
 
-// 初始数据导入
+  // 初始数据导入
 -(void) importInitData{
   NSManagedObjectContext *context = self.managedObjectContext;
   NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -226,33 +234,17 @@
   NSError *statusError;
   NSMutableArray *status = [[context executeFetchRequest:request error:&statusError] mutableCopy];
   if ([status lastObject] == nil) {
-    //导入品牌
-    Brand *yanziCarnaby = [NSEntityDescription insertNewObjectForEntityForName:@"Brand" inManagedObjectContext:context];
-    Brand *brandCarnaby = [NSEntityDescription insertNewObjectForEntityForName:@"Brand" inManagedObjectContext:context];    
-    yanziCarnaby.name = @"Yanzi by the Carnaby";
-    yanziCarnaby.remote_brand_id = [NSNumber numberWithInt:1];
-    brandCarnaby.name = @"the Carnaby";
-    brandCarnaby.remote_brand_id = [NSNumber numberWithInt:2];
-    //导入系列
-    Collection *yanzi2010FW = [NSEntityDescription insertNewObjectForEntityForName:@"Collection" inManagedObjectContext:context];
-    Collection *theCarnabyPunk = [NSEntityDescription insertNewObjectForEntityForName:@"Collection" inManagedObjectContext:context];
-    Collection *theCarnabyVictoria = [NSEntityDescription insertNewObjectForEntityForName:@"Collection" inManagedObjectContext:context];  
-    yanzi2010FW.name = @"Yanzi 2010FW";
-    yanzi2010FW.brand = yanziCarnaby;
-    yanzi2010FW.remote_collection_id = [NSNumber numberWithInt:1];  
-    theCarnabyPunk.name =@"the Carnaby Punk";
-    theCarnabyPunk.brand = brandCarnaby;
-    theCarnabyPunk.remote_collection_id = [NSNumber numberWithInt:2];
-    theCarnabyVictoria.name =@"the Carnaby Victoria";
-    theCarnabyVictoria.brand = brandCarnaby;
-    theCarnabyVictoria.remote_collection_id = [NSNumber numberWithInt:3];
-    //导入店铺
-    //Shop *shop = [NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:context];
-    
-    //标记状态
+      //导入系列
+    Collection *yanziCollection = [NSEntityDescription insertNewObjectForEntityForName:@"Collection" inManagedObjectContext:context];
+    Collection *theCarnabyCollection = [NSEntityDescription insertNewObjectForEntityForName:@"Collection" inManagedObjectContext:context]; 
+    yanziCollection.name = @"Yanzi Collection";
+    yanziCollection.remote_collection_id = [NSNumber numberWithInt:1];  
+    theCarnabyCollection.name =@"theCarnaby Collection";
+    theCarnabyCollection.remote_collection_id = [NSNumber numberWithInt:2];    
+      //标记状态
     Status *initStatus = [NSEntityDescription insertNewObjectForEntityForName:@"Status" inManagedObjectContext:context];  
     initStatus.init_data = [NSNumber numberWithInt:1];      
-    //保存
+      //保存
     NSError *error;
     if (![context save:&error]) {
       NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
@@ -261,7 +253,6 @@
   [status release];
   [request release];
 }
-
 
 
 ////////////////////////////////////////////////////////////////////////////
