@@ -6,18 +6,16 @@
 //  Copyright 2010 Koocaa Interactive. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Brand;
-@class Image;
-@class Product;
+@class Brand, Image, Product;
 
-@interface Collection :  NSManagedObject  
-{
+@interface Collection : NSManagedObject {
+@private
 }
-
 @property (nonatomic, retain) NSDate * updated_at;
-@property (nonatomic, retain) NSString * description;
+@property (nonatomic, retain) NSString * remote_description;
 @property (nonatomic, retain) NSNumber * remote_collection_id;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet* products;
@@ -25,13 +23,3 @@
 @property (nonatomic, retain) Brand * brand;
 
 @end
-
-
-@interface Collection (CoreDataGeneratedAccessors)
-- (void)addProductsObject:(Product *)value;
-- (void)removeProductsObject:(Product *)value;
-- (void)addProducts:(NSSet *)value;
-- (void)removeProducts:(NSSet *)value;
-
-@end
-

@@ -6,16 +6,13 @@
 //  Copyright 2010 Koocaa Interactive. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
 
-@interface Status :  NSManagedObject  
-{
+@interface Status : NSManagedObject {
+@private
 }
-
 @property (nonatomic, retain) NSNumber * init_data;
 
 @end
-
-
-

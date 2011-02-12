@@ -7,14 +7,13 @@
 //
 
 #import "Image.h"
-
 #import "Brand.h"
 #import "Collection.h"
 #import "Coupon.h"
 #import "Product.h"
 
-@implementation Image 
 
+@implementation Image
 @dynamic caption;
 @dynamic position;
 @dynamic urlThumb;
@@ -27,5 +26,9 @@
 @dynamic brand;
 @dynamic coupon;
 @dynamic collection;
+
+
+
+
 
 @end

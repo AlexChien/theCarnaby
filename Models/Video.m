@@ -6,15 +6,15 @@
 //  Copyright 2010 Koocaa Interactive. All rights reserved.
 //
 
+
 #import "Video.h"
 
 
-@implementation Video 
-
+@implementation Video
 @dynamic path;
 @dynamic title;
 @dynamic updated_at;
-@dynamic description;
+@dynamic remote_description;
 @dynamic url;
 @dynamic remote_video_id;
 

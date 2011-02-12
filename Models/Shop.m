@@ -9,16 +9,16 @@
 #import "Shop.h"
 
 
-@implementation Shop 
-
+@implementation Shop
 @dynamic remote_shop_id;
-@dynamic description;
+@dynamic description_zh;
 @dynamic address_en;
 @dynamic longitude;
 @dynamic description_en;
 @dynamic latitude;
-@dynamic province;
+@dynamic remote_image_url;
 @dynamic province_en;
+@dynamic province;
 @dynamic address;
 @dynamic shop_type;
 @dynamic city;

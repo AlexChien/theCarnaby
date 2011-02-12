@@ -7,16 +7,16 @@
 //
 
 #import "Coupon.h"
-
 #import "Image.h"
 
-@implementation Coupon 
 
+@implementation Coupon
 @dynamic discount;
 @dynamic title;
 @dynamic detail;
 @dynamic state;
 @dynamic remote_coupon_id;
 @dynamic image;
+
 
 @end

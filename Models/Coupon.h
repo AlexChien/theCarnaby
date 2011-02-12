@@ -6,14 +6,14 @@
 //  Copyright 2010 Koocaa Interactive. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
 @class Image;
 
-@interface Coupon :  NSManagedObject  
-{
+@interface Coupon : NSManagedObject {
+@private
 }
-
 @property (nonatomic, retain) NSNumber * discount;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * detail;
@@ -22,6 +22,3 @@
 @property (nonatomic, retain) Image * image;
 
 @end
-
-
-

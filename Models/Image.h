@@ -6,17 +6,14 @@
 //  Copyright 2010 Koocaa Interactive. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Brand;
-@class Collection;
-@class Coupon;
-@class Product;
+@class Brand, Collection, Coupon, Product;
 
-@interface Image :  NSManagedObject  
-{
+@interface Image : NSManagedObject {
+@private
 }
-
 @property (nonatomic, retain) NSString * caption;
 @property (nonatomic, retain) NSNumber * position;
 @property (nonatomic, retain) NSString * urlThumb;
@@ -31,6 +28,3 @@
 @property (nonatomic, retain) Collection * collection;
 
 @end
-
-
-

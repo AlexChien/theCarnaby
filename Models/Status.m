@@ -9,8 +9,7 @@
 #import "Status.h"
 
 
-@implementation Status 
-
+@implementation Status
 @dynamic init_data;
 
 @end

@@ -7,21 +7,23 @@
 //
 
 #import "Product.h"
-
 #import "Brand.h"
 #import "Collection.h"
 #import "Image.h"
 
-@implementation Product 
 
+@implementation Product
 @dynamic remote_product_id;
 @dynamic position;
 @dynamic sku;
 @dynamic price;
-@dynamic description;
+@dynamic remote_description;
 @dynamic name;
 @dynamic collection;
 @dynamic image;
 @dynamic brand;
+
+
+
 
 @end
