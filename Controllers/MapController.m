@@ -28,6 +28,7 @@
 
 -(id)initWithID:(NSInteger*)remote_shop_id{
   if (self = [super init]) {
+    NSString *current_lang = [[NSLocale preferredLanguages] objectAtIndex:0];    
 //    NSLog( @"map shop id %@", remote_shop_id); 
 
     self.shop_id  = [NSNumber numberWithInt:[remote_shop_id integerValue]];
@@ -44,7 +45,11 @@
     NSError *error;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     Shop *shop = [fetchedObjects lastObject];
-    self.shop_name = shop.name;
+    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+      self.shop_name = shop.name;
+    }else{
+      self.shop_name = shop.name_en;
+    }
     self._shop = shop;
 //    NSLog( @"shop map name %@", shop.name);
     [fetchRequest release];
@@ -58,8 +63,13 @@
     };
     
     Annotation * annotation = [[Annotation alloc] initWithCoordinate:theCoordinate];
-    annotation._title = self._shop.name;
-    annotation._subtitle = self._shop.address;
+    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+      annotation._title = self._shop.name;
+      annotation._subtitle = self._shop.address;
+    }else{
+      annotation._title = self._shop.name_en;
+      annotation._subtitle = self._shop.address_en;
+    }
 
 //    NSLog( @"shopAnnotation coordinate%@", annotation.title);
     
