@@ -3,6 +3,8 @@ ActionController::Routing::Routes.draw do |map|
   map.published_news "published_news.:format", :controller => 'news', :action => 'published', :method => :get
 
   map.published_coupons "published_coupons.:format", :controller => 'coupons', :action => 'published', :method => :get
+  
+  map.resources :shares  
 
   map.resources :news
 

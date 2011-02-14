@@ -1,0 +1,452 @@
+<% if false %>
+<% if params[:lang]=='zh' %>
+<h2>theCarnaby 分享</h2>
+<% else %>
+<h2>theCarnaby Share</h2>
+<% end %>
+
+<div class="shares">
+  <!-- JiaThis Button BEGIN -->
+  <script type="text/javascript">
+  var jiathis_config = {
+    url: "http://www.thecarnaby.com/mobile_c.htm",
+    title: "theCarnaby 手机应用"
+  }
+  </script>  
+  <div id="ckepop">
+    <a href="http://www.jiathis.com/share/" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank">分享到：</a>
+    <a class="jiathis_button_kaixin001">开心网</a>    
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_renren">人人网</a>
+  </div>
+  <script type="text/javascript" src="http://v2.jiathis.com/code/jia.js" charset="utf-8">
+</script>
+  <!-- JiaThis Button END -->
+</div>
+
+<% end %>
+
+<%
+sites = [
+  {:id =>'kaixin001' , :image =>'http://www.jiathis.com/resource/images/media/17.gif' },
+  {:id =>'tsina' , :image =>'http://www.jiathis.com/resource/images/media/4.gif' },
+  {:id =>'renren' , :image =>'http://www.jiathis.com/resource/images/media/6.gif' },
+  {:id =>'douban' , :image =>'http://www.jiathis.com/resource/images/media/30.gif' },
+  {:id =>'t163' , :image =>'http://www.jiathis.com/resource/images/media/5.gif' },
+  {:id =>'fanfou' , :image =>'http://www.jiathis.com/resource/images/media/90.gif' },
+  {:id =>'hi' , :image =>'http://www.jiathis.com/resource/images/media/8.gif' },
+  {:id =>'buzz' , :image =>'http://www.jiathis.com/resource/images/media/13.gif' },
+  {:id =>'tsohu' , :image =>'http://www.jiathis.com/resource/images/media/15.gif' },
+  {:id =>'tqq' , :image =>'http://www.jiathis.com/resource/images/media/16.gif' },
+  {:id =>'follow5' , :image =>'http://www.jiathis.com/resource/images/media/43.gif' },
+  {:id =>'fb' , :image =>'http://www.jiathis.com/resource/images/media/45.gif' },
+  {:id =>'myspace' , :image =>'http://www.jiathis.com/resource/images/media/46.gif' },
+  {:id =>'evernote' , :image =>'http://www.jiathis.com/resource/images/media/79.gif' },
+  {:id =>'googlereader' , :image =>'http://www.jiathis.com/resource/images/media/78.gif' },
+  {:id =>'twitter' , :image =>'http://www.jiathis.com/resource/images/media/56.gif' },  
+  # {:id =>'' , :image =>'' },
+]
+%>
+
+<style type="text/css" media="screen">
+  #shares{width:320px;}
+  .share{text-align:center;margin:20px;line-height: 38px;}
+</style>
+
+<div id="shares">
+<% sites.each do |site| %>
+  <span class='share'>  
+    <a href="http://www.jiathis.com/send/?webid=<%= site[:id] %>&url=http://www.thecarnaby.com/mobile_c.htm&title=theCarnaby手机应用">
+      <%=image_tag site[:image] %>
+    </a>
+  </span>
+<% end %>
+</div>
+
+
+<% if false %>
+<table style="padding-top: 20px;" border="0" width="100%">
+  <tbody>
+    <tr height="50">
+      <td style="padding-left: 10px;" width="112"><strong>网站名称</strong></td>
+      <td width="107"><strong>ID</strong></td>
+      <td><strong>URL</strong></td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/1.gif" alt="" width="112" height="23"></td>
+      <td height="23">copy</td>
+      <td>——</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/2.gif" alt="" width="112" height="23"></td>
+      <td height="21">email</td>
+      <td>http://www.jiathis.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/3.gif" alt="" width="112" height="23"></td>
+      <td>qzone</td>
+      <td>http://qzone.qq.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/7.gif" alt="" width="112" height="23"></td>
+      <td height="29">sohu</td>
+      <td>http://bai.sohu.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/91.gif" alt="" width="112" height="23"></td>
+      <td>i139</td>
+      <td>http://go.139.com/</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/9.gif" alt="" width="112" height="23"></td>
+      <td height="22">youshi</td>
+      <td>http://www.ushi.cn</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/10.gif" alt="" width="112" height="23"></td>
+      <td height="26">hotmail</td>
+      <td>http://www.hotmail.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/11.gif" alt="" width="112" height="23"></td>
+      <td height="26">feixin</td>
+      <td>http://feixin.10086.cn</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/12.gif" alt="" width="112" height="23"></td>
+      <td height="21">fav</td>
+      <td>——</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/14.gif" alt="" width="112" height="23"></td>
+      <td height="29">baidu</td>
+      <td>http://cang.baidu.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/18.gif" alt="" width="112" height="23"></td>
+      <td>taobao</td>
+      <td>http://www.taobao.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/19.gif" alt="" width="112" height="23"></td>
+      <td height="27">xiaoyou</td>
+      <td>http://xiaoyou.qq.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/20.gif" alt="" width="112" height="23"></td>
+      <td>gmail</td>
+      <td>http://www.gmail.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/21.gif" alt="" width="112" height="23"></td>
+      <td height="28">ymail</td>
+      <td>http://mail.yahoo.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/22.gif" alt="" width="112" height="23"></td>
+      <td height="27">51</td>
+      <td>http://www.51.com/</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/23.gif" alt="" width="112" height="23"></td>
+      <td>google</td>
+      <td>http://www.google.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/24.gif" alt="" width="112" height="23"></td>
+      <td height="25">qq</td>
+      <td>http://shuqian.qq.com/</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/25.gif" alt="" width="112" height="23"></td>
+      <td>sina</td>
+      <td>http://vivi.sina.com.cn</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/26.gif" alt="" width="112" height="23"></td>
+      <td height="22">yahoo</td>
+      <td>http://myweb.cn.yahoo.com/</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/27.gif" alt="" width="112" height="23"></td>
+      <td height="25">hexun</td>
+      <td>http://www.hexun.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/28.gif" alt="" width="112" height="23"></td>
+      <td height="25">139</td>
+      <td>http://www.139.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/29.gif" alt="" width="112" height="23"></td>
+      <td height="25">haoei</td>
+      <td>http://www.haoei.com/</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/31.gif" alt="" width="112" height="23"></td>
+      <td>xianguo</td>
+      <td>http://www.xianguo.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/32.gif" alt="" width="112" height="23"></td>
+      <td height="27">renjian</td>
+      <td>http://www.renjian.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/33.gif" alt="" width="112" height="23"></td>
+      <td height="25">delicious</td>
+      <td>http://www.delicious.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/34.gif" alt="" width="112" height="23"></td>
+      <td height="25">youdao</td>
+      <td>http://shuqian.youdao.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/35.gif" alt="" width="112" height="23"></td>
+      <td>msn</td>
+      <td>http://cn.msn.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/36.gif" alt="" width="112" height="23"></td>
+      <td height="21">live</td>
+      <td>http://favorites.live.com/</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/37.gif" alt="" width="112" height="23"></td>
+      <td height="22">115</td>
+      <td>http://fav.115.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/38.gif" alt="" width="112" height="23"></td>
+      <td height="26">yesky</td>
+      <td>http://hot.yesky.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/39.gif" alt="" width="112" height="23"></td>
+      <td>tieba</td>
+      <td>http://tieba.baidu.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/40.gif" alt="" width="112" height="23"></td>
+      <td height="25">digu</td>
+      <td>http://www.digu.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/41.gif" alt="" width="112" height="23"></td>
+      <td height="23">zhuaxia</td>
+      <td>http://www.zhuaxia.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/42.gif" alt="" width="112" height="23"></td>
+      <td>zuosa</td>
+      <td>http://zuosa.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/44.gif" alt="" width="112" height="23"></td>
+      <td>digg</td>
+      <td>http://digg.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/47.gif" alt="" width="112" height="23"></td>
+      <td height="23">wealink</td>
+      <td>http://www.wealink.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/48.gif" alt="" width="112" height="23"></td>
+      <td height="21">leshou</td>
+      <td>http://leshou.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/49.gif" alt="" width="112" height="23"></td>
+      <td>tongxue</td>
+      <td>http://tongxue.com/</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/50.gif" alt="" width="112" height="23"></td>
+      <td height="27">shouker</td>
+      <td>http://www.shouker.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/51.gif" alt="" width="112" height="23"></td>
+      <td>9fav</td>
+      <td>http://www.9fav.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/52.gif" alt="" width="112" height="23"></td>
+      <td height="23">99earth</td>
+      <td>http://www.99earth.org</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/53.gif" alt="" width="112" height="23"></td>
+      <td height="21">dig24</td>
+      <td>http://www.dig24.cn</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/54.gif" alt="" width="112" height="23"></td>
+      <td height="25">digbuz</td>
+      <td>——</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/55.gif" alt="" width="112" height="23"></td>
+      <td height="27">baohe</td>
+      <td>http://www.baohe.com</td>
+    </tr>    
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/57.gif" alt="" width="112" height="23"></td>
+      <td>poco</td>
+      <td>http://www.poco.cn</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/58.gif" alt="" width="112" height="23"></td>
+      <td height="21">cnfol</td>
+      <td>http://t.cnfol.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/59.gif" alt="" width="112" height="23"></td>
+      <td height="22">diglog</td>
+      <td>http://www.diglog.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/60.gif" alt="" width="112" height="23"></td>
+      <td height="23">waakee</td>
+      <td>http://www.waakee.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/61.gif" alt="" width="112" height="23"></td>
+      <td height="21">cyzone</td>
+      <td>http://u.cyzone.cn</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/62.gif" alt="" width="112" height="23"></td>
+      <td height="21">114la</td>
+      <td>http://www.114la.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/63.gif" alt="" width="112" height="23"></td>
+      <td height="21">chouti</td>
+      <td>http://www.chouti.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/64.gif" alt="" width="112" height="23"></td>
+      <td height="24">douban9dian</td>
+      <td>http://9.douban.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/65.gif" alt="" width="112" height="23"></td>
+      <td height="23">hemidemi</td>
+      <td>http://www.hemidemi.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/66.gif" alt="" width="112" height="23"></td>
+      <td height="22">yijee</td>
+      <td>http://www.yijee.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/67.gif" alt="" width="112" height="23"></td>
+      <td height="23">pdfonline</td>
+      <td>http://www.pdfonline.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/68.gif" alt="" width="112" height="23"></td>
+      <td height="28">translate</td>
+      <td>http://translate.google.com/</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/69.gif" alt="" width="112" height="23"></td>
+      <td>diigo</td>
+      <td>http://www.diigo.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/70.gif" alt="" width="112" height="23"></td>
+      <td height="23">friendfeed</td>
+      <td>http://www.friendfeed.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/71.gif" alt="" width="112" height="23"></td>
+      <td height="23">mixx</td>
+      <td>http://www.mixx.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/72.gif" alt="" width="112" height="23"></td>
+      <td>netvibes</td>
+      <td>http://www.netvibes.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/73.gif" alt="" width="112" height="23"></td>
+      <td height="28">pingfm</td>
+      <td>http://ping.fm</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/74.gif" alt="" width="112" height="23"></td>
+      <td height="21">polladium</td>
+      <td>http://www.polladium.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/75.gif" alt="" width="112" height="23"></td>
+      <td height="25">wong</td>
+      <td>http://www.mister-wong.cn</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/76.gif" alt="" width="112" height="23"></td>
+      <td>plurk</td>
+      <td>http://www.plurk.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/89.gif" alt="" width="112" height="23"></td>
+      <td height="26">ask</td>
+      <td>http://www.ask.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/77.gif" alt="" width="112" height="23"></td>
+      <td height="26">printfriendly</td>
+      <td>http://www.printfriendly.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/80.gif" alt="" width="112" height="23"></td>
+      <td>linkedin</td>
+      <td>http://www.linkedin.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/81.gif" alt="" width="112" height="23"></td>
+      <td height="25">netlog</td>
+      <td>http://www.netlog.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/82.gif" alt="" width="112" height="23"></td>
+      <td height="22">phonefavs</td>
+      <td>http://phonefavs.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/83.gif" alt="" width="112" height="23"></td>
+      <td height="21">plaxo</td>
+      <td>http://www.Plaxo.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/84.gif" alt="" width="112" height="23"></td>
+      <td height="21">reddit</td>
+      <td>http://www.reddit.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/85.gif" alt="" width="112" height="23"></td>
+      <td height="25">stumbleupon</td>
+      <td>http://www.stumbleupon.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/86.gif" alt="" width="112" height="23"></td>
+      <td height="27">funp</td>
+      <td>http://www.funp.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/87.gif" alt="" width="112" height="23"></td>
+      <td>myshare</td>
+      <td>http://www.myshare.com</td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="http://www.jiathis.com/resource/images/media/88.gif" alt="" width="112" height="23"></td>
+      <td>fwisp</td>
+      <td>http://fwisp.com</td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
