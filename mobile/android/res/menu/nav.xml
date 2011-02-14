@@ -3,9 +3,9 @@
     <item android:id="@+id/m_brands"
           android:icon="@drawable/ic_menu_gallery"
           android:title="@string/title_brands" />
-    <item android:id="@+id/m_newarrivals"
-          android:icon="@drawable/ic_menu_newarrival"
-          android:title="@string/title_newarrivals" />
+    <item android:id="@+id/m_news"
+          android:icon="@drawable/ic_menu_news"
+          android:title="@string/title_news" />
     <item android:id="@+id/m_coupons"
           android:icon="@drawable/ic_menu_coupon"
           android:title="@string/title_coupons" />

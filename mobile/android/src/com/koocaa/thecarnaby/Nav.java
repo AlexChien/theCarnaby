@@ -1,7 +1,10 @@
 package com.koocaa.thecarnaby;
 
+import java.util.Locale;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -9,6 +12,7 @@ import android.view.Window;
 import android.widget.TextView;
 
 public class Nav extends Activity {
+	String lang = "en";
 	
 	public void setupTitle(int resid){
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.custom_title);
@@ -19,6 +23,9 @@ public class Nav extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu){
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.nav, menu);
+		
+		lang = getApplicationContext().getResources().getConfiguration().locale.getLanguage();
+        lang = lang.equals(Locale.CHINESE.toString()) ? "zh" : "en";
 		return true;
 	}
 	
@@ -28,13 +35,19 @@ public class Nav extends Activity {
 			startActivity(new Intent(this, Brands.class));
 	        return true;
 
-		case R.id.m_newarrivals:
-			Intent act = new Intent(this, GalleryAct.class);
-			act.putExtra("type", 2);
-			startActivity(act);
+		case R.id.m_news:
+			Intent intent_news = new Intent(Intent.ACTION_VIEW, 
+					Uri.parse("http://thecarnaby.koocaa.com/published_news.iphone?lang="+lang));
+			startActivity(intent_news);
+//			Intent act = new Intent(this, GalleryAct.class);
+//			act.putExtra("type", 2);
+//			startActivity(act);
 	        return true;
 
 		case R.id.m_coupons:
+//			Intent intent_coupons = new Intent(Intent.ACTION_VIEW, 
+//					Uri.parse("http://thecarnaby.koocaa.com/published_coupons.iphone?lang="+lang));
+//			startActivity(intent_coupons);
 			startActivity(new Intent(this, Coupons.class));
 	        return true;
 
