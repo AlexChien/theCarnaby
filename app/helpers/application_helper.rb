@@ -39,4 +39,11 @@ module ApplicationHelper
     cn = model["#{field}_en"]
     "<p><b>#{label}:</b><br />#{en}<br />#{cn}</p>"
   end
+  
+  def tt(obj={},field=nil)
+    unless field.nil? || obj.nil?
+      field = params[:lang] == 'zh' ? field : "#{field}_en"
+      obj[field]
+    end
+  end
 end

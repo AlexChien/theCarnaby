@@ -1,11 +1,3 @@
-<% if false %>
-<% if params[:lang]=='zh' %>
-<h2>theCarnaby 优惠券</h2>
-<% else %>
-<h2>theCarnaby Coupons</h2>
-<% end %>
-<% end %>
-
 <% @coupons.each_with_index do |coupon, index| %>
 <% if params[:lang]=='zh' %>
 <div id="<%= dom_id(coupon) %>" class="coupon">

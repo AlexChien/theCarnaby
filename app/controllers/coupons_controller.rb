@@ -21,6 +21,7 @@ class CouponsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.iphone { render :layout => 'application.iphone' }
+      format.android { render :layout => 'application.iphone' }
       format.xml  { render :xml => @coupons }
       format.json  { render :json => @coupons }
     end

@@ -1,35 +1,11 @@
-<% if false %>
-<% if params[:lang]=='zh' %>
-<h2>theCarnaby 新闻</h2>
-<% else %>
-<h2>theCarnaby News</h2>
-<% end %>
-<% end %>
+<%@news.each do |news|%>
 
-<%@news.each_with_index do |news, index|%>
-<% if params[:lang]=='zh' %>
-<div id="news_<%=news.id%>" class="news">
-  <% if index != 0 %>
-  <hr />
-  <% end %>
-  <h3><%= news.title %></h3>
-  <span><%=news.news_date.strftime("%Y %m %d")%></span>
-  <p>
-    <%= news.body %>
-  </p>
-</div>
-<% else %>
-<div id="news_<%=news.id%>" class="news">
-  <% if index != 0 %>
-  <hr />
-  <% end %>  
-  <h3><%= news.title_en %></a></h3>
-  <span><%=news.news_date.strftime("%Y %m %d")%></span>
-  <p>
-    <%= news.body_en %>
-  </p>
-</div>
-<% end %>
+	<div id="news_<%=news.id%>" class="news">
+		<h3><%= tt(news,'title') %></a></h3>
+		<span><%=news.news_date.strftime("%Y %m %d")%></span>
+		<%= tt(news,'body') %>
+	</div>
+	
 <%end%>
 
 <%=will_paginate @news%>

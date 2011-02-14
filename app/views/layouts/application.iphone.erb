@@ -1,18 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<title><%= yield :title %></title>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 	<%= yield :header %>
 	<style type="text/css" media="screen">
-	 body {background:#d7d6c6 url(/images/bg.jpg) repeat-y;}
+	body {background:#d7d6c6 url(/images/bg.jpg) no-repeat;background-attachment:fixed;}
+	.news {
+		border:solid 1px #333;
+		-webkit-border-radius: 5px;
+		   -moz-border-radius: 5px;
+			 -o-border-radius: 5px;
+		        border-radius: 5px;
+		background-color:#fff;
+		background-color: rgba(255,255,255,0.8);
+		-webkit-box-shadow: 3px 3px 3px #999;
+		   -moz-box-shadow: 3px 3px 3px #999;
+		     -o-box-shadow: 3px 3px 3px #999;
+		        box-shadow: 3px 3px 3px #999;
+		margin-bottom:1em;
+		padding:20px; text-align:justify !important;
+	}
+	.news img {
+		max-width:300px; overflow:hidden;
+	}
 	</style>
 </head>
 
 <body>
-  <%= yield %>
+	<%= yield %>
 </body>
 </html>

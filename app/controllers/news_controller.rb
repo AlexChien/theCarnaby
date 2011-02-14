@@ -22,6 +22,7 @@ class NewsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.iphone { render :layout => 'application.iphone' }
+      format.android { render :layout => 'application.iphone' }
       format.xml { render :xml => @news }
       format.json { render :json => @news }
     end
@@ -95,7 +96,7 @@ class NewsController < ApplicationController
     @news.destroy
 
     respond_to do |format|
-      format.html { redirect_to(news_url) }
+      format.html { redirect_to('/news') }
       format.xml  { head :ok }
     end
   end
