@@ -44,20 +44,21 @@
     NSLog( @"brand %d", brand_id); 
     
     // 品牌背景图片
-    UIImageView *imageview6 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 420.0)];
-    imageview6.frame = CGRectMake(0.0, 0.0, 320.0, 420.0);
-    imageview6.alpha = 1.000;
-    imageview6.autoresizesSubviews = YES;
-    imageview6.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
-    imageview6.contentMode = UIViewContentModeScaleAspectFill;
-    imageview6.highlighted = NO;
-    imageview6.multipleTouchEnabled = NO;
-    imageview6.userInteractionEnabled = NO;
+    UIImageView *brandImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 420.0)];
+    brandImageView.frame = CGRectMake(0.0, 0.0, 320.0, 420.0);
+    brandImageView.alpha = 1.000;
+    brandImageView.autoresizesSubviews = YES;
+    brandImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
+    brandImageView.contentMode = UIViewContentModeScaleAspectFill;
+    brandImageView.highlighted = NO;
+    brandImageView.multipleTouchEnabled = NO;
+    brandImageView.userInteractionEnabled = NO;
     NSString *imageName = [[NSString alloc] initWithFormat:@"%dbrand.jpg", brand_id];    
     UIImage *coverImage = [UIImage imageNamed:imageName];
-    imageview6.image = coverImage;
-    [self.view addSubview:imageview6];
-    [imageview6 release];    
+    [imageName release];
+    brandImageView.image = coverImage;
+    [self.view addSubview:brandImageView];
+    [brandImageView release];   
 
     // 按钮需要动态生成
     NSManagedObjectContext *context = [[[UIApplication sharedApplication] delegate] managedObjectContext]; 
@@ -86,9 +87,9 @@
     
     if (collections == nil) {
       // Handle the error.
-      NSLog(@"selectedBrandCollections: %@", collections);
+      // NSLog(@"selectedBrandCollections: %@", collections);
     }else {
-      NSLog(@"selectedBrandCollections: %@", collections);
+      // NSLog(@"selectedBrandCollections: %@", collections);
       // 按钮需要动态生成    
       Collection *element;
       int j = 0;
@@ -100,6 +101,7 @@
         button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
         NSString *collectionUrl = [[NSString alloc] initWithFormat:@"tt://collection/%@", element.remote_collection_id];
         [button addTarget:collectionUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
+        [collectionUrl release];
         [self.view addSubview: button];
         j++;
       }

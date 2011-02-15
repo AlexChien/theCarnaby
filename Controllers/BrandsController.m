@@ -102,6 +102,7 @@
       NSString *brandUrl = [[NSString alloc] initWithFormat:@"tt://brand/%@", element.remote_brand_id];
       [button addTarget:brandUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
       [self.view addSubview: button];
+      [brandUrl release];
       j++;
     }
     
