@@ -66,52 +66,62 @@
     [super viewDidLoad];  
   NSString *current_lang = [[NSLocale preferredLanguages] objectAtIndex:0];
 
-  UIImageView *imageview6 = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 420.0)];
-  UIImage *coverImage = [UIImage imageNamed:@"shop_pic_demo.jpg"];
-  imageview6.frame = CGRectMake(0.0, 0.0, 320.0, 420.0);
-  imageview6.alpha = 1.000;
-  imageview6.autoresizesSubviews = YES;
-  imageview6.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
-  imageview6.clearsContextBeforeDrawing = YES;
-  imageview6.clipsToBounds = NO;
-  imageview6.contentMode = UIViewContentModeScaleAspectFill;
-  imageview6.contentStretch = CGRectFromString(@"{{0, 0}, {1, 1}}");
-  imageview6.hidden = NO;
-  imageview6.highlighted = NO;
-  imageview6.image = coverImage;
-  imageview6.multipleTouchEnabled = NO;
-  imageview6.opaque = YES;
-  imageview6.tag = 0;
-  imageview6.userInteractionEnabled = NO;
+  UIImageView *shopImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 420)];
+  NSString *shopImageName = [[NSString alloc] initWithFormat:@"shop%@.jpg",_shop.remote_shop_id];
+  UIImage *coverImage = [UIImage imageNamed:shopImageName];
+  [shopImageName release];
+  shopImageView.alpha = 1.000;
+  shopImageView.autoresizesSubviews = YES;
+  shopImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
+  shopImageView.clearsContextBeforeDrawing = YES;
+  shopImageView.clipsToBounds = NO;
+  shopImageView.contentMode = UIViewContentModeScaleAspectFill;
+  shopImageView.contentStretch = CGRectFromString(@"{{0, 0}, {1, 1}}");
+  shopImageView.hidden = NO;
+  shopImageView.highlighted = NO;
+  shopImageView.image = coverImage;
+  shopImageView.multipleTouchEnabled = NO;
+  shopImageView.opaque = YES;
+  shopImageView.tag = 0;
+  shopImageView.userInteractionEnabled = NO;
   
-  [self.view addSubview:imageview6];
-  [imageview6 release];
+  [self.view addSubview:shopImageView];
+  [coverImage release];
+  [shopImageView release];
   
   //NSString  *mapUrl = [NSString stringWithFormat:@"tt://shopmap/%@",_shop.remote_shop_id];
   NSString  *mapUrl = [[NSString alloc] initWithFormat:@"tt://shopmap/%@",_shop.remote_shop_id];
-
-  NSLog(@"shopmap url: %@",mapUrl);
   //[mapUrl description];
-  UIButton *button0 = [UIButton buttonWithType:UIButtonTypeCustom];
-  button0.frame = CGRectMake(0, 330 - (0*37), 320, 37);
+  UIButton *addressButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  addressButton.frame = CGRectMake(0, 330 - (0*37)-37, 320, 74);  
+  addressButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+  [addressButton addTarget:mapUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];  
+  [mapUrl release];
+  UIButton *nameButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  nameButton.frame = CGRectMake(0, 330 - (1*37)-37, 320, 37);
   if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
-    [button0 setTitle:_shop.address forState:UIControlStateNormal];
+    [nameButton setTitle:_shop.name forState:UIControlStateNormal];    
   }else{
-    [button0 setTitle:_shop.address_en forState:UIControlStateNormal];    
+    [nameButton setTitle:_shop.name_en forState:UIControlStateNormal];      
   }
-  button0.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-  [button0 addTarget:mapUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
-  UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-  button1.frame = CGRectMake(0, 330 - (1*37), 320, 37);
+  nameButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+  [nameButton addTarget:mapUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
+  UILabel *shopAddress = [[[UILabel alloc] init] autorelease];
+  shopAddress.frame = CGRectMake(10, 330 - (0*37)-37, 300, 74);
+  shopAddress.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];  
+  shopAddress.textColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
+  shopAddress.numberOfLines = 0;
+  shopAddress.adjustsFontSizeToFitWidth = YES;
   if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
-    [button1 setTitle:_shop.name forState:UIControlStateNormal];    
+    //    [button0 setTitle:_shop.address forState:UIControlStateNormal];
+    [shopAddress setText:_shop.address];    
   }else{
-    [button1 setTitle:_shop.name_en forState:UIControlStateNormal];      
-  }
-  button1.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-  [button1 addTarget:mapUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview: button0];        
-  [self.view addSubview: button1];
+    //    [button0 setTitle:_shop.address_en forState:UIControlStateNormal];    
+    [shopAddress setText:_shop.address_en];
+  }  
+  [self.view addSubview: addressButton];
+  [self.view addSubview: nameButton];
+  [self.view addSubview: shopAddress];  
 }
 
 /*

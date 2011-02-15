@@ -22,7 +22,10 @@
 #import "ShopController.h"
 #import "MapController.h"
 #import "VideosController.h"
-#import "SharesController.h"
+//#import "SharesController.h"
+//#import "WebSharesController.h"
+//#import "TTWebSharesController.h"
+#import "WebUISharesController.h"
 #import "PagesController.h"
 
 @implementation theCarnabyAppDelegate
@@ -84,7 +87,10 @@
   
   [map from:@"tt://videos" toViewController:[VideosController class]];
   
-  [map from:@"tt://shares" toViewController:[SharesController class]];
+  //[map from:@"tt://shares" toViewController:[SharesController class]];
+  //[map from:@"tt://shares" toViewController:[WebSharesController class]];  
+  //[map from:@"tt://shares" toViewController:[TTWebSharesController class]];
+  [map from:@"tt://shares" toViewController:[WebUISharesController class]];    
 
   self.ttNavigator = navigator;
   
