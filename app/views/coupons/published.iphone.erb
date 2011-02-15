@@ -1,25 +1,10 @@
-<% @coupons.each_with_index do |coupon, index| %>
-<% if params[:lang]=='zh' %>
+<% @coupons.each do |coupon| %>
 <div id="<%= dom_id(coupon) %>" class="coupon">
-  <% if index != 0 %>
-  <hr />
-  <% end %>
-  <h3><%= coupon.name %></h3>
+  <h3><%= tt(coupon,'name') %></h3>
   <p>
-    <%= coupon.description %>
-  </p>
-</div>
-<% else %>
-<div id="<%= dom_id(coupon) %>" class="coupon">
-  <% if index != 0 %>
-  <hr />
-  <% end %>  
-  <h3><%= coupon.name %></h3>
-  <p>
-    <%= coupon.description %>
+    <%= tt(coupon,'description') %>
   </p>
 </div>
 <% end %>
-<%end%>
 
 <%=will_paginate @coupons%>
