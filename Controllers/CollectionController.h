@@ -10,7 +10,8 @@
 #import "Product.h"
 
 
-@interface CollectionController : TTThumbsViewController {
+//@interface CollectionController : TTThumbsViewController {
+@interface CollectionController :   TTPhotoViewController {
   NSManagedObjectContext *managedObjectContext;
   NSManagedObjectContext *addingManagedObjectContext;
   NSNumber *collection_id;

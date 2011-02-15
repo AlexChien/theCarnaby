@@ -81,16 +81,20 @@
                                                                  ascending:NO]; 
   NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
   [request setSortDescriptors:sortDescriptors];
+  [sortDescriptor release];
+  [sortDescriptors release];
+
   
   NSError *error = nil;
   NSMutableArray *collections = [[context executeFetchRequest:request error:&error] mutableCopy];  
+  [request release];  
   
   if (collections == nil) {
       // Handle the error.
-    NSLog(@"selectedBrandCollections: %@", collections);
+      // NSLog(@"selectedBrandCollections: %@", collections);
   }else {
-    NSLog(@"selectedBrandCollections: %@", collections);
-      // 按钮需要动态生成    
+    // NSLog(@"selectedBrandCollections: %@", collections);
+    // 按钮需要动态生成    
     Collection *element;
     int j = -1;
     for (element in collections) {
@@ -102,6 +106,7 @@
       NSString *collectionUrl = [[NSString alloc] initWithFormat:@"tt://collection/%@", element.remote_collection_id];
       [button addTarget:collectionUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
       [self.view addSubview: button];
+      [collectionUrl release];
       j++;
     }
 
@@ -129,6 +134,7 @@
     decoration.tag = 0;
     decoration.userInteractionEnabled = NO; 
     [self.view addSubview: decoration];
+    [collections release];
     [decoration release];
   }
 }

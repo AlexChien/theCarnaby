@@ -127,7 +127,7 @@
   
   if (remote_collection_id == 1) {
     NSMutableArray  *photos_array = [[[NSMutableArray alloc] init] autorelease];
-    for (int i = 1; i<10; ++i) {
+    for (int i = 1; i<=10; ++i) {
         //NSLog(@"%d",i);
       NSString  *url = [NSString stringWithFormat:@"bundle://%d.jpg", i];
       NSString *tUrl = [NSString stringWithFormat:@"bundle://%ds.jpg", i];

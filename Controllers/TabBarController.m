@@ -49,19 +49,31 @@
                     //@"tt://products/new",
                     @"tt://news",
                     //@"http://127.0.0.1:3000/news.iphone",
-                    @"tt://coupons",
+                    @"tt://coupons",                 
                     @"tt://shops",
                     @"tt://videos",
                     @"tt://shares",
-                    nil]];
-//  [self setTabURLs:[NSArray arrayWithObjects:@"tt://page/1",
-//                    @"tt://page/2",
-//                    @"tt://page/3",
-//                    @"tt://page/4",
-//                    @"tt://page/5",
-//                    @"tt://page/6",
-//                    @"tt://page/7",                    
-//                    nil]];  
+                    //@"http://127.0.0.1:3000/shares.iphone",                    
+                    nil]]; 
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+  NSArray *tabs =  [self viewControllers];
+  UIViewController *viewController = [tabs objectAtIndex:5];
+  viewController.title = NSLocalizedString(@"shares", nil);
+  [viewController setTitle:NSLocalizedString(@"shares", nil)];
+  viewController.tabBarItem.image = [UIImage imageNamed:@"share.png"];
+  viewController.tabBarItem.title = NSLocalizedString(@"shares", nil);
+  viewController.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]  initWithTitle:NSLocalizedString(@"back", nil)
+                                                                                        style:UIBarButtonItemStyleDone 
+                                                                                       target:self
+                                                                                       action:@selector(backHome)] autorelease];
+}
+
+-(void)backHome{
+  self.tabBarController.selectedIndex = 0;
+  [self.tabBarController.selectedViewController viewDidAppear:YES];
+    //  TTOpenURL([NSString stringWithFormat:@"tt://tabBar/1", self.view]);
 }
 
 
