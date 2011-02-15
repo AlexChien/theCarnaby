@@ -5,6 +5,7 @@
     <string name="title_brands">Brands</string>
 	<string name="title_newarrivals">New Arrivals</string>
 	<string name="title_coupons">Coupons</string>
+	<string name="title_news">News</string>
 	<string name="title_shops">Shops</string>
 	<string name="title_videos">Video</string>
 	<string name="title_share">Share</string>
@@ -42,4 +43,6 @@
 	<string name="label_share_subject_coupon">Share: theCarnaby Coupons</string>
 	
 	<!-- preferences -->
+	
+	<string name="label_connection_error">Network Connection Required：Connection Error!</string>
 </resources>

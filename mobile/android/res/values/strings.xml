@@ -45,4 +45,7 @@
 	<string name="label_share_subject_coupon">分享theCarnaby优惠券</string>
 	
 	<!-- preferences -->
+	
+	
+	<string name="label_connection_error">需要网络连接：网络连接失败！</string>
 </resources>

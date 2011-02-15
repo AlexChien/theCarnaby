@@ -13,8 +13,10 @@
             </intent-filter>
         </activity>
 		<activity android:label="Brands" android:name="Brands" android:theme="@style/theCarnaby" android:screenOrientation="portrait"/>
-		<activity android:label="New Arrivals" android:name="NewArrivals" android:theme="@style/theCarnaby" />
-		<activity android:label="Coupons" android:name="Coupons" android:theme="@style/theCarnaby" />
+		<!--<activity android:label="New Arrivals" android:name="NewArrivals" android:theme="@style/theCarnaby" />-->
+		<activity android:label="News" android:name="WebNews" android:theme="@style/theCarnaby" />
+		<!--<activity android:label="Coupons" android:name="Coupons" android:theme="@style/theCarnaby" />-->
+		<activity android:label="Coupons" android:name="WebCoupons" android:theme="@style/theCarnaby" />
 		<activity android:label="Shops" android:name="Shops"  />
 		<activity android:label="Videos" android:name="Videos" android:theme="@android:style/Theme.NoTitleBar" android:screenOrientation="landscape"/>
 		<!--<activity android:label="Share" android:name="Share" android:theme="@style/theCarnaby" />-->
