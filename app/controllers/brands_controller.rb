@@ -1,4 +1,6 @@
 class BrandsController < ApplicationController
+  
+  before_filter :login_required
 
   def index
     @brand = Brand

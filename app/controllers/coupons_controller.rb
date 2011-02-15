@@ -1,5 +1,7 @@
 class CouponsController < ApplicationController
 
+  before_filter :login_required
+
   def index
     @coupon = Coupon
     if params[:search]

@@ -1,4 +1,7 @@
 class VideosController < ApplicationController
+  
+  before_filter :login_required  
+  
   # GET /videos
   # GET /videos.xml
   def index
