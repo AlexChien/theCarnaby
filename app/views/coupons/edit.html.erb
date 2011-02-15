@@ -36,15 +36,25 @@
 		<%=f.select :brand_id,Brand.all.collect{|p| [p.name, p.id]},{:include_blank=>"请选择"},{:style=>"width:220px;"}%>
 	</p>
 
+<% if false %>
 	<p>
 		<%=f.label :description,"优惠券描述<span class='required'> * </span><br>"%>
 		<%=f.text_area :description%>
 	</p>
-
 	<p>
 		<%=f.label :description_en,"优惠券英文描述<span class='required'> * </span><br>"%>
 		<%=f.text_area :description_en%>
 	</p>
+<% end %>
+
+  <p>
+    <%= f.label "优惠券中文描述<span class='required'> * </span><br>" %><br />
+	<%= fckeditor_textarea("coupon", "description", :toolbarSet => 'Simple', :width => '100%', :height => '350px',  :path => "/") %>
+  </p>
+  <p>
+    <%= f.label "优惠券英文描述<span class='required'> * </span><br>" %><br />
+	<%= fckeditor_textarea("coupon", "description_en", :toolbarSet => 'Simple', :width => '100%', :height => '350px',  :path => "/") %>
+  </p>
 
 	<p>
 		<button type="submit"><span>提交</span></button> | <a href="/coupons">返回</a>
