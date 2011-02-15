@@ -7,31 +7,31 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :title %><br />
+    <%= f.label "中文标题" %><br />
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :title_en %><br />
-    <%= f.text_field :title_en %>
-  </p>
-  <p>
-    <%= f.label :body %><br />
-	<%= fckeditor_textarea("news", "body", :toolbarSet => 'Simple', :width => '100%', :height => '350px',  :path => "/") %>
-  </p>
-  <p>
-    <%= f.label :body_en %><br />
-	<%= fckeditor_textarea("news", "body_en", :toolbarSet => 'Simple', :width => '100%', :height => '350px',  :path => "/") %>
-  </p>
-  <p>
-    <%= f.label :news_date %><br />
+    <%= f.label "新闻时间" %><br />
     <%= f.date_select :news_date %>
   </p>
   <p>
-    <%= f.label :published %><br />
+    <%= f.label "是否发布" %><br />
     <%= f.check_box :published %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.label "英文标题" %><br />
+    <%= f.text_field :title_en %>
+  </p>
+  <p>
+    <%= f.label "中文正文" %><br />
+	<%= fckeditor_textarea("news", "body", :toolbarSet => 'Simple', :width => '100%', :height => '350px',  :path => "/") %>
+  </p>
+  <p>
+    <%= f.label "英文正文" %><br />
+	<%= fckeditor_textarea("news", "body_en", :toolbarSet => 'Simple', :width => '100%', :height => '350px',  :path => "/") %>
+  </p>
+  <p>
+    <%= f.submit '提交' %>
   </p>
 <% end %>
 
