@@ -96,7 +96,7 @@
   addressButton.frame = CGRectMake(0, 330 - (0*37)-37, 320, 74);  
   addressButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
   [addressButton addTarget:mapUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];  
-  [mapUrl release];
+//  [mapUrl release];
   UIButton *nameButton = [UIButton buttonWithType:UIButtonTypeCustom];
   nameButton.frame = CGRectMake(0, 330 - (1*37)-37, 320, 37);
   if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {

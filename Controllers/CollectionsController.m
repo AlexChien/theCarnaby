@@ -106,7 +106,7 @@
       NSString *collectionUrl = [[NSString alloc] initWithFormat:@"tt://collection/%@", element.remote_collection_id];
       [button addTarget:collectionUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
       [self.view addSubview: button];
-      [collectionUrl release];
+//      [collectionUrl release];
       j++;
     }
 
