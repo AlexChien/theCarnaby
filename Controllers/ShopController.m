@@ -63,65 +63,67 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    [super viewDidLoad];  
+  [super viewDidLoad];  
   NSString *current_lang = [[NSLocale preferredLanguages] objectAtIndex:0];
 
-  UIImageView *shopImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 420)];
+  UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 367.0)];
+  backgroundImageView.frame = CGRectMake(0.0, 0.0, 320.0, 367.0);
+  backgroundImageView.contentMode = UIViewContentModeScaleToFill;
+  UIImage *bgImage = [UIImage imageNamed:@"bg.jpg"];
+  backgroundImageView.image = bgImage;  
+
+  UIImageView *shopImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 240.0)];
   NSString *shopImageName = [[NSString alloc] initWithFormat:@"shop%@.jpg",_shop.remote_shop_id];
-  UIImage *coverImage = [UIImage imageNamed:shopImageName];
+  UIImage *shopImage = [UIImage imageNamed:shopImageName];
   [shopImageName release];
-  shopImageView.alpha = 1.000;
-  shopImageView.autoresizesSubviews = YES;
-  shopImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
-  shopImageView.clearsContextBeforeDrawing = YES;
-  shopImageView.clipsToBounds = NO;
-  shopImageView.contentMode = UIViewContentModeScaleAspectFill;
-  shopImageView.contentStretch = CGRectFromString(@"{{0, 0}, {1, 1}}");
-  shopImageView.hidden = NO;
-  shopImageView.highlighted = NO;
-  shopImageView.image = coverImage;
-  shopImageView.multipleTouchEnabled = NO;
-  shopImageView.opaque = YES;
-  shopImageView.tag = 0;
-  shopImageView.userInteractionEnabled = NO;
-  
+  shopImageView.image = shopImage;  
+
+  [self.view addSubview:backgroundImageView];
   [self.view addSubview:shopImageView];
-  [coverImage release];
+  [bgImage release];
+  [backgroundImageView release];
+  [shopImage release];
   [shopImageView release];
+
+  UILabel *shopName = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 248.0, 280.0, 28.0)];
+  shopName.frame = CGRectMake(20.0, 248.0, 280.0, 28.0);
+  shopName.font = [UIFont fontWithName:@"Verdana" size:18.000];
+  shopName.lineBreakMode = UILineBreakModeWordWrap;
+  shopName.shadowColor = [UIColor colorWithWhite:1.000 alpha:1.000];
+  shopName.shadowOffset = CGSizeMake(1.0, 1.0);
+//  shopName.textAlignment = UITextAlignmentLeft;
+  shopName.textAlignment = UITextAlignmentCenter;
+  shopName.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0];
   
+  UILabel *shopAddress = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 270.0, 280.0, 83.0)];
+  shopAddress.frame = CGRectMake(20.0, 270.0, 280.0, 83.0);
+  shopAddress.font = [UIFont fontWithName:@"Helvetica" size:15.000];
+  shopAddress.lineBreakMode = UILineBreakModeWordWrap;
+  shopAddress.numberOfLines = 4;
+  shopAddress.textAlignment = UITextAlignmentLeft;
+  shopAddress.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0];
+
   //NSString  *mapUrl = [NSString stringWithFormat:@"tt://shopmap/%@",_shop.remote_shop_id];
   NSString  *mapUrl = [[NSString alloc] initWithFormat:@"tt://shopmap/%@",_shop.remote_shop_id];
-  //[mapUrl description];
-  UIButton *addressButton = [UIButton buttonWithType:UIButtonTypeCustom];
-  addressButton.frame = CGRectMake(0, 330 - (0*37)-37, 320, 74);  
-  addressButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-  [addressButton addTarget:mapUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];  
-//  [mapUrl release];
-  UIButton *nameButton = [UIButton buttonWithType:UIButtonTypeCustom];
-  nameButton.frame = CGRectMake(0, 330 - (1*37)-37, 320, 37);
+  //[mapUrl description];  
+  
+  UIButton *shopMapButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  shopMapButton.frame = CGRectMake(0.0, 240.0, 320.0, 127.0);
+  shopMapButton.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0];
+  [shopMapButton addTarget:mapUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];     
+
   if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
-    [nameButton setTitle:_shop.name forState:UIControlStateNormal];    
+    [shopName setText:_shop.name];    
+    [shopAddress setText:_shop.address];
   }else{
-    [nameButton setTitle:_shop.name_en forState:UIControlStateNormal];      
-  }
-  nameButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-  [nameButton addTarget:mapUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
-  UILabel *shopAddress = [[[UILabel alloc] init] autorelease];
-  shopAddress.frame = CGRectMake(10, 330 - (0*37)-37, 300, 74);
-  shopAddress.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];  
-  shopAddress.textColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
-  shopAddress.numberOfLines = 0;
-  shopAddress.adjustsFontSizeToFitWidth = YES;
-  if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
-    //    [button0 setTitle:_shop.address forState:UIControlStateNormal];
-    [shopAddress setText:_shop.address];    
-  }else{
-    //    [button0 setTitle:_shop.address_en forState:UIControlStateNormal];    
+    [shopName setText:_shop.name_en];
     [shopAddress setText:_shop.address_en];
-  }  
-  [self.view addSubview: addressButton];
-  [self.view addSubview: nameButton];
-  [self.view addSubview: shopAddress];  
+  }
+  [self.view addSubview:shopName];
+  [self.view addSubview:shopAddress]; 
+  [self.view addSubview:shopMapButton];
+  [shopName release];
+  [shopAddress release];
 }
 
 /*
