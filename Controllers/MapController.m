@@ -17,7 +17,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-      MKMapView *newMapView = [[MKMapView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 411.0)];
+      MKMapView *newMapView = [[MKMapView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 367.0)];
       newMapView.showsUserLocation = YES;
       self.mapView = newMapView;
     //  [newMapView release];
