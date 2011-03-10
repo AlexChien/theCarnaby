@@ -17,6 +17,7 @@
   UIBarButtonItem*  _backButton;
   UIBarButtonItem*  _forwardButton;
   UIBarButtonItem*  _refreshButton;
+  UIBarButtonItem*  _homeButton;
   UIBarButtonItem*  _stopButton;
   UIBarButtonItem*  _actionButton;
   UIBarButtonItem*  _activityItem;  

@@ -21,10 +21,10 @@
     UIImage* image = [UIImage imageNamed:@"share.png"];      
     self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:self.title image:image tag:0] autorelease];
       //  NSString *current_lang = [[NSLocale preferredLanguages] objectAtIndex:0];
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]  
-                                               initWithImage:image style:UIBarButtonSystemItemEdit
-                                               target:self 
-                                               action:@selector(refresh)] autorelease];
+//    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]  
+//                                               initWithImage:image style:UIBarButtonSystemItemEdit
+//                                               target:self 
+//                                               action:@selector(refresh)] autorelease];
   }
   return self;
 }
@@ -118,9 +118,15 @@
                                                     style:UIBarButtonItemStylePlain target:self action:@selector(forwardAction)];
   _forwardButton.tag = 1;
 //  _forwardButton.enabled = NO;
-  _refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:
-                    UIBarButtonSystemItemRefresh target:self action:@selector(refreshAction)];
-  _refreshButton.tag = 3;
+//  _refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:
+//                    UIBarButtonSystemItemRefresh target:self action:@selector(refreshAction)];
+//  _refreshButton.tag = 3;
+  
+  UIImage* image = [UIImage imageNamed:@"share.png"]; 
+  _homeButton = [[UIBarButtonItem alloc] initWithImage:image 
+                                                  style:UIBarButtonItemStylePlain
+                                                 target:self 
+                                                 action:@selector(refresh)];  
   _stopButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:
                  UIBarButtonSystemItemStop target:self action:@selector(stopAction)];
   _stopButton.tag = 3;
@@ -135,8 +141,10 @@
   _toolbar.autoresizingMask =
   UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
   _toolbar.tintColor = TTSTYLEVAR(toolbarTintColor);
+//  _toolbar.items = [NSArray arrayWithObjects:
+//                    _backButton, space, _forwardButton, space, _refreshButton, nil];
   _toolbar.items = [NSArray arrayWithObjects:
-                    _backButton, space, _forwardButton, space, _refreshButton, nil];
+                    space,_backButton, space, _homeButton, space, _forwardButton,space, nil];  
   [self.view addSubview:_toolbar];
   [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://thecarnaby.koocaa.com/shares.iphone"]]];
   
@@ -169,7 +177,7 @@
 */ 
 
 - (void)refresh {
-  self.count = [NSNumber numberWithInt:0];
+//  self.count = [NSNumber numberWithInt:0];
     //  NSString *current_lang = [[NSLocale preferredLanguages] objectAtIndex:0];    
     //  if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
     //    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://thecarnaby.koocaa.com/shares.iphone?lang=zh"]]];    
@@ -234,17 +242,29 @@
     // load error, hide the activity indicator in the status bar
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
   
-    // report the error inside the webview
-  if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
-    errorString = [NSString stringWithFormat:
-                   @"<html><center><font size=+5 color='red'>出错，暂时无法访问:<br>%@</font></center></html>",
-                   error.localizedDescription];
+  NSLog(@"error %d",[error code]);
+  
+  if ([error code] == -999) {
+    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+      errorString = @"<html><center><font size=+5 color='red'>请重试</font></center></html>";
+    }else{
+      errorString = @"<html><center><font size=+5 color='red'>Please retry</font></center></html>";
+    }
+    [self.webView loadHTMLString:errorString baseURL:nil];
+//    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://thecarnaby.koocaa.com/shares.iphone"]]];    
   }else{
-    errorString = [NSString stringWithFormat:
-                   @"<html><center><font size=+5 color='red'>An error occurred, temporary unavaliable:<br>%@</font></center></html>",
-                   error.localizedDescription];    
+    // report the error inside the webview
+    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+      errorString = [NSString stringWithFormat:
+                     @"<html><center><font size=+5 color='red'>出错，暂时无法访问:<br>%@</font></center></html>",
+                     error.localizedDescription];
+    }else{
+      errorString = [NSString stringWithFormat:
+                     @"<html><center><font size=+5 color='red'>An error occurred, temporary unavaliable:<br>%@</font></center></html>",
+                     error.localizedDescription];    
+    }
+    [self.webView loadHTMLString:errorString baseURL:nil]; 
   }
-	[self.webView loadHTMLString:errorString baseURL:nil];
 }
 
 /*
