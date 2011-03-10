@@ -100,7 +100,7 @@
   self.webView.delegate = self;
 //  self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth
 //  | UIViewAutoresizingFlexibleHeight;
-//  self.webView.scalesPageToFit = YES;
+  self.webView.scalesPageToFit = YES;
   [self.view addSubview:self.webView];
   
   UIActivityIndicatorView* spinner = [[[UIActivityIndicatorView alloc]
