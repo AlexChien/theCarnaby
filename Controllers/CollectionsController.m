@@ -96,20 +96,34 @@
     // NSLog(@"selectedBrandCollections: %@", collections);
     // 按钮需要动态生成    
     Collection *element;
+    
+    UIButton *decButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    decButton.frame = CGRectMake(0, 284 - (-2*44)+20, 320, 44);
+    decButton.frame = CGRectMake(0, 284 - (0*44)+20, 320, 150);    
+//    [decButton setTitle:element.name forState:UIControlStateNormal];
+    decButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+    [self.view addSubview: decButton];    
+    
     int j = -1;
     for (element in collections) {
       UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
       //setframe (where on screen)
       button.frame = CGRectMake(0, 284 - (j*44)+20, 320, 44);
+      if (j==-1) {
+        button.frame = CGRectMake(0, 284 - (j*44)+25, 320, 44);
+      }
       [button setTitle:[@"     " stringByAppendingString:element.name] forState:UIControlStateNormal];
       button.titleLabel.font = [UIFont fontWithName:@"Verdana" size:18.000];
-      button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+      button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
       button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
       NSString *collectionUrl = [[NSString alloc] initWithFormat:@"tt://collection/%@", element.remote_collection_id];
       [button addTarget:collectionUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
 
       UIButton *fackButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
       fackButton.frame = CGRectMake(255.0, 284 - (j*44)+26, 29.0, 31.0);
+      if (j==-1) {
+        fackButton.frame = CGRectMake(255.0, 284 - (j*44)+31, 29.0, 31.0);
+      }      
       [fackButton addTarget:collectionUrl action:@selector(openURLFromButton:)forControlEvents:UIControlEventTouchUpInside];
 
       [self.view addSubview: button];
@@ -118,11 +132,6 @@
       j++;
     }
 
-    UIButton *decButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    decButton.frame = CGRectMake(0, 284 - (-2*44)+20, 320, 44);
-    [decButton setTitle:element.name forState:UIControlStateNormal];
-    decButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-    [self.view addSubview: decButton];
 
     UIImageView *decoration = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 209.0, 320.0, 128.0)];
     UIImage *decorationImage = [UIImage imageNamed:@"li_background.png"];
