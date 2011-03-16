@@ -110,7 +110,7 @@
       //setframe (where on screen)
       button.frame = CGRectMake(0, 284 - (j*44)+20, 320, 44);
       if (j==-1) {
-        button.frame = CGRectMake(0, 284 - (j*44)+25, 320, 44);
+        button.frame = CGRectMake(0, 284 - (j*44)+22, 320, 44);
       }
       [button setTitle:[@"     " stringByAppendingString:element.name] forState:UIControlStateNormal];
       button.titleLabel.font = [UIFont fontWithName:@"Verdana" size:18.000];
@@ -122,7 +122,7 @@
       UIButton *fackButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
       fackButton.frame = CGRectMake(255.0, 284 - (j*44)+26, 29.0, 31.0);
       if (j==-1) {
-        fackButton.frame = CGRectMake(255.0, 284 - (j*44)+31, 29.0, 31.0);
+        fackButton.frame = CGRectMake(255.0, 284 - (j*44)+28, 29.0, 31.0);
       }      
       [fackButton addTarget:collectionUrl action:@selector(openURLFromButton:)forControlEvents:UIControlEventTouchUpInside];
 
@@ -132,7 +132,11 @@
       j++;
     }
 
+    UIButton *divButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    divButton.frame = CGRectMake(0, 284+44+20, 320, 2); 
+    divButton.backgroundColor = [UIColor colorWithRed:227 green:219 blue:206 alpha:0.8];
 
+    [self.view addSubview: divButton];
     UIImageView *decoration = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 209.0, 320.0, 128.0)];
     UIImage *decorationImage = [UIImage imageNamed:@"li_background.png"];
     decoration.frame = CGRectMake(0, 284-(j-1)*44-108, 320, 128);
@@ -153,6 +157,7 @@
     [self.view addSubview: decoration];
     [collections release];
     [decoration release];
+//    [divButton release];
   }
 }
 
