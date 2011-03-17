@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -68,8 +69,8 @@ public class Brands extends Nav {
     
     class ColAdapter extends BaseAdapter {
     	Context container;
-    	//private int[] cols = {R.string.label_brand1,R.string.label_brand2};
     	private int[] cols = {R.string.label_collection4,R.string.label_collection5};
+    	private int[] cols_res = {R.drawable.brand0, R.drawable.brand1};
     	public ColAdapter(Context context) {
     		container = context;
 		}
@@ -97,7 +98,14 @@ public class Brands extends Nav {
 				pv = (TextView) inflater.inflate(R.layout.collist_item, parent, false);
 			}
 			
-			pv.setText(getResources().getText(cols[position]));
+//			pv.setText(getResources().getText(cols[position]));
+			pv.setCompoundDrawablesWithIntrinsicBounds(cols_res[position], 0, R.drawable.arrow, 0);
+//			ImageView pv = (ImageView) convertView;
+//			if (pv == null) {
+//				LayoutInflater inflater = getLayoutInflater();
+//				pv = (ImageView) inflater.inflate(R.layout.collist_item, parent, false);
+//			}
+//			pv.setImageResource(cols_res[position]);
 
 			return pv;
 

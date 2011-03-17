@@ -32,10 +32,13 @@ public class GalleryAct extends Nav {
 //	private Integer[] mLarges_2 = {R.drawable.c_16,R.drawable.c_17,R.drawable.c_18,R.drawable.c_19,R.drawable.c_20,R.drawable.c_21,R.drawable.c_22,R.drawable.c_23,R.drawable.c_24,R.drawable.c_25,R.drawable.c_26,R.drawable.c_27,R.drawable.c_28,R.drawable.c_29,R.drawable.c_30,R.drawable.c_31,R.drawable.c_32,R.drawable.c_33,R.drawable.c_34,R.drawable.c_35,R.drawable.c_36,R.drawable.c_37,R.drawable.c_38,R.drawable.c_39,R.drawable.c_40,R.drawable.c_41,R.drawable.c_42,R.drawable.c_43,R.drawable.c_44,R.drawable.c_45,R.drawable.c_46,R.drawable.c_47,R.drawable.c_48};
 //	private Integer[] mThumbs_3 = {R.drawable.thumb_49,R.drawable.thumb_50,R.drawable.thumb_51,R.drawable.thumb_52,R.drawable.thumb_53,R.drawable.thumb_54,R.drawable.thumb_55,R.drawable.thumb_56,R.drawable.thumb_57,R.drawable.thumb_58,R.drawable.thumb_59,R.drawable.thumb_60,R.drawable.thumb_61,R.drawable.thumb_62,R.drawable.thumb_63,R.drawable.thumb_64,R.drawable.thumb_65,R.drawable.thumb_66,R.drawable.thumb_67,R.drawable.thumb_68,R.drawable.thumb_69,R.drawable.thumb_70,R.drawable.thumb_71,R.drawable.thumb_72,R.drawable.thumb_73,R.drawable.thumb_74,R.drawable.thumb_75,R.drawable.thumb_76,R.drawable.thumb_77,R.drawable.thumb_78,R.drawable.thumb_79,R.drawable.thumb_80};
 //	private Integer[] mLarges_3 = {R.drawable.c_49,R.drawable.c_50,R.drawable.c_51,R.drawable.c_52,R.drawable.c_53,R.drawable.c_54,R.drawable.c_55,R.drawable.c_56,R.drawable.c_57,R.drawable.c_58,R.drawable.c_59,R.drawable.c_60,R.drawable.c_61,R.drawable.c_62,R.drawable.c_63,R.drawable.c_64,R.drawable.c_65,R.drawable.c_66,R.drawable.c_67,R.drawable.c_68,R.drawable.c_69,R.drawable.c_70,R.drawable.c_71,R.drawable.c_72,R.drawable.c_73,R.drawable.c_74,R.drawable.c_75,R.drawable.c_76,R.drawable.c_77,R.drawable.c_78,R.drawable.c_79,R.drawable.c_80};
-	private Integer[] mThumbs_4 = {R.drawable.thumb_4_2,R.drawable.thumb_4_3,R.drawable.thumb_4_4,R.drawable.thumb_4_5,R.drawable.thumb_4_6,R.drawable.thumb_4_7,R.drawable.thumb_4_8,R.drawable.thumb_4_9,R.drawable.thumb_4_10,R.drawable.thumb_4_11};
-	private Integer[] mLarges_4 = {R.drawable.c_4_2,R.drawable.c_4_3,R.drawable.c_4_4,R.drawable.c_4_5,R.drawable.c_4_6,R.drawable.c_4_7,R.drawable.c_4_8,R.drawable.c_4_9,R.drawable.c_4_10,R.drawable.c_4_11};
-	private Integer[] mThumbs_5 = {R.drawable.thumb_5_2,R.drawable.thumb_5_3,R.drawable.thumb_5_4,R.drawable.thumb_5_5,R.drawable.thumb_5_6,R.drawable.thumb_5_7,R.drawable.thumb_5_8,R.drawable.thumb_5_9,R.drawable.thumb_5_10,R.drawable.thumb_5_11,R.drawable.thumb_5_12,R.drawable.thumb_5_13,R.drawable.thumb_5_14,R.drawable.thumb_5_15,R.drawable.thumb_5_16,R.drawable.thumb_5_17,R.drawable.thumb_5_18,R.drawable.thumb_5_19,R.drawable.thumb_5_20,R.drawable.thumb_5_21};
-	private Integer[] mLarges_5 = {R.drawable.c_5_2,R.drawable.c_5_3,R.drawable.c_5_4,R.drawable.c_5_5,R.drawable.c_5_6,R.drawable.c_5_7,R.drawable.c_5_8,R.drawable.c_5_9,R.drawable.c_5_10,R.drawable.c_5_11,R.drawable.c_5_12,R.drawable.c_5_13,R.drawable.c_5_14,R.drawable.c_5_15,R.drawable.c_5_16,R.drawable.c_5_17,R.drawable.c_5_18,R.drawable.c_5_19,R.drawable.c_5_20,R.drawable.c_5_21};
+//	private Integer[] mThumbs_4 = {R.drawable.thumb_4_2,R.drawable.thumb_4_3,R.drawable.thumb_4_4,R.drawable.thumb_4_5,R.drawable.thumb_4_6,R.drawable.thumb_4_7,R.drawable.thumb_4_8,R.drawable.thumb_4_9,R.drawable.thumb_4_10,R.drawable.thumb_4_11};
+//	private Integer[] mLarges_4 = {R.drawable.c_4_2,R.drawable.c_4_3,R.drawable.c_4_4,R.drawable.c_4_5,R.drawable.c_4_6,R.drawable.c_4_7,R.drawable.c_4_8,R.drawable.c_4_9,R.drawable.c_4_10,R.drawable.c_4_11};
+	
+	private Integer[] mThumbs_5 = {R.drawable.thumb_5_1,R.drawable.thumb_5_2,R.drawable.thumb_5_3,R.drawable.thumb_5_4,R.drawable.thumb_5_5,R.drawable.thumb_5_6,R.drawable.thumb_5_7,R.drawable.thumb_5_8,R.drawable.thumb_5_9,R.drawable.thumb_5_10,R.drawable.thumb_5_11,R.drawable.thumb_5_12,R.drawable.thumb_5_13,R.drawable.thumb_5_14};
+	private Integer[] mLarges_5 = {R.drawable.c_5_1,R.drawable.c_5_2,R.drawable.c_5_3,R.drawable.c_5_4,R.drawable.c_5_5,R.drawable.c_5_6,R.drawable.c_5_7,R.drawable.c_5_8,R.drawable.c_5_9,R.drawable.c_5_10,R.drawable.c_5_11,R.drawable.c_5_12,R.drawable.c_5_13,R.drawable.c_5_14};
+	private Integer[] mThumbs_6 = {R.drawable.thumb_6_39,R.drawable.thumb_6_40,R.drawable.thumb_6_41,R.drawable.thumb_6_42,R.drawable.thumb_6_43,R.drawable.thumb_6_44,R.drawable.thumb_6_38,R.drawable.thumb_6_45,R.drawable.thumb_6_37,R.drawable.thumb_6_35,R.drawable.thumb_6_34,R.drawable.thumb_6_33,R.drawable.thumb_6_32,R.drawable.thumb_6_31,R.drawable.thumb_6_36};
+	private Integer[] mLarges_6 = {R.drawable.c_6_39,R.drawable.c_6_40,R.drawable.c_6_41,R.drawable.c_6_42,R.drawable.c_6_43,R.drawable.c_6_44,R.drawable.c_6_38,R.drawable.c_6_45,R.drawable.c_6_37,R.drawable.c_6_35,R.drawable.c_6_34,R.drawable.c_6_33,R.drawable.c_6_32,R.drawable.c_6_31,R.drawable.c_6_36};
 	private Integer[] mThumbs;
 	private Integer[] mLarges;
 	private ImageView bigImage;
@@ -72,8 +75,8 @@ public class GalleryAct extends Nav {
 //			mThumbs = mThumbsNewArrival;
 //			mLarges = mLargesNewArrival;
 //			title = R.string.title_newarrivals;
-			mThumbs = mThumbs_4;
-			mLarges = mLarges_4;
+			mThumbs = mThumbs_6;
+			mLarges = mLarges_6;
 			title = R.string.label_collection4;
 		} else if (type == 1) {
 			switch (collection_id) {
@@ -99,8 +102,8 @@ public class GalleryAct extends Nav {
 //				break;
 			
 			case 4:
-				mThumbs = mThumbs_4;
-				mLarges = mLarges_4;
+				mThumbs = mThumbs_6;
+				mLarges = mLarges_6;
 				title = R.string.label_collection4;
 				break;
 			
@@ -110,15 +113,15 @@ public class GalleryAct extends Nav {
 				title = R.string.label_collection5;
 				break;
 			default:
-				mThumbs = mThumbs_4;
-				mLarges = mLarges_4;
+				mThumbs = mThumbs_6;
+				mLarges = mLarges_6;
 				title = R.string.label_collection4;
 				break;
 			}
 		} else {
 			Log.e(TAG,"invalid collection type");
-			mThumbs = mThumbs_4;
-			mLarges = mLarges_4;
+			mThumbs = mThumbs_6;
+			mLarges = mLarges_6;
 		}
 		
 		setupTitle(title);
@@ -193,7 +196,7 @@ public class GalleryAct extends Nav {
         	if (convertView == null) {
         		convertView = new ImageView(mContext);
         	}
-//            ImageView i = new ImageView(mContext);
+            ImageView i = new ImageView(mContext);
             
 //            BitmapFactory.Options options=new BitmapFactory.Options();
 //            options.inSampleSize = 8;
@@ -204,8 +207,10 @@ public class GalleryAct extends Nav {
 //	  	    bm.recycle();
 	  	    
         	((ImageView) convertView).setImageResource(mThumbs[position]);
+//        	((ImageView) convertView).setImageResource(mLarges[position]);
         	((ImageView)convertView).setScaleType(ImageView.ScaleType.FIT_XY);
 //            i.setLayoutParams(new Gallery.LayoutParams(80, 120));
+        	i.setLayoutParams(new Gallery.LayoutParams(64, 96));
             
             // The preferred Gallery item background
         	convertView.setBackgroundResource(mGalleryItemBackground);
