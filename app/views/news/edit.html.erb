@@ -5,6 +5,7 @@
 
 <% form_for(@news, :url => news_url(@news)) do |f| %>
   <%= f.error_messages %>
+<fieldset>
 
   <p>
     <%= f.label "中文标题" %><br />
@@ -23,16 +24,17 @@
     <%= f.text_field :title_en %>
   </p>
   <p>
-    <%= f.label "中文正文" %><br />
+    <%= f.label "中文正文（图片请限制宽度：最大260像素）" %><br />
 	<%= fckeditor_textarea("news", "body", :toolbarSet => 'Simple', :width => '100%', :height => '350px',  :path => "/") %>
   </p>
   <p>
-    <%= f.label "英文正文" %><br />
+    <%= f.label "英文正文（图片请限制宽度：最大260像素）" %><br />
 	<%= fckeditor_textarea("news", "body_en", :toolbarSet => 'Simple', :width => '100%', :height => '350px',  :path => "/") %>
   </p>
   <p>
     <%= f.submit '提交' %>
   </p>
+</fieldset>
 <% end %>
 
 <%= link_to 'Show', @news %> |
