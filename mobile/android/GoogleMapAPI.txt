@@ -1,0 +1,13 @@
+您的密钥是：
+0ixtsCXh6NHFpk2OLhZBI31fa2OB4PCo-x3l3Pw
+
+此密钥适用于所有使用以下指纹所对应证书进行验证的应用程序：
+6A:F8:3B:89:EC:E5:2F:25:5C:77:12:C7:94:F8:4A:85
+
+下面是一个 xml 格式的示例，帮助您了解地图功能：
+              <com.google.android.maps.MapView
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:apiKey="0ixtsCXh6NHFpk2OLhZBI31fa2OB4PCo-x3l3Pw"
+                 />
+            
