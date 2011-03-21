@@ -13,7 +13,8 @@
 			\"#{shop.address_en}\",
 			\"#{shop.latitude}\",\"#{shop.longtitude}\""
 		unless shop.assets.empty?
-			source += ",R.drawable.#{shop.assets.first.uploaded_data.original_filename()}"	
+			# source += ",R.drawable.#{shop.assets.first.uploaded_data.original_filename()}"	
+			source += ", R.drawable.shop_#{shop.id}"
 		else
 			source += ",R.drawable.shop_pic_demo"	
 		end
