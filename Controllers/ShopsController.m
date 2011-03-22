@@ -144,6 +144,19 @@
 //    }
 //  }
 //  // NSLog(@"shopsLiaoning %@",shopsLiaoning);
+  NSPredicate *predicateSichuan = [NSPredicate predicateWithFormat:@"(province = %@)", @"四川"];
+  [fetchRequest setPredicate:predicateSichuan];
+  [fetchRequest setEntity:entity];
+  NSArray *fetchedSichuan = [context executeFetchRequest:fetchRequest error:&error];
+  NSMutableArray  *shopsSichuan = [[NSMutableArray alloc]init];
+  for (shop in fetchedSichuan) {
+    if ([current_lang rangeOfString:@"zh-Han"].location != NSNotFound) {
+      [shopsSichuan addObject:[TTTableTextItem itemWithText:shop.name URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];
+    } else {
+      [shopsSichuan addObject:[TTTableTextItem itemWithText:shop.name_en URL:[NSString stringWithFormat:@"tt://shop/%@", shop.remote_shop_id]]];      
+    }
+  } 
+  ////////
   NSPredicate *predicateChongqing = [NSPredicate predicateWithFormat:@"(province = %@)", @"重庆"];
   [fetchRequest setPredicate:predicateChongqing];
   [fetchRequest setEntity:entity];
@@ -180,6 +193,7 @@
                        @"浙江",  shopsZejiang,
                        @"福建",  shopsFujian,
 //                       @"辽宁",  shopsLiaoning,
+                       @"四川",  shopsSichuan,
                        @"重庆",  shopsChongqing,
 //                       @"黑龙江", shopsHeilongjiang,                  
                        nil];
@@ -193,6 +207,7 @@
                        @"Zejiang",  shopsZejiang,
                        @"Fujian",  shopsFujian,
 //                       @"Liaoning",  shopsLiaoning,
+                       @"Sichuan",  shopsSichuan,                       
                        @"Chongqing",  shopsChongqing,
 //                       @"Heilongjiang", shopsHeilongjiang,                  
                        nil];
