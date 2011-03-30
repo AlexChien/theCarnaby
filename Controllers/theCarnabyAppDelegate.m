@@ -46,7 +46,7 @@
   */
   
   // 导入初始数据
-  [self importInitData];
+  //  [self importInitData]; // 改为将所有数据放到初始数据库里
 
   TTNavigator* navigator = [TTNavigator navigator];
   //navigator.persistenceMode = TTNavigatorPersistenceModeAll;
@@ -193,14 +193,13 @@
   if (persistentStoreCoordinator != nil) {
     return persistentStoreCoordinator;
   }
-	
-	
-	NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"theCarnaby.sqlite"];
 
-	/*
-	 Set up the store.
-	 For the sake of illustration, provide a pre-populated default store.
-	 */
+  /* 将初始数据拷贝到文档文件里
+	NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"theCarnaby.sqlite"];  
+	////
+	//// Set up the store.
+	//// For the sake of illustration, provide a pre-populated default store.
+	////
 	NSFileManager *fileManager = [NSFileManager defaultManager];
   // If the expected store doesn't exist, copy the default store.
 	if (![fileManager fileExistsAtPath:storePath]) {
@@ -209,9 +208,14 @@
 			[fileManager copyItemAtPath:defaultStorePath toPath:storePath error:NULL];
 		}
 	}
-  
 	NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
-	
+  */
+  
+  ///* 暂时只读资源文件里的数据
+  NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"theCarnaby" ofType:@"sqlite"];
+	NSURL *storeUrl = [NSURL fileURLWithPath:defaultStorePath];  
+	//*/
+
 	NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];	
   persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
   
@@ -226,6 +230,7 @@
 }
 
 
+/*
 ////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Init Data Import
@@ -259,7 +264,7 @@
   [status release];
   [request release];
 }
-
+*/
 
 ////////////////////////////////////////////////////////////////////////////
 #pragma mark -
