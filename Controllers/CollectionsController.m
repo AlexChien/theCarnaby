@@ -30,13 +30,14 @@
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
-  UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 411.0)];
-  bgView.frame = CGRectMake(0.0, 0.0, 320.0, 411.0);
+  UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 415)];
+  bgView.frame = CGRectMake(0, 0, 320, 415);
   bgView.userInteractionEnabled = YES;
   
-  UIImageView *coverImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 420.0)];
+  UIImageView *coverImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 415.0)];
   UIImage *coverImage = [UIImage imageNamed:@"cover.jpg"];
-  coverImageView.frame = CGRectMake(0.0, 0.0, 320.0, 420.0);
+  coverImageView.frame = CGRectMake(0, 0, 320, 415);
+  coverImageView.contentMode = UIViewContentModeScaleToFill;
   coverImageView.alpha = 1.000;
   coverImageView.autoresizesSubviews = YES;
   coverImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
@@ -119,7 +120,7 @@
       }
       [button setTitle:[@"     " stringByAppendingString:element.name] forState:UIControlStateNormal];
       button.titleLabel.font = [UIFont fontWithName:@"Verdana" size:18.000];
-      button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+      button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.25];
       button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
       NSString *collectionUrl = [[NSString alloc] initWithFormat:@"tt://collection/%@", element.remote_collection_id];
       [button addTarget:collectionUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
