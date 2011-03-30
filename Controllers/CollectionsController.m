@@ -98,8 +98,8 @@
     Collection *element;
     
     UIButton *decButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    //    decButton.frame = CGRectMake(0, 258 - (-2*44)+20, 320, 44);
-    decButton.frame = CGRectMake(0, 258 - (0*44)+20, 320, 150);    
+    //    decButton.frame = CGRectMake(0, 260 - (-2*44)+20, 320, 44);
+    decButton.frame = CGRectMake(0, 260 - (0*44)+20, 320, 150);    
 //    [decButton setTitle:element.name forState:UIControlStateNormal];
     decButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
     [self.view addSubview: decButton];    
@@ -108,9 +108,9 @@
     for (element in collections) {
       UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
       //setframe (where on screen)
-      button.frame = CGRectMake(0, 258 - (j*44)+20, 320, 44);
+      button.frame = CGRectMake(0, 260 - (j*65)+20, 320, 65);
       if (j==-1) {
-        button.frame = CGRectMake(0, 258 - (j*44)+21, 320, 70);
+        button.frame = CGRectMake(0, 260 - (j*65)+21, 320, 65);
         UIImage *buttonImage = [UIImage imageNamed:@"theCarnabyButton.png"];
         [button setImage:buttonImage forState:UIControlStateNormal];        
       }else if(j==0){
@@ -125,9 +125,9 @@
       [button addTarget:collectionUrl action:@selector(openURLFromButton:) forControlEvents:UIControlEventTouchUpInside];
 
       UIButton *fackButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-      fackButton.frame = CGRectMake(265.0, 258 - (j*44)+26, 29.0, 31.0);
+      fackButton.frame = CGRectMake(265.0, 260 - (j*65)+36, 29.0, 31.0);
       if (j==-1) {
-        fackButton.frame = CGRectMake(265.0, 258 - (j*44)+42, 29.0, 31.0);
+        fackButton.frame = CGRectMake(265.0, 260 - (j*65)+36, 29.0, 31.0);
       }      
       [fackButton addTarget:collectionUrl action:@selector(openURLFromButton:)forControlEvents:UIControlEventTouchUpInside];
 
@@ -138,7 +138,7 @@
     }
 
     UIButton *divButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    divButton.frame = CGRectMake(0, 258+44+20, 320, 1); 
+    divButton.frame = CGRectMake(0, 260+65+20, 320, 1); 
 //    divButton.backgroundColor = [UIColor colorWithRed:227 green:219 blue:206 alpha:0.8];
     divButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];    
     UIImage *listDividerImage = [UIImage imageNamed:@"list_divider.png"];
@@ -147,7 +147,7 @@
     [self.view addSubview: divButton];
     UIImageView *decoration = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 209.0, 320.0, 128.0)];
     UIImage *decorationImage = [UIImage imageNamed:@"li_background.png"];
-    decoration.frame = CGRectMake(0, 258-(j-1)*44-108, 320, 128);
+    decoration.frame = CGRectMake(0, 260-(j-1)*44-108, 320, 128);
     decoration.alpha = 1.000;
     decoration.autoresizesSubviews = YES;
     decoration.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
