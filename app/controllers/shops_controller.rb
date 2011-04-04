@@ -11,7 +11,7 @@ class ShopsController < ApplicationController
       @shop = @shop.city_contain(params[:search][:city]) unless params[:search][:city].blank?
     end
 
-    options = {:page => params[:page], :per_page => 15, :order => "created_at desc"}
+    options = {:page => params[:page], :per_page => 30, :order => "created_at desc"}
     options[:include] = "assets" if request_source_for?(:android)
     
     @shops = @shop.paginate(:all, options);
