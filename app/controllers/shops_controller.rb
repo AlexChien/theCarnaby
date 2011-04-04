@@ -109,7 +109,8 @@ protected
     Shop.all.each do |shop|
       shop.assets.each do |asset|
         path = asset.uploaded_data.path(platform.to_sym)
-        pics.push({:filename => "shop_#{shop.id}#{File.extname(path)}", :path => path})
+        pics.push({:filename => "shop_#{shop.id}#{File.extname(path)}", :path => path}) if platform=="android"
+        pics.push({:filename => "shop#{shop.id}#{File.extname(path)}", :path => path}) if platform=="iphone"
       end
     end
     pics
