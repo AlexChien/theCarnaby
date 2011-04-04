@@ -109,7 +109,7 @@ protected
     Shop.all.each do |shop|
       shop.assets.each do |asset|
         path = asset.uploaded_data.path(platform.to_sym)
-        pics.push({:filename => "#{shop.id}#{File.extname(path)}", :path => path})
+        pics.push({:filename => "shop_#{shop.id}#{File.extname(path)}", :path => path})
       end
     end
     pics
