@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :news
 
-  map.resources :shops
+  map.resources :shops, :collection => {:download_pics => :get}
 
   map.resources :coupons
 

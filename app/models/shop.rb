@@ -24,5 +24,5 @@ class Shop < ActiveRecord::Base
       "批发"
     end
   end
-
+  
 end

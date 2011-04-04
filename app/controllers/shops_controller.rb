@@ -69,6 +69,49 @@ class ShopsController < ApplicationController
     redirect_to shops_url
   end
   
+  # download shop images for embedding in app
+  def download_pics(platform="android")
+    platform = params[:platform] if params[:platform]
+    
+    files = get_download_pics(platform)
+    if files.size == 1 && !File.directory?(files.first)
+      file_to_send = files.first
+    else
+      # pack it first in temp dir
+      tempfile = Tempfile.new("shop_pics_#{platform}", "#{::Rails.root.to_s}/tmp")
+      
+      begin
+        # tempfile.write `cd "#{File.dirname( files.first )}" && zip - -1 -r #{files.join( ' ' )}`.chomp
+        Zip::ZipOutputStream.open(tempfile.path) do |z|
+          files.each do |file|
+            z.put_next_entry(file[:filename])
+            z.print IO.read(file[:path])
+          end
+        end
+        send_file tempfile.path,  :type => 'application/zip',
+                                  :disposition => 'attachment',
+                                  :filename => "shop_pics_#{platform}.zip"
+        
+      ensure
+        tempfile.close
+        # tempfile.unlink
+      end
+      
+    end
+  end
+  
   def android; end
   def iphone; end
+  
+protected
+  def get_download_pics(platform="android")
+    pics = []
+    Shop.all.each do |shop|
+      shop.assets.each do |asset|
+        path = asset.uploaded_data.path(platform.to_sym)
+        pics.push({:filename => "#{shop.id}#{File.extname(path)}", :path => path})
+      end
+    end
+    pics
+  end
 end

@@ -21,7 +21,17 @@
 		source += "),\r\n"
 	end %>
 	<% source += "};" %>
-	<pre class="brush: java"><%= source %></pre>
+	<div class="toolbar">
+		<ul class="actions">
+			<li>
+				<a class="button" href="/shops/download_pics?platform=android"><span>下载图片</span></a>
+			</li>
+		</ul>
+	</div>
+
+	<hr class="space">
+	
+	<pre class="brush: java" style="width:500px;"><%= source %></pre>
 	
 	<script type="text/javascript" charset="utf-8">
 		SyntaxHighlighter.all()
