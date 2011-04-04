@@ -85,8 +85,9 @@
   [shopImage release];
   [shopImageView release];
 
-  UILabel *shopName = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 248.0, 280.0, 28.0)];
-  shopName.frame = CGRectMake(20.0, 248.0, 280.0, 28.0);
+  UILabel *shopName = [[UILabel alloc] initWithFrame:CGRectMake(0, 248.0, 320, 28.0)];
+  shopName.frame = CGRectMake(0, 248.0, 320, 28.0);
+  shopName.adjustsFontSizeToFitWidth = YES;
   shopName.font = [UIFont fontWithName:@"Verdana" size:18.000];
   shopName.lineBreakMode = UILineBreakModeWordWrap;
   shopName.shadowColor = [UIColor colorWithWhite:1.000 alpha:1.000];
